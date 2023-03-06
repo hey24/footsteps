@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :requests
   has_many :hikes
   has_many :hikes, through: :requests
+
+  validates_presence_of :first_name, :last_name
 end
