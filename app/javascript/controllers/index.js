@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import StartingPointAutocompleteController from "./starting_point_autocomplete_controller"
+application.register("starting-point-autocomplete", StartingPointAutocompleteController)
