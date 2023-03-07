@@ -5,4 +5,5 @@ class Hike < ApplicationRecord
   belongs_to :user
 
   validates_presence_of :hike_name, :hike_description, :max_people
+
 end
