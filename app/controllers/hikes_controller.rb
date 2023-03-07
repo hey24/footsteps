@@ -40,7 +40,7 @@ class HikesController < ApplicationController
 
   def hike_params
     params.require(:hike).permit(
-      :hike_name, :hike_description, :difficulty, :distance, :duration, :max_people,
+      :hike_name, :hike_description, :difficulty, :distance, :max_people,
       :hike_date
     )
   end
