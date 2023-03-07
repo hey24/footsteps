@@ -1,0 +1,39 @@
+.footer-container {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  height:90px;
+}
+
+.footer-icons-flexbox {
+  display: flex;
+  justify-content: space-between;
+  background-color: #083B24;
+  color: #A1C076;
+  height: 90px;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.footer-add-button {
+  position: absolute;
+  bottom: 56px;
+  left: 50%;
+}
+
+
+.footer-icon {
+  font-size: 40px;
+  padding: 0 20px;
+  text-decoration: none;
+}
+
+.footer-icon .footer-main-icon {
+  text-decoration: none;
+}
+
+.footer-plus-icon {
+  text-align: center;
+  font-size: 40px;
+}
