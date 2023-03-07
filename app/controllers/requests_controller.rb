@@ -18,7 +18,7 @@ class RequestsController < ApplicationController
     end
   end
 
-private
+  private
 
   def set_hike
     @hike = Hike.find(params[:hike_id])
