@@ -24,8 +24,6 @@ export default class extends Controller {
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)
     })
-
-  this.#addMarkersToMap()
   this.#fitMapToMarkers()
   }
 
