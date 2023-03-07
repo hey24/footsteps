@@ -12,28 +12,41 @@
   color: #A1C076;
   height: 90px;
   align-items: center;
-  padding: 0 20px;
+  // padding: 0 20px;
   position: relative;
+}
+
+.left-icons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 43%
+}
+
+.right-icons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 43%
 }
 
 .footer-add-button {
   position: absolute;
-  bottom: 56px;
-  left: 50%;
+  bottom: 40px;
+  left: 43%;
 }
 
-
 .footer-icon {
-  font-size: 40px;
-  padding: 0 20px;
+  font-size: 44px;
+  // margin: 0 20px;
   text-decoration: none;
 }
 
 .footer-icon .footer-main-icon {
   text-decoration: none;
+  color: #A1C076;
 }
 
 .footer-plus-icon {
   text-align: center;
-  font-size: 40px;
+  font-size: 64px;
+  color: #F4B62D;
 }
