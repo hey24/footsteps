@@ -63,3 +63,5 @@ hike4 = Hike.create!(
   hike_confirmed: true,
   hike_completed: false,
   user_id: user1.id)
+
+puts "Created Hikes"
