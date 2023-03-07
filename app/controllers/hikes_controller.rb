@@ -1,4 +1,5 @@
 class HikesController < ApplicationController
+
   before_action :set_hike, only: %i[show edit destroy update]
 
   def index
@@ -54,4 +55,5 @@ class HikesController < ApplicationController
       :hike_date
     )
   end
+
 end
