@@ -28,8 +28,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_152616) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "start_latitude"
-    t.float "start_longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.string "starting_point"
     t.index ["user_id"], name: "index_hikes_on_user_id"
   end

@@ -27,7 +27,7 @@ hike1 = Hike.create!(
   hike_confirmed: true,
   hike_completed: false,
   user_id: user1.id,
-  starting_point: "London, UK"
+  starting_point: "Cairngorms National Park"
 )
 
 hike2 = Hike.create!(
@@ -42,7 +42,7 @@ hike2 = Hike.create!(
   hike_confirmed: true,
   hike_completed: false,
   user_id: user2.id,
-  starting_point: "London, UK"
+  starting_point: "Snowdonia"
 )
 
 hike3 = Hike.create!(
@@ -57,7 +57,7 @@ hike3 = Hike.create!(
   hike_confirmed: true,
   hike_completed: false,
   user_id: user3.id,
-  starting_point: "Edinburgh, UK"
+  starting_point: "Isle of Purbeck"
 )
 
 hike4 = Hike.create!(
@@ -71,7 +71,7 @@ hike4 = Hike.create!(
   hike_confirmed: true,
   hike_completed: false,
   user_id: user1.id,
-  starting_point: "Hull, UK"
+  starting_point: "Pennine Range"
 )
 
 puts "Created Hikes"
