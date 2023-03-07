@@ -1,6 +1,6 @@
 class HikesController < ApplicationController
   before_action :set_hike, only: %i[show edit destroy update]
-  
+
   def index
     @hikes = Hike.all
     @markers = @hikes.geocoded.map do |hike|
@@ -9,7 +9,8 @@ class HikesController < ApplicationController
         lng: hike.longitude
       }
     end
-  
+  end
+
   def new
     @hike = Hike.new
   end
@@ -53,4 +54,4 @@ class HikesController < ApplicationController
       :hike_date
     )
   end
- end
+end
