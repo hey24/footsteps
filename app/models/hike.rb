@@ -4,5 +4,6 @@ class Hike < ApplicationRecord
   has_many :users, through: :requests
   belongs_to :user
 
-  # validates_presence_of :hike_name, :description, :max_people
+  validates_presence_of :hike_name, :hike_description, :max_people
+
 end
