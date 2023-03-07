@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+  before_action :set_hike, only: [:create]
 
   def index
     @user_id = current_user.id
@@ -19,7 +20,11 @@ class RequestsController < ApplicationController
 
 private
 
+  def set_hike
+    @hike = Hike.find(params[:hike_id])
+  end
+
   def request_params
-    
+    params.require(:request).permit(:request_accepted, :request_pending)
   end
 end
