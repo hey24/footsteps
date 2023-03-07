@@ -1,5 +1,5 @@
 class HikesController < ApplicationController
-  
+
   def index
     @hikes = Hike.all
     @markers = @hikes.geocoded.map do |hike|
@@ -8,5 +8,6 @@ class HikesController < ApplicationController
         lng: hike.longitude
       }
     end
+  end
 
 end
