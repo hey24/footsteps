@@ -21,14 +21,13 @@ hike1 = Hike.create!(
   hike_photo_url:'https://img.redbull.com/images/c_crop,x_0,y_0,h_2000,w_3000/c_fill,w_2060,h_1370/q_auto:low,f_auto/redbullcom/2018/08/14/d9d28f74-3e2f-4d54-b7c0-6cabd087da47/loch-etchachan-cairngorm',
   difficulty:4,
   distance:12,
-  start_longitude: 3.6691,
-  start_latitude: 57.0704,
   duration: 3.06e+7,
   max_people:20,
   hike_date: '2023-03-20',
   hike_confirmed: true,
   hike_completed: false,
-  user_id: user1.id
+  user_id: user1.id,
+  starting_point: "Cairngorms National Park"
 )
 
 hike2 = Hike.create!(
@@ -37,14 +36,13 @@ hike2 = Hike.create!(
   hike_photo_url:'https://www.wanderingwelshgirl.com/wp-content/uploads/2020/10/IMG_4780-2048x1536.jpg?ezimgfmt=ng:webp/ngcb2',
   difficulty:5,
   distance:7,
-  start_longitude: 4.0284,
-  start_latitude: 53.1016,
   duration: 1.8e+7,
   max_people:10,
   hike_date: '2023-05-04',
   hike_confirmed: true,
   hike_completed: false,
-  user_id: user2.id
+  user_id: user2.id,
+  starting_point: "Snowdonia"
 )
 
 hike3 = Hike.create!(
@@ -53,14 +51,13 @@ hike3 = Hike.create!(
   hike_photo_url:'https://img.redbull.com/images/c_crop,x_0,y_0,h_3024,w_4032/c_fill,w_2060,h_1545/q_auto:low,f_auto/redbullcom/2018/08/14/0f8c6588-95fa-4f97-b7df-14556c3d9702/old-harry-rocks',
   difficulty:2,
   distance:10,
-  start_longitude: -1.9236,
-  start_latitude: 50.6423,
   duration: 1.44e+7,
   max_people:5,
   hike_date: '2024-01-01',
   hike_confirmed: true,
   hike_completed: false,
-  user_id: user3.id
+  user_id: user3.id,
+  starting_point: "Isle of Purbeck"
 )
 
 hike4 = Hike.create!(
@@ -69,13 +66,12 @@ hike4 = Hike.create!(
   hike_photo_url: 'https://img.redbull.com/images/c_crop,x_0,y_0,h_2448,w_3264/c_fill,w_2060,h_1545/q_auto:low,f_auto/redbullcom/2018/08/14/11ef7e2f-a529-4b3c-95ac-deb06a9c4640/view-from-whernside',
   difficulty: 5,
   distance: 24,
-  start_longitude: -1.731360,
-  start_latitude: 54.579651,
   duration: 4.32e+7,
   max_people: 20,
   hike_confirmed: true,
   hike_completed: false,
-  user_id: user1.id
+  user_id: user1.id,
+  starting_point: "Pennine Range"
 )
 
 puts "Created Hikes"
