@@ -1,0 +1,11 @@
+<%= simple_form_for @hike do |f| %>
+  <%= f.input :hike_name %>
+  <%= f.input :hike_description %>
+  <%= f.input :difficulty %>
+  <%= f.input :distance %>
+  <%= f.input :duration %>
+  <%= f.input :max_people %>
+  <%= f.input :starting_point %>
+  <%= f.input :hike_photo_url %>
+  <%= f.button :submit, class="btn btn-primary" %>
+<%end%>
