@@ -5,16 +5,20 @@
       <h1>Footsteps</h1>
     </div>
     <div class="logo-icon">
-        <i class="fa-solid fa-shoe-prints"></i>
+      <i class="fa-solid fa-shoe-prints"></i>
     </div>
   </div>
   <div class="searchbar">
-    <%#= simple_form_for do |f| %>
-        <%#= render 'shared/search' %>
-    <%# end %>
-    <form action="">
-      <input type="text">
-    </form>
+
+    <%= simple_form_for :hike, url: hikes_path, method: :get do |f|%>
+     <%= f.input :starting_point,
+        as: :hidden,
+        input_html: {data: {address_autocomplete_target: "address"}},
+        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+      %>
+      <%= f.submit %>
+    <% end %>
+
   </div>
 </body>
 <% if user_signed_in? %>
