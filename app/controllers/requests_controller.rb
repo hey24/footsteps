@@ -25,6 +25,6 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:request_accepted, :request_pending)
+    params.require(:request).permit(:request_accepted, :request_pending, :photo)
   end
 end
