@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :hikes do
     resources :requests, only: [:create]
   end
-  resources :requests, only: [:index]
+  resources :requests, only: [:index], path: 'my_hikes'
 
 end

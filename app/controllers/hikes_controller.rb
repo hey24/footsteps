@@ -7,7 +7,9 @@ class HikesController < ApplicationController
     @markers = @hikes.geocoded.map do |hike|
       {
         lat: hike.latitude,
-        lng: hike.longitude
+        lng: hike.longitude,
+        info_window_html: render_to_string(partial: "hike_map_window", locals: {hike: hike}),
+        marker_html: render_to_string(partial: "hiker_marker", locals: {hike: hike}),
       }
     end
   end
