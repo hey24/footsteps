@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   end
   resources :requests, only: [:index], path: 'my_hikes' do
     post "/accept", to: 'requests#accept'
+    post "/reject", to: 'requests#reject'
   end
 end

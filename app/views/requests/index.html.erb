@@ -29,6 +29,7 @@
               <i class="fa-solid fa-circle-check"></i>
               <%= button_to 'Accept', request_accept_path(request), method: :post %>
               <%# link to accept action in requests controller %>
+              <%= button_to 'Reject', request_reject_path(request), method: :post %>
               <i class="fa-solid fa-circle-xmark"></i>
             </div>
         </div>

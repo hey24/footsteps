@@ -33,6 +33,17 @@ class RequestsController < ApplicationController
     end
   end
 
+  def reject
+    @request = Request.find(params[:request_id])
+    @request.request_accepted = false
+    @request.request_pending = false
+    if @request.save
+      redirect_to requests_path
+    else
+      render '/my_hikes', status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_hike
