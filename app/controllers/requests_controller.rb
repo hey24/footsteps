@@ -4,6 +4,7 @@ class RequestsController < ApplicationController
   def index
     @user_id = current_user.id
     @requests = Request.where(user_id: @user_id)
+    @pending_requests = Request.where(request_pending: true)
     @hikes = Hike.where(user_id: @user_id)
   end
 
@@ -15,6 +16,20 @@ class RequestsController < ApplicationController
       redirect_to request_path
     else
       render 'requests/new', status: :unprocessable_entity
+    end
+  end
+
+  def accept
+    # find request instance
+    @request = Request.find(params[:request_id])
+    # acess accepted field in request
+    @request.request_accepted = true
+    @request.request_pending = false
+    # change value to true, save
+    if @request.save
+      redirect_to requests_path
+    else
+      render '/my_hikes', status: :unprocessable_entity
     end
   end
 
