@@ -1,10 +1,26 @@
-<div class="container">
-  <h2><%= @hike.hike_name %></h2>
 
-  <%= cl_image_tag @hike.photo.key, height: 300, width: 370, crop: :fill %>
-  <p><%=@hike.hike_description%></p>
-  <p><%=@hike.difficulty%></p>
-  <p><%=@hike.hike_date%></p>
+<%
+=begin%>
+<div class="page-container">
+
+  <div class="hike-page-title-bar-flex">
+  <h1><%= @hike.hike_name%></h1>
+  <!--avatars-->
+  </div>
+
+  <div class="hike-info-card">
+    <!--img-->
+    <div class="hike-info-text">
+      <div class="hike-details-flex">
+      </div>
+      <div class="hike-description">
+    </div>
+  </div>
 </div>
+<%
+=end%>
 
-<%= render 'shared/card' %>
+
+
+
+<%= render 'shared/hike_card_index' %>
