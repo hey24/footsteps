@@ -1,8 +1,19 @@
-<div class="container">
-  <h2>Your Requests</h2>
-  <div class="requests">
-    <% @requests.each do |request| %>
-      <%= request.hike.hike_name %>
-    <% end %>
-  </div>
+<div class="my-hikes-container">
+  <h2>My Hikes</h2>
+  <div class="created-hikes-container">
+    <h3>My Created Hikes</h3>
+    <div class="my-created-hikes-cards">
+      <% @hikes.each do |hike| %>
+        <a href=""><div
+          class="small-hike-card"
+          style="background-image: linear-gradient(rgba(0,0,0,0.3),
+          rgba(0,0,0,0.3)), url('<%= cl_image_path hike.photo.key, height: 160, crop: :fill %>')"
+        >
+          <p><%= hike.hike_name.truncate(20) %></p>
+        </div>
+        </a>
+      <% end %>
+    </div>
+    <h3>My Requests</h3>
+    div.reques
 </div>
