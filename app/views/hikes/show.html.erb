@@ -1,9 +1,8 @@
 <div class="container">
   <h2><%= @hike.hike_name %></h2>
 
-  <img src="<%= @hike.hike_photo_url %>">
+  <%= cl_image_tag @hike.photo.key, height: 300, width: 370, crop: :fill %>
   <p><%=@hike.hike_description%></p>
   <p><%=@hike.difficulty%></p>
-  <p><%=(@hike.duration).in_hours%></p>
   <p><%=@hike.hike_date%></p>
 </div>
