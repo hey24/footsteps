@@ -1,14 +1,14 @@
 <div class="hike-card-index">
-  <div class="hike-card-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')"></div>
-  <%#= cl_image_tag @hike.photo.key, class: "hike-card-img" %>
+  <%= cl_image_tag hike.photo.key, height: 300, width: 400, crop: :fill %>
+  
   <div class="hike-bottom-section-flex">
     <div class="hike-info">
-      <h3 class="hike-card-name"><%= @hike.hike_name %></h3>
-      <p class="hike-card-text">Difficulty: <%= @hike.difficulty %></p>
-      <p class="hike-card-text">Distance: <%= @hike.distance %></p>
+      <h3 class="hike-card-name"><%= hike.hike_name %></h3>
+      <p class="hike-card-text">Difficulty: <%= hike.difficulty %></p>
+      <p class="hike-card-text">Distance: <%= hike.distance %></p>
     </div>
     <div class= "hike-card-btn">
-      <%= link_to "Go to Hike", hike_path(@hike) %>
+      <%= link_to "Go to Hike", hike_path(hike) %>
     </div>
   </div>
 </div>
