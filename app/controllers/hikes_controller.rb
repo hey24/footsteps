@@ -7,7 +7,9 @@ class HikesController < ApplicationController
     @markers = @hikes.geocoded.map do |hike|
       {
         lat: hike.latitude,
-        lng: hike.longitude
+        lng: hike.longitude,
+        info_window_html: render_to_string(partial: "hike_map_window", locals: {hike: hike}),
+        marker_html: render_to_string(partial: "hiker_marker", locals: {hike: hike}),
       }
     end
   end
@@ -52,7 +54,7 @@ class HikesController < ApplicationController
   def hike_params
     params.require(:hike).permit(
       :hike_name, :hike_description, :difficulty, :distance, :max_people,
-      :hike_date
+      :hike_date, :photo
     )
   end
 

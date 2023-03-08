@@ -3,6 +3,7 @@ class Hike < ApplicationRecord
   has_many :markers, dependent: :destroy
   has_many :users, through: :requests
   belongs_to :user
+  has_one_attached :photo
 
   validates_presence_of :hike_name, :hike_description, :max_people
 

@@ -9,9 +9,12 @@
     </div>
   </div>
   <div class="searchbar">
-    <%= simple_form_for do |f| %>
-        <%= render 'shared/search' %>
-    <% end %>
+    <%#= simple_form_for do |f| %>
+        <%#= render 'shared/search' %>
+    <%# end %>
+    <form action="">
+      <input type="text">
+    </form>
   </div>
 </body>
 <% if user_signed_in? %>
