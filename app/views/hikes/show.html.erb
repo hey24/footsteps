@@ -16,7 +16,7 @@
     <div class="hike-page-info-text">
       <div class="hike-page-details-flex">
         <div class="hike-page-details-1">
-          <p> <i class="fa-solid fa-location-dot"></i> &nbsp; <%= @hike.starting_point %></p>
+          <p> <i class="fa-solid fa-location-dot"></i> &nbsp; <%= @hike.starting_point.split(",").first %></p>
           <p> <i class="fa-solid fa-route"></i> &nbsp; <%= @hike.distance %> km </p>
           <p> <i class="fa-solid fa-gauge-simple-high"></i> &nbsp; <%= @hike.difficulty %></p>
         </div>
