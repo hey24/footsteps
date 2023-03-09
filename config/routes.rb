@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :hikes do
     resources :requests, only: [:create]
   end
-  resources :requests, only: [:index], path: 'my_hikes'
-
+  resources :requests, only: [:index], path: 'my_hikes' do
+    post "/accept", to: 'requests#accept'
+    post "/reject", to: 'requests#reject'
+  end
 end

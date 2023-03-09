@@ -14,6 +14,26 @@
         </a>
       <% end %>
     </div>
+  </div>
+  <div class="hike-requests-container">
     <h3>My Requests</h3>
-    div.reques
+    <div class="hike-request-cards">
+      <% @pending_requests.each do |request| %>
+        <div class="my-pending-requests">
+          <div class="avatar-content-flex">
+            <div class="avatar">
+              <img src="" alt="">
+            </div>
+            <div class="hike-request-content">
+              <%= request.user.first_name%>
+              <i class="fa-solid fa-circle-check"></i>
+              <%= button_to 'Accept', request_accept_path(request), method: :post %>
+              <%# link to accept action in requests controller %>
+              <%= button_to 'Reject', request_reject_path(request), method: :post %>
+              <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
