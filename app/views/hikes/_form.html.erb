@@ -1,10 +1,23 @@
-<%= simple_form_for @hike do |f| %>
-  <%= f.input :hike_name %>
-  <%= f.input :hike_description %>
-  <%= f.input :difficulty %>
-  <%= f.input :distance %>
-  <%= f.input :max_people %>
-  <%= f.input :starting_point %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit %>
-<%end%>
+<div class="form-content">
+  <%= simple_form_for @hike do |f| %>
+    <%= f.input :hike_name, label: "Hike name:", placeholder: 'Cairngourns National Park Hike'%>
+    <%= f.input :hike_description, label: "Description:", placeholder: 'A lovely hike with stops for lunch' %>
+    <%= f.input :difficulty, label: "Difficulty:", collection: ["Easy", "Medium", "Hard"] %>
+    <%= f.input :distance, label: "Distance (km):", placeholder: '10.5' %>
+    <%= f.input :max_people, label: "Max. number of people:", placeholder: '5' %>
+    <%= f.input :starting_point, as: :hidden, label: "Starting location:", hint: 'Hint: Start typing an address',
+        input_html: {data: {address_autocomplete_target: "address"}},
+        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}},
+        class: "mapbox-search-form"
+      %>
+    <%= f.input :photo, as: :file %>
+    <div>
+      <%= f.button :submit, class: "btn-yellow" %>
+    </div>
+  <%end%>
+</div>
+
+<br>
+<br>
+<br>
+<br>
