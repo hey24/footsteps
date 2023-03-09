@@ -1,4 +1,14 @@
-<div class="map_popup">
-<%= hike.hike_name %>
-<%= link_to 'see more', hike_path(hike) %>
-</div>
+
+<div class="hike-card-index">
+  <div class="hike-card-img" style="background-image: url('<%= cl_image_path hike.photo.key %>')"></div>
+  <div class="hike-card-bottom-section-flex">
+    <div class="hike-card-info">
+      <h3 class="hike-card-name"><%= hike.hike_name %></h3>
+      <p class="hike-card-text">Difficulty: <%= hike.difficulty %></p>
+      <p class="hike-card-text">Distance: <%= hike.distance %></p>
+    </div>
+    <div class= "hike-card-btn">
+      <%= link_to "Go to Hike", hike_path(hike) %>
+    </div>
+  </div>
+</div>  
