@@ -1,0 +1,21 @@
+body.login{
+  background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
+  background-repeat:none;
+  background-size:cover;
+}
+
+.login-form-container{
+  align-items: center;
+  max-width: 500px;
+	padding: 10px 20px;
+  background: #083B24;
+  color: #F4B62D;
+}
+.login-form-container h2 {
+  font-weight: 800;
+}
+
+.login-form-button input.btn{
+  color: #F4B62D;
+  box-shadow: 1px 1px 1px black;
+}
