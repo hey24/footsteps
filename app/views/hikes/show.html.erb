@@ -1,26 +1,39 @@
-
-<%
-=begin%>
-<div class="page-container">
+<div class="page-container-flex">
 
   <div class="hike-page-title-bar-flex">
   <h1><%= @hike.hike_name%></h1>
   <!--avatars-->
   </div>
 
-  <div class="hike-info-card">
-    <!--img-->
-    <div class="hike-info-text">
-      <div class="hike-details-flex">
+  <br>
+
+  <div class="hike-page-info-card">
+    <div class="hike-page-info-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')"></div>
+    <div class="hike-page-info-text">
+      <div class="hike-page-details-flex">
+        <div class="hike-page-details-1">
+          <p> <i class="fa-solid fa-location-dot"></i> &nbsp; <%= @hike.starting_point %></p>
+          <p> <i class="fa-solid fa-route"></i> &nbsp; <%= @hike.distance %> km </p>
+          <p> <i class="fa-solid fa-gauge-simple-high"></i> &nbsp; <%= @hike.difficulty %></p>
+        </div>
+        <div class="hike-page-details-2">
+          <p> <i class="fa-solid fa-person-hiking"></i> &nbsp; <%= @hike.users.count %> / <%= @hike.max_people %> Hikers </p>
+          <% if @hike.hike_date.blank? %>
+            <p> <i class="fa-regular fa-calendar"></i> &nbsp; TBC </p>
+          <% else %>
+            <p> <i class="fa-regular fa-calendar"></i> &nbsp; <%= @hike.hike_date %></p>
+          <% end %>
+
+          <% if @hike.hike_confirmed %>
+            <p> <i class="fa-regular fa-calendar-check"></i> &nbsp; Confirmed </p>
+          <% else %>
+            <p> <i class="fa-regular fa-calendar-xmark"></i> &nbsp; Not confirmed </p>
+          <% end %>
+        </div>
       </div>
-      <div class="hike-description">
+      <div class="hike-page-description">
+        <p> <%= @hike.hike_description %> </p>
+      </div>
     </div>
   </div>
 </div>
-<%
-=end%>
-
-
-
-
-<%= render 'shared/hike_card_index' %>
