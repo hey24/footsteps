@@ -16,24 +16,31 @@
   background-color: transparent;
   margin-right: 30px !important;
   opacity: 0.5 !important;
-
-
-  .mapboxgl-ctrl-geocoder--input {
-    // border: green
-  }
 }
 
-.mapboxgl-ctrl-geocoder {
+.form-content .mapboxgl-ctrl-geocoder {
   max-width: none;
   width: 100%;
   border: 1px solid lightgrey;
   box-shadow: none;
-  background-color: transparent;
+  background-color: #F4F4F4;
+  border-radius: 2px;
   margin-right: 30px !important;
   // opacity: 0.5 !important;
+  // border: 1px solid #ced4da;
 
 
   .mapboxgl-ctrl-geocoder--input {
-    // border: green
+    height: 38px !important;
+  }
+
+  .mapboxgl-ctrl-geocoder--icon-close {
+    background: #F4F4F4 !important;
+    margin: 0 !important;
+  }
+
+  .mapboxgl-ctrl-geocoder--icon-search {
+    bottom: 20px !important;
+    margin: 0 !important;
   }
 }
