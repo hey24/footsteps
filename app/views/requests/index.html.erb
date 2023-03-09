@@ -4,14 +4,15 @@
     <h3>My Created Hikes</h3>
     <div class="my-created-hikes-cards">
       <% @hikes.each do |hike| %>
-        <a href=""><div
-          class="small-hike-card"
-          style="background-image: linear-gradient(rgba(0,0,0,0.3),
-          rgba(0,0,0,0.3)), url('<%= cl_image_path hike.photo.key, height: 160, crop: :fill %>')"
-        >
-          <p><%= hike.hike_name.truncate(20) %></p>
-        </div>
-        </a>
+        <%= link_to hike_path(hike) do %>
+          <div
+            class="small-hike-card"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)), url('<%= cl_image_path hike.photo.key, height: 160, crop: :fill %>')"
+          >
+            <p><%= hike.hike_name.truncate(20) %></p>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
