@@ -2,13 +2,13 @@
   <div class="footer-icons-flexbox">
     <a href="../hikes/new" class="footer-add-button"><i class="fa-solid fa-circle-plus footer-plus-icon"></i></a>
     <div class="left-icons">
+      <a href="../" class="footer-icon"><i class="fa-solid fa-shoe-prints footer-main-icon"></i></a>
       <a href="../hikes" class="footer-icon"><i class="fa-solid fa-map footer-main-icon"></i></a>
-      <a href="../" class="footer-icon"><i class="fa-solid fa-person-hiking footer-main-icon"></i></a>
     </div>
 
     <div class="right-icons">
       <a href="../my_hikes" class="footer-icon"><i class="fa-solid fa-inbox footer-main-icon"></i></a>
-      <a href="../users/1" class="footer-icon"><i class="fa-solid fa-user footer-main-icon"></i></a>
+      <%= link_to user_path, class: "footer-icon" do %> <i class="fa-solid fa-user footer-main-icon"></i> <% end %>
     </div>
   </div>
 </div>
