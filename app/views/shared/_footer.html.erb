@@ -8,7 +8,11 @@
 
     <div class="right-icons">
       <a href="../my_hikes" class="footer-icon"><i class="fa-solid fa-inbox footer-main-icon"></i></a>
-      <%= link_to user_path, class: "footer-icon" do %> <i class="fa-solid fa-user footer-main-icon"></i> <% end %>
+      <% if user_signed_in? %>
+        <%= link_to user_path(@user), class: "footer-icon" do %> <i class="fa-solid fa-user footer-main-icon"></i> <% end %>
+      <% else %>
+        <%= link_to new_user_session_path, class: "footer-icon" do %> <i class="fa-solid fa-user footer-main-icon"></i> <% end %>
+      <% end %>
     </div>
   </div>
 </div>
