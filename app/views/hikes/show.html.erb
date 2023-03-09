@@ -21,11 +21,11 @@
           <p> <i class="fa-solid fa-gauge-simple-high"></i> &nbsp; <%= @hike.difficulty %></p>
         </div>
         <div class="hike-page-details-2">
-          <p> <i class="fa-solid fa-person-hiking"></i> &nbsp; <%= @hike.users.count %> / <%= @hike.max_people %> Hikers </p>
+          <p> <i class="fa-solid fa-person-hiking"></i> &nbsp; <%= @hike.users.count + 1 %> / <%= @hike.max_people %> Hikers </p>
           <% if @hike.hike_date.blank? %>
             <p> <i class="fa-regular fa-calendar"></i> &nbsp; TBC </p>
           <% else %>
-            <p> <i class="fa-regular fa-calendar"></i> &nbsp; <%= @hike.hike_date %></p>
+            <p> <i class="fa-regular fa-calendar"></i> &nbsp; <%= @hike.hike_date.strftime("%b %d, %Y") %></p>
           <% end %>
 
           <% if @hike.hike_confirmed %>
@@ -35,6 +35,12 @@
           <% end %>
         </div>
       </div>
+      <% if @hike.user != current_user do %>
+        <div class="request-button">
+          <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post %>
+        </div>
+      <% end %>
+      <% end %>
       <div class="hike-page-description">
         <p> <%= @hike.hike_description %> </p>
       </div>
