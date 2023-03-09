@@ -8,20 +8,24 @@
   <br>
 
   <div class="hike-page-info-card">
-    <div class="hike-page-info-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')"></div>
+    <% if @hike.photo.attached? %>
+      <div class="hike-page-info-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')"></div>
+    <% else %>
+      <div class="hike-page-info-img" style="background-image: url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')"></div>
+    <% end %>
     <div class="hike-page-info-text">
       <div class="hike-page-details-flex">
         <div class="hike-page-details-1">
-          <p> <i class="fa-solid fa-location-dot"></i> &nbsp; <%= @hike.starting_point %></p>
+          <p> <i class="fa-solid fa-location-dot"></i> &nbsp; <%= @hike.starting_point.split(",").first %></p>
           <p> <i class="fa-solid fa-route"></i> &nbsp; <%= @hike.distance %> km </p>
           <p> <i class="fa-solid fa-gauge-simple-high"></i> &nbsp; <%= @hike.difficulty %></p>
         </div>
         <div class="hike-page-details-2">
-          <p> <i class="fa-solid fa-person-hiking"></i> &nbsp; <%= @hike.users.count %> / <%= @hike.max_people %> Hikers </p>
+          <p> <i class="fa-solid fa-person-hiking"></i> &nbsp; <%= @hike.users.count + 1 %> / <%= @hike.max_people %> Hikers </p>
           <% if @hike.hike_date.blank? %>
             <p> <i class="fa-regular fa-calendar"></i> &nbsp; TBC </p>
           <% else %>
-            <p> <i class="fa-regular fa-calendar"></i> &nbsp; <%= @hike.hike_date %></p>
+            <p> <i class="fa-regular fa-calendar"></i> &nbsp; <%= @hike.hike_date.strftime("%b %d, %Y") %></p>
           <% end %>
 
           <% if @hike.hike_confirmed %>
@@ -31,6 +35,11 @@
           <% end %>
         </div>
       </div>
+      <% unless @hike.user == current_user %>
+        <div class="request-button">
+          <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post %>
+        </div>
+      <% end %>
       <div class="hike-page-description">
         <p> <%= @hike.hike_description %> </p>
       </div>
