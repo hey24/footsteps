@@ -41,6 +41,7 @@
           <% end %>
             <% if request.hike.user = current_user %>
               <div class="hike-request-content">
+                <%= request.hike.hike_name %>
                 <%= request.user.first_name%>
                 <%= button_to 'Accept', request_accept_path(request), method: :post %>
                 <%# link to accept action in requests controller %>
