@@ -8,7 +8,11 @@
   <br>
 
   <div class="hike-page-info-card">
-    <div class="hike-page-info-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')"></div>
+    <% if @hike.photo.attached? %>
+      <div class="hike-page-info-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')"></div>
+    <% else %>
+      <div class="hike-page-info-img" style="background-image: url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')"></div>
+    <% end %>
     <div class="hike-page-info-text">
       <div class="hike-page-details-flex">
         <div class="hike-page-details-1">
