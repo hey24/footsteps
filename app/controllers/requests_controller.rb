@@ -2,6 +2,7 @@ class RequestsController < ApplicationController
   before_action :set_hike, only: [:create]
 
   def index
+    @user = current_user
     @user_id = current_user.id
     @requests = Request.where(user_id: @user_id)
     @pending_requests = Request.where(request_pending: true)
@@ -9,11 +10,11 @@ class RequestsController < ApplicationController
   end
 
   def create
-    @request = Request.new(request_params)
+    @request = Request.new
     @request.hike = @hike
     @request.user = current_user
     if @request.save
-      redirect_to request_path
+      redirect_to requests_path
     else
       render 'requests/new', status: :unprocessable_entity
     end
@@ -51,6 +52,6 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:request_accepted, :request_pending, :photo)
+    params.require(:request).permit(:request_accepted, :request_pending)
   end
 end

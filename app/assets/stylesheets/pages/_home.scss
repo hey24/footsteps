@@ -26,3 +26,25 @@
 .logo-icon i {
   font-size: 40px;
 }
+
+.searchbar {
+  align-items: center;
+  position: absolute;
+  width: 302px;
+  height: 37px;
+  left: 44px;
+  top: 361px;
+  text-align: center;
+  color:black;
+}
+
+.searchbar-button {
+  align-items:center;
+  background-color: #F4B62D;
+  padding:15px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius:10px;
+  font-weight: 700;
+  box-shadow: 1px 1px 1px black;
+}
