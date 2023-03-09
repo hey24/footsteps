@@ -1,1 +1,28 @@
-// Specific CSS for your home-page
+.splash {
+  background-image: image-url("homephoto.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.logo{
+  position: absolute;
+  width: 219px;
+  height: 112.16px;
+  left: 87px;
+  top: 154px;
+  color: #F4B62D;
+  display:block;
+  text-align: center;
+}
+
+.logo-title h1{
+  font-weight: 900;
+  font-size: 50px;
+  line-height: 89px;
+  text-shadow: 2px 2px 10px black;
+}
+
+.logo-icon i {
+  font-size: 40px;
+}
