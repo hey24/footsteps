@@ -29,9 +29,7 @@ class HikesController < ApplicationController
     end
   end
 
-  def show
-    @hike.user = current_user
-  end
+  def show; end
 
   def edit; end
 

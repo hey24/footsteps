@@ -35,11 +35,10 @@
           <% end %>
         </div>
       </div>
-      <% if @hike.user != current_user do %>
+      <% unless @hike.user == current_user %>
         <div class="request-button">
           <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post %>
         </div>
-      <% end %>
       <% end %>
       <div class="hike-page-description">
         <p> <%= @hike.hike_description %> </p>
