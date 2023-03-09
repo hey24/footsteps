@@ -13,7 +13,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/outdoors-v12"
     })
 
     this.#addMarkersToMap()
@@ -56,9 +56,9 @@ export default class extends Controller {
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     // console.log(bounds)
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 7, duration: 0 })
-  
+
   }
-  
+
   #fitMapToSearch(search) {
     const bounds = new mapboxgl.LngLatBounds()
     const geocodeUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${search}.json?access_token=${this.apiKeyValue}`;
@@ -71,7 +71,7 @@ export default class extends Controller {
         const longitude = data.features[0].center[0];
         bounds.extend([longitude, latitude])
         this.map.fitBounds(bounds, { padding: 70, maxZoom: 7, duration: 0 })
-        // Output the latitude and longitude coordinates 
+        // Output the latitude and longitude coordinates
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
       })
       .catch(error => {
