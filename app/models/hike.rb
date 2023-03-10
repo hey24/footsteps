@@ -9,4 +9,5 @@ class Hike < ApplicationRecord
 
   geocoded_by :starting_point
   after_validation :geocode, if: :will_save_change_to_starting_point?
+
 end
