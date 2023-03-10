@@ -79,7 +79,7 @@ hike4 = Hike.new(
   hike_confirmed: true,
   hike_completed: false,
   user_id: user1.id,
-  starting_point: "Pennine Range"
+  starting_point: "Ingleton, Yorkshire"
 )
 hike4.photo.attach(io: hike4_photo, filename: "nes.png", content_type: "image/png")
 hike4.save!
