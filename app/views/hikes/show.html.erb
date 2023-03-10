@@ -1,8 +1,9 @@
 <div class="page-container-flex">
 
   <div class="hike-page-title-bar-flex">
-  <h1><%= @hike.hike_name%></h1>
+    <h1><%= @hike.hike_name%></h1>
   <!--avatars-->
+    <p>Hike Creator: <%= @hike.user.first_name %></p>
   </div>
 
   <br>
