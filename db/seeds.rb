@@ -5,13 +5,29 @@ puts "Wiping previous seeds"
 Hike.destroy_all
 User.destroy_all
 
-
 puts "Adding 5 users"
-user1 = User.create(first_name:'test', last_name:'test', email:'test@test.com', password: 123456, description:'A VERY generic person with limited personality.', user_photo_url:'')
-user2 = User.create(first_name:'Luke', last_name:'Sherman', email:'lukesherman@test.com', password: 123456 , description:'Hello I am Luke Sherman', user_photo_url:'')
-user3 = User.create(first_name:'Ben', last_name:'Heyman', email:'benheyman@test.com', password: 123456, description:'Hello I am Ben Heyman', user_photo_url:'')
-user4 = User.create(first_name:'Camille', last_name:'Laporte', email:'camillelaporte@test.com', password: 123456, description:'Hello I am Camille Laporte', user_photo_url:'')
-user5 = User.create(first_name:'Linnea', last_name:'Jonsson', email:'linneajonsson@test.com', password: 123456, description:'Hello I am Linnea Jonsson', user_photo_url:'')
+user1_photo = URI.open("https://thumbs.dreamstime.com/b/middle-age-curly-hair-hiker-woman-hiking-wearing-backpack-water-canteen-using-binoculars-looking-to-side-relax-profile-pose-218285158.jpg")
+user2_photo = URI.open("https://media.licdn.com/dms/image/C5603AQHXCY4Vpc7LbA/profile-displayphoto-shrink_800_800/0/1632761237696?e=2147483647&v=beta&t=gQ8KczlCJlVbh7njtZUaa1lhlyhew7ab09s6akl7CQ0")
+user3_photo = URI.open("https://media.cnn.com/api/v1/images/stellar/prod/191109234431-california-hiker-mountain-top.jpg?q=w_1600,h_1528,x_0,y_0,c_fill")
+user4_photo = URI.open("https://cdn1.socialhiker.net/wp-content/uploads/avatars/16914/63c644a574f44-bpfull.jpg")
+user5_photo = URI.open("https://pbs.twimg.com/profile_images/1301644507658596352/YbKKFSOR_400x400.jpg")
+
+user1 = User.new(first_name:'Jeremy', last_name:'Hikkerson', email:'test@test.com', password: 123456, description:'A VERY generic person with limited personality.', user_photo_url:'')
+user2 = User.new(first_name:'Luke', last_name:'Sherman', email:'lukesherman@test.com', password: 123456 , description:'Hello I am Luke Sherman', user_photo_url:'')
+user3 = User.new(first_name:'Ben', last_name:'Heyman', email:'benheyman@test.com', password: 123456, description:'Hello I am Ben Heyman', user_photo_url:'')
+user4 = User.new(first_name:'Camille', last_name:'Laporte', email:'camillelaporte@test.com', password: 123456, description:'Hello I am Camille Laporte', user_photo_url:'')
+user5 = User.new(first_name:'Linnea', last_name:'Jonsson', email:'linneajonsson@test.com', password: 123456, description:'Hello I am Linnea Jonsson', user_photo_url:'')
+
+user1.photo.attach(io: user1_photo, filename: "nes.png", content_type: "image/png")
+user1.save!
+user2.photo.attach(io: user2_photo, filename: "nes.png", content_type: "image/png")
+user2.save!
+user3.photo.attach(io: user3_photo, filename: "nes.png", content_type: "image/png")
+user3.save!
+user4.photo.attach(io: user4_photo, filename: "nes.png", content_type: "image/png")
+user4.save!
+user5.photo.attach(io: user5_photo, filename: "nes.png", content_type: "image/png")
+user5.save!
 
 puts "Finished Creating Users"
 puts "Adding some Hikes"
