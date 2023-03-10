@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :requests
   has_many :hikes
   has_many :hikes, through: :requests
+
+  has_one_attached :photo
 end
