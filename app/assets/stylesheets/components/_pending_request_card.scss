@@ -1,0 +1,41 @@
+.hike-requests-container{
+  background-color: white;
+  border-radius: 5px;
+  margin: 8px;
+  padding: 8px;
+}
+
+.my-pending-requests{
+  box-shadow: 1px 1px 1px lightgray;
+  padding: 5px;
+}
+.my-pending-requests a{
+  text-decoration: none;
+  color: black;
+}
+
+.pending-content{
+  padding-top:14px;
+  padding-left:14px;
+}
+
+.request-buttonn{
+  display:flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.request-buttonn button{
+  border:none;
+  padding: 10px 15px;
+  border-radius:8px;
+  font-weight: 700;
+}
+
+.request-button-accept{
+  background-color: #92C47C;
+}
+
+.request-button-reject{
+  background-color: #E06666;
+}
