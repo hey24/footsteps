@@ -36,14 +36,23 @@
         </div>
       </div>
       <% unless @hike.user == current_user %>
-        <div class="request-button">
-          <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post %>
-        </div>
+        <% unless @hike.users.ids.include?(current_user.id) %>
+          <div class="request-button">
+            <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "hike-request-button"%>
+          </div>
+        <% end %>
       <% end %>
       <div class="hike-page-description">
         <p> <%= @hike.hike_description %> </p>
       </div>
     </div>
   </div>
-  <%= link_to "all hikes", hikes_path %>
+  <div class="hike-page-hikers">
+    <h1>Hikers Joined</h1>
+    <ul>
+      <% @hike.users.each do |hiker| %>
+        <li><%= hiker.first_name %> <%= hiker.last_name %> </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
