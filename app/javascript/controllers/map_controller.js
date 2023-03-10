@@ -13,7 +13,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/outdoors-v12"
     })
 
     this.#addMarkersToMap()
@@ -55,7 +55,7 @@ export default class extends Controller {
     // console.log(bounds)
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     // console.log(bounds)
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 7, duration: 0 })
 
   }
 
@@ -70,7 +70,7 @@ export default class extends Controller {
         const latitude = data.features[0].center[1];
         const longitude = data.features[0].center[0];
         bounds.extend([longitude, latitude])
-        this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+        this.map.fitBounds(bounds, { padding: 70, maxZoom: 7, duration: 0 })
         // Output the latitude and longitude coordinates
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
       })

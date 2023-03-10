@@ -2,11 +2,12 @@ class RequestsController < ApplicationController
   before_action :set_hike, only: [:create]
 
   def index
-    @user = current_user
     @user_id = current_user.id
     @requests = Request.where(user_id: @user_id)
     @pending_requests = Request.where(request_pending: true)
-    @hikes = Hike.where(user_id: @user_id)
+    @hikes = current_user.hikes
+    @accepted_requests = Request.where(request_accepted: true)
+    # raise
   end
 
   def create

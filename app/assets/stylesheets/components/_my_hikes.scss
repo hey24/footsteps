@@ -16,6 +16,25 @@
   padding: 8px;
 }
 
+.my-upcoming-hikes-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.my-hikes-container {
+  background: linear-gradient(#083B24, rgba(8, 59, 36, 0.84));
+  height: 100vh;
+}
+
+.upcoming-hikes-container {
+  background-color: white;
+  border-radius: 5px;
+  margin: 8px;
+  padding: 8px;
+}
+
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .my-created-hikes-cards {

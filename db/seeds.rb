@@ -21,7 +21,7 @@ hike1 = Hike.new(
   hike_name:"Ben Macdui, Cairngorms National Park",
   hike_description:"A roller coaster of a route where you start high, following a series of ascents and descents throughout the day. Start at the car park at Coire Cas and head up alongside the main ski run to the summit of Cairngorm, taking in the views of the Rothiemurchus forest and Aviemore beyond. From here, follow the path that takes you down through Coire Raibeirt to the shores of Loch Avon, and up the other side to meet Loch Etchachan.
   Now it’s time to climb again, this time to the massive cairn marking the summit of Ben Macdui, the second highest mountain in Britain. From here you can be rewarded on a clear day with views of the west side of the Lairig Ghru, Carn Toul and Braeriach. To descend, follow the path north which brings you out alongside Coire an Lochain and back to the car park.",
-  difficulty:4,
+  difficulty: "easy",
   distance:12,
   duration: 3.06e+7,
   max_people:20,
@@ -38,7 +38,7 @@ hike2_photo = URI.open('https://www.wanderingwelshgirl.com/wp-content/uploads/20
 hike2 = Hike.new(
   hike_name:"The Glyders, Snowdonia",
   hike_description:"This is a deceptively hard day, but well worth it for the photo opportunities. Leave your car at Ogwen Cottage and head behind the buildings and around the east side of Llyn Idwal. The steep climb up Devil’s Kitchen will take your breath away. Keep climbing up the scree and you’ll be at the top of the highest summit of the day at 1001m. From here you head to The Castle of the Winds rock formation and then onto the boulder collection that makes up the Glyder Fach summit. Just ahead on the plateau is the iconic Cantilever stone - a must for the photo collection.",
-  difficulty:5,
+  difficulty: "medium",
   distance:7,
   duration: 1.8e+7,
   max_people:10,
@@ -55,7 +55,7 @@ hike3_photo = URI.open('https://img.redbull.com/images/c_crop,x_0,y_0,h_3024,w_4
 hike3 = Hike.new(
   hike_name:"Old Harry Rocks, Isle of Purbeck",
   hike_description:"The Jurassic Coastline is a World Heritage Site. This walk takes in the most famous landmark on this stretch of Dorset coast – Old Harry Rocks. Starting at Knoll Beach and heading south, follow the coastline and you’ll pass pretty beach huts, features from World War Two and then Old Harry Rocks come into view. The white chalk cliffs are highlighted against the blue sea on a sunny day and if you listen above the breeze you can hear the waves slamming into the caves down below the cliffs.",
-  difficulty:2,
+  difficulty: "easy",
   distance:10,
   duration: 1.44e+7,
   max_people:5,
@@ -72,7 +72,7 @@ hike4_photo = URI.open('https://img.redbull.com/images/c_crop,x_0,y_0,h_2448,w_3
 hike4 = Hike.new(
   hike_name: "Yorkshire Three Peaks, Pennine Range",
   hike_description: "Climbing the three highest peaks in Yorkshire is no mean feat, it’s a walk that includes over 1600m of ascent so you will need to be fit. The three peaks form part of the Pennine Range. The usual starting point for this walk is Horton in Ribblesdale but if you want to avoid the crowds, particularly on a weekend, it is a good idea to start at Chapel-le-Dale and proceed in anti-clockwise direction.",
-  difficulty: 5,
+  difficulty: "hard",
   distance: 24,
   duration: 4.32e+7,
   max_people: 20,
@@ -85,3 +85,27 @@ hike4.photo.attach(io: hike4_photo, filename: "nes.png", content_type: "image/pn
 hike4.save!
 
 puts "Created Hikes"
+
+puts "Creating Requests"
+
+request1 = Request.create!(
+  user_id: user1.id,
+  hike_id: hike2.id
+)
+
+request2 = Request.create!(
+  user_id: user2.id,
+  hike_id: hike1.id
+)
+
+request3 = Request.create!(
+  user_id: user3.id,
+  hike_id: hike1.id
+)
+
+request4 = Request.create!(
+  user_id: user4.id,
+  hike_id: hike2.id
+)
+
+puts "Created Requests"
