@@ -77,7 +77,7 @@ hike3 = Hike.new(
   max_people:5,
   hike_date: '2024-01-01',
   hike_confirmed: true,
-  hike_completed: false,
+  hike_completed: true,
   user_id: user3.id,
   starting_point: "Isle of Purbeck"
 )
@@ -120,8 +120,8 @@ request3 = Request.create!(
 )
 
 request4 = Request.create!(
-  user_id: user4.id,
-  hike_id: hike2.id
+  user_id: user1.id,
+  hike_id: hike3.id
 )
 
 puts "Created Requests"
