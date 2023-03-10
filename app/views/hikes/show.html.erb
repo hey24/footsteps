@@ -37,9 +37,11 @@
       </div>
       <% unless @hike.user == current_user %>
         <% unless @hike.users.ids.include?(current_user.id) %>
+          <%# <% if @request.request_pending == false && @request.request_accepted == false %> %>
           <div class="request-button">
-            <%= button_to 'Join Hike', class: "hike-request-button"%>
+            <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "hike-request-button"%>
           </div>
+          <%# <% end %> %>
         <% end %>
       <% end %>
       <div class="hike-page-description">

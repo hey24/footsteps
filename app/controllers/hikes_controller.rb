@@ -29,7 +29,9 @@ class HikesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    # @request = Request.find(params[:id])
+  end
 
   def edit; end
 
