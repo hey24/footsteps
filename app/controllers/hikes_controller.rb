@@ -29,7 +29,9 @@ class HikesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @request = Request.where(hike: @hike, user: current_user)
+  end
 
   def edit; end
 

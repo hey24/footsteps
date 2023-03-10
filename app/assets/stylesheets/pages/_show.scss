@@ -49,7 +49,27 @@
 }
 
 .request-button button{
-  background-color: #F4B62D;
+  background-color: $footsteps-yellow;
+  border:none;
+  margin-left: 20px;
+  padding: 20px;
+  border-radius:8px;
+  font-weight: 700;
+}
+
+.pending-button {
+  margin: 16px;
+}
+
+.pending-request-button {
+  background-color: #E3C47E;
+  text-decoration: none;
+  // color: $dark-green;
+  // box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  // border-radius: 10px;
+  // padding: 8px 16px;
+  // margin-top: 16px;
+  // align-self: center;
   border:none;
   margin-left: 20px;
   padding: 20px;
