@@ -8,6 +8,8 @@
 
   <br>
 
+  <!-- THIS IS THE SHOW PAGE WHEN YOU HAVEN'T REQUESTED TO JOIN -->
+
   <div class="hike-page-info-card">
     <% if @hike.user == current_user %>
       <div class="edit-delete-icons">
@@ -46,24 +48,48 @@
           <% end %>
         </div>
       </div>
-      <% unless @hike.user == current_user %>
-        <% unless @hike.users.ids.include?(current_user.id) %>
-          <div class="request-button">
-            <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "hike-request-button"%>
-          </div>
-        <% end %>
-      <% end %>
+
       <div class="hike-page-description">
         <p> <%= @hike.hike_description %> </p>
       </div>
     </div>
-  </div>
-  <div class="hike-page-hikers">
-    <h1>Hikers Joined</h1>
-    <ul>
-      <% @hike.users.each do |hiker| %>
-        <li><%= hiker.first_name %> <%= hiker.last_name %> </li>
+      <% if @request.empty? %>
+        <% unless @hike.user == current_user %>
+          <% unless @hike.users.ids.include?(current_user.id) %>
+            <div class="request-button">
+              <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "hike-request-button"%>
+            </div>
+          <% end %>
+        <% end %>
+      <% elsif current_user == @hike.user || @request.last.request_pending == false && @request.last.request_accepted == true %>
+            <div class="hike-page-hikers">
+              <h1>Hikers Joined</h1>
+              <p>Or this</p>
+                <ul>
+                  <li> <%= @hike.user.first_name %> <%= @hike.user.last_name %> (Hike creator) </li>
+                    <% @hike.users.each do |hiker| %>
+                      <li><%= hiker.first_name %> <%= hiker.last_name %> </li>
+                    <% end %>
+                </ul>
+                <p> There's space for <%= (@hike.max_people) - (@hike.users.count + 1)%> more in this Hike!</p>
+            </div>
+
+                  <!-- THIS IS THE SHOW PAGE WHEN YOU'VE REQUESTED AND ARE PENDING -->
+      <% elsif  @request.last.request_pending == true && @request.last.request_accepted == false %>
+        <p>This option</p>
+        <div class="pending-button">
+          <button class= "pending-request-button">Pending</button>
+        </div>
+
+      <% elsif @request.last.request_pending == false && @request.last.request_accepted == false %>
+        <h2>Sorry, you have not been accepted into this Hike!</h2>
       <% end %>
-    </ul>
   </div>
 </div>
+
+<!--
+        <% unless @hike.user == current_user %>
+        <% unless @hike.users.ids.include?(current_user.id) %>
+        <% end %>
+        <% end %>
+-->
