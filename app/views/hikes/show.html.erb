@@ -8,6 +8,16 @@
   <br>
 
   <div class="hike-page-info-card">
+    <% if @hike.user == current_user %>
+      <div class="edit-delete-icons">
+      <%= link_to edit_hike_path do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+      <%= link_to hike_path(@hike), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <i class="fa-solid fa-trash-can"></i>
+      <% end %>
+    <% end %>
+
     <% if @hike.photo.attached? %>
       <div class="hike-page-info-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')"></div>
     <% else %>

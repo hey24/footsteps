@@ -1,0 +1,9 @@
+<% if @hike.user == current_user %>
+  <div class="edit-delete-icons">
+  <%= link_to edit_hike_path do %>
+    <i class="fas fa-edit"></i>
+  <% end %>
+  <%= link_to hike_path(@hike), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+    <i class="fa-solid fa-trash-can"></i>
+  <% end %>
+<% end %>
