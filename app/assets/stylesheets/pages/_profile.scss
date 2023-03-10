@@ -10,12 +10,19 @@
       filter:  drop-shadow(16px 16px 2.5px $gray)
     }
   }
-  
+
+  .user-bio-flex {
+    background-color: white;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
   .user-details {
     display: flex;
     background: white;
     border-radius: 5px;
-    padding: 7px;
+    padding: 8px;
     justify-content: space-evenly;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -33,7 +40,7 @@
     border-radius: 5px;
     padding: 7px;
     justify-content: space-evenly;
-    
+
     .user-profile-hike-card {
         margin: 5px;
         width: 125px;
