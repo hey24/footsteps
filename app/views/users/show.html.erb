@@ -5,19 +5,23 @@
   
   <div class="user-bio-flex">
     <div class="photo">
-      <p>user photo</p>
     </div>
     <div class ="user-details">
-      <div class="user-email">
-        <%= @user.email %>
+      <div class="user-photo">
+        <p>user photo</p>
       </div>
-      <div class="user-bio">
-        <P>user bio</p>
+      <div class="user-details">
+        <p>My email: <%= @user.email%></p>
+        <p>age</p>
+          <br>
+        <p>location</p>
       </div>
     </div>
   </div>
   
   <div class="user-hikes-cards">
+      <h2> Completed Hikes </h2>
+      <br>
     <div class="user-profile-hike-card"></div>
     <div class="user-profile-hike-card"></div>
     
