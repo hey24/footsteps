@@ -53,7 +53,6 @@
       <% elsif current_user == @hike.user || @request.last.request_pending == false && @request.last.request_accepted == true %>
             <div class="hike-page-hikers">
               <h1>Hikers Joined</h1>
-              <p>Or this</p>
                 <ul>
                   <li> <%= @hike.user.first_name %> <%= @hike.user.last_name %> (Hike creator) </li>
                     <% @hike.users.each do |hiker| %>
@@ -65,7 +64,6 @@
 
                   <!-- THIS IS THE SHOW PAGE WHEN YOU'VE REQUESTED AND ARE PENDING -->
       <% elsif  @request.last.request_pending == true && @request.last.request_accepted == false %>
-        <p>This option</p>
         <div class="pending-button">
           <button class= "pending-request-button">Pending</button>
         </div>
