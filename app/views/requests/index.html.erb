@@ -1,5 +1,7 @@
 <div class="my-hikes-container">
-  <h2>My Hikes</h2>
+  <div class="requests-page-title-container">
+    <h2>My Hikes</h2>
+  </div>
   <div class="created-hikes-container">
     <h3>My Created Hikes</h3>
     <div class="my-created-hikes-cards">
@@ -42,11 +44,12 @@
               </div>
             <% end %>
               <div class="hike-request-content">
-                <%= request.hike.hike_name %>
-                <%= request.user.first_name%>
-                <%= button_to 'Accept', request_accept_path(request), method: :post %>
+                <%= request.hike.hike_name %><br>
+                <div class="request-buttonn">
+                <%= button_to 'Accept', request_accept_path(request), method: :post, class: "request-button-accept" %>
                 <%# link to accept action in requests controller %>
-                <%= button_to 'Reject', request_reject_path(request), method: :post %>
+                <%= button_to 'Reject', request_reject_path(request), method: :post, class: "request-button-reject" %>
+                </div>
               </div>
           </div>
         <% end %>
