@@ -6,7 +6,7 @@ class RequestsController < ApplicationController
     @requests = Request.where(user_id: @user_id)
     @pending_requests = Request.where(request_pending: true)
     @hikes = current_user.hikes
-    @accepted_requests = current_user.requested_hikes.request.accepted
+    @accepted_requests = Request.where(user_id: @user_id)
   end
 
   def create
