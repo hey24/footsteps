@@ -1,0 +1,44 @@
+.profile-container-flex {
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
+    min-height: 100vh;
+
+    h1 {
+      color: $footsteps-yellow;
+      filter:  drop-shadow(16px 16px 2.5px $gray)
+    }
+  }
+  
+  .user-details {
+    display: flex;
+    background: white;
+    border-radius: 5px;
+    padding: 7px;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .user-email {
+    text-decoration: none;
+  }
+  .user-bio {
+
+  }
+
+  .user-hikes-cards {
+    background: white;
+    border-radius: 5px;
+    padding: 7px;
+    justify-content: space-evenly;
+    
+    .user-profile-hike-card {
+        margin: 5px;
+        width: 125px;
+        height: 90px;
+        background: #1F304C;
+        border-radius: 2px;
+    }
+  }
