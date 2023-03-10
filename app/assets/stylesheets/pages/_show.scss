@@ -7,7 +7,11 @@
 
 .hike-page-title-bar-flex {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  background-color: white;
+  border-radius: 10px;
+  padding: 16px
 }
 
 .hike-page-info-card {
