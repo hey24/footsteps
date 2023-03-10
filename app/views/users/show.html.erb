@@ -8,14 +8,14 @@
     </div>
     <div class ="user-details">
       <div class="user-photo">
+    <% if cl_image_path user.photo.key.attached? %>
+        <%= cl_image_path user.photo.key %>
+    <% else  %>
+    <% end %>
       </div>
       <div class="user-details">
-        <p>My email: <%= @user.email%></p>
-        <% @users.each do |user| %>
-        <% end %>
-          <br>
-        <% @users.each do |user| %>
-        <% end %>
+        <%= @user.first_name %>
+        <%= @user.description %>
       </div>
     </div>
   </div>
