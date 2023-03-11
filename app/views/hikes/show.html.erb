@@ -38,7 +38,7 @@
           <p> <i class="fa-solid fa-gauge-simple-high"></i> &nbsp; <%= @hike.difficulty %></p>
         </div>
         <div class="hike-page-details-2">
-          <p> <i class="fa-solid fa-person-hiking"></i> &nbsp; <%= @hike.users.count + 1 %> / <%= @hike.max_people %> Hikers </p>
+          <p> <i class="fa-solid fa-person-hiking"></i> &nbsp; <%= @accepted_requests.count + 1 %> / <%= @hike.max_people %> Hikers </p>
           <% if @hike.hike_date.blank? %>
             <p> <i class="fa-regular fa-calendar"></i> &nbsp; TBC </p>
           <% else %>

@@ -32,6 +32,7 @@ class HikesController < ApplicationController
 
   def show
     @request = Request.where(hike: @hike, user: current_user)
+    @accepted_requests = Request.where(hike: @hike, request_accepted: true)
   end
 
   def edit; end
