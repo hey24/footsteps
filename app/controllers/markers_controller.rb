@@ -5,15 +5,18 @@ class MarkersController < ApplicationController
   end
 
   def create
-    @marker = Marker.create(marker_params)
-    render json: @marker
-  end
+    @hike = Hike.find(params[:hike_id])
 
-  def batch_create
-    markers_params = params[:markers]
-    @markers = markers_params.map { |marker_params| Marker.new(marker_params) }
-    Marker.import @markers
-    render json: @markers
+    data = params[:coordinates]
+    data.each_with_index do |coord, index|
+      @hike.markers.create(
+        longitude: coord[0],
+        latitude: coord[1],
+        order: index
+      )
+    end
+
+    render json: @hike, status: :created
   end
 
   private
