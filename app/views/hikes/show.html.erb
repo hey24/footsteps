@@ -8,24 +8,28 @@
 
   <br>
 
-  <!-- THIS IS THE SHOW PAGE WHEN YOU HAVEN'T REQUESTED TO JOIN -->
+  <!-- THIS IS THE PART OF THE SHOW PAGE EVERYONE SEES -->
 
   <div class="hike-page-info-card">
-    <% if @hike.user == current_user %>
-      <div class="edit-delete-icons">
-      <%= link_to edit_hike_path do %>
-        <i class="fas fa-edit"></i>
-      <% end %>
-      <%= link_to hike_path(@hike), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-        <i class="fa-solid fa-trash-can"></i>
-      <% end %>
-    <% end %>
 
     <% if @hike.photo.attached? %>
-      <div class="hike-page-info-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')"></div>
+      <div class="hike-page-info-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')">
     <% else %>
-      <div class="hike-page-info-img" style="background-image: url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')"></div>
+      <div class="hike-page-info-img" style="background-image: url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')">
     <% end %>
+
+        <% if @hike.user == current_user %>
+          <div class="edit-delete-icons">
+            <%= link_to edit_hike_path do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to hike_path(@hike), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
     <div class="hike-page-info-text">
       <div class="hike-page-details-flex">
         <div class="hike-page-details-1">
@@ -53,6 +57,8 @@
         <p> <%= @hike.hike_description %> </p>
       </div>
     </div>
+
+    <!-- THIS IS THE SHOW PAGE WHEN YOU HAVEN'T REQUESTED TO JOIN -->
       <% if @request.empty? %>
         <% unless @hike.user == current_user %>
           <% unless @hike.users.ids.include?(current_user.id) %>
@@ -61,6 +67,8 @@
             </div>
           <% end %>
         <% end %>
+
+        <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN ACCEPTED -->
       <% elsif current_user == @hike.user || @request.last.request_pending == false && @request.last.request_accepted == true %>
             <div class="hike-page-hikers">
               <h1>Hikers Joined</h1>
@@ -79,15 +87,11 @@
           <button class= "pending-request-button">Pending</button>
         </div>
 
+
+                  <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN REJECTED -->
+
       <% elsif @request.last.request_pending == false && @request.last.request_accepted == false %>
         <h2>Sorry, you have not been accepted into this Hike</h2>
       <% end %>
   </div>
 </div>
-
-<!--
-        <% unless @hike.user == current_user %>
-        <% unless @hike.users.ids.include?(current_user.id) %>
-        <% end %>
-        <% end %>
--->

@@ -17,6 +17,8 @@
     <%= render "shared/flashes" %>
     <%= yield %>
     <div class="push"></div>
-    <%= render "shared/footer" %>
+    <% if user_signed_in? %>
+      <%= render "shared/footer" %>
+    <% end %>
   </body>
 </html>

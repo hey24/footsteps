@@ -29,6 +29,27 @@
   background-position: center;
 }
 
+.edit-delete-icons {
+  padding: 16px;
+  background-color: white;
+  border-radius: 10px;
+  width: 25%;
+
+  a {
+    text-decoration: none;
+  }
+
+  .fa-edit {
+    text-decoration: none;
+    color: $dark-green;
+  }
+
+  .fa-trash-can {
+    text-decoration: none;
+    color: $dark-green;
+  }
+}
+
 .hike-page-info-text {
 
 }
