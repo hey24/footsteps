@@ -61,12 +61,10 @@
     <!-- THIS IS THE SHOW PAGE WHEN YOU HAVEN'T REQUESTED TO JOIN -->
       <% if @request.empty? %>
         <% unless @hike.user == current_user %>
-          <% unless @hike.users.ids.include?(current_user.id) %>
             <div class="request-button">
               <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "hike-request-button"%>
             </div>
           <% end %>
-        <% end %>
 
         <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN ACCEPTED -->
       <% elsif current_user == @hike.user || @request.last.request_pending == false && @request.last.request_accepted == true %>

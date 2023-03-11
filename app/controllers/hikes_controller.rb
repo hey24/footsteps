@@ -1,6 +1,7 @@
 class HikesController < ApplicationController
 
   before_action :set_hike, only: %i[show edit destroy update]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @hikes = Hike.all
