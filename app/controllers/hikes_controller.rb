@@ -48,6 +48,11 @@ class HikesController < ApplicationController
     redirect_to hikes_path, status: :see_other
   end
 
+  def route
+    @hike = Hike.find(params[:hike_id])
+    @markers = @hike.markers.order(:order)
+  end
+
   private
 
   def set_hike

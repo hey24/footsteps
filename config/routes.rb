@@ -4,11 +4,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :hikes do
-    resources :markers, only: [:index, :create] do
-      collection do
-        post :batch_create
-      end
-    end
+    resources :markers, only: [:index, :new, :create], path: 'routes', as: :routes
     resources :requests, only: [:create]
   end
   resources :requests, only: [:index], path: 'my_hikes' do

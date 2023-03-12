@@ -1,5 +1,11 @@
 class MarkersController < ApplicationController
   def index
+    @hike = Hike.find(params[:hike_id])
+    @markers = @hike.markers.order(:order)
+    @marker_coordinates = @markers.map { |marker| [marker.longitude, marker.latitude] }
+  end
+
+  def new
     @markers = Marker.where(hike_id: params[:hike_id])
     # render json: @markers
   end
