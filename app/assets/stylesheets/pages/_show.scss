@@ -14,10 +14,6 @@
   padding-left: 16px;
   padding-bottom: 0;
   padding-top: 16px;
-
-    // p {
-    //   padding-left: 16px
-    // }
 }
 
 .hike-page-info-card {
@@ -109,10 +105,12 @@
   font-weight: 700;
 }
 
-.hike-page-hikers{
+.hike-page-hikers {
   border: solid;
   width: 360px;
   border-radius: 10px;
   overflow: hidden;
   background-color: white;
+  padding-left: 16px;
+  padding-top: 16px;
 }
