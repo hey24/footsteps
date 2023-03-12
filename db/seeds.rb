@@ -125,3 +125,8 @@ request4 = Request.create!(
 )
 
 puts "Created Requests"
+puts "Creating some Chatrooms"
+
+Chatroom.create(name: "hike1")
+
+puts "Created chatroom"
