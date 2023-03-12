@@ -33,6 +33,10 @@ class HikesController < ApplicationController
   def show
     @request = Request.where(hike: @hike, user: current_user)
     @accepted_requests = Request.where(hike: @hike, request_accepted: true)
+
+    @accepted_hiker = @accepted_requests.each do |request|
+      User.where(id: request.user_id).first
+    end
   end
 
   def edit; end

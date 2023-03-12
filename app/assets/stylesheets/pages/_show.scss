@@ -114,3 +114,19 @@
   padding-left: 16px;
   padding-top: 16px;
 }
+
+.hikers-joined-details-flex {
+  display: flex;
+  background: $footsteps-yellow-gradient;
+  padding: 8px;
+  border-radius: 10px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  align-items: center;
+
+  p {
+    color: white;
+    margin-bottom: 0px;
+    margin-left: 16px;
+  }
+}

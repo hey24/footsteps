@@ -71,14 +71,26 @@
   <br>
       <div class="hike-page-hikers">
         <h2>Hikers Joined</h2>
-          <ul>
-            <li> <%= @hike.user.first_name %> <%= @hike.user.last_name %> (Hike creator) </li>
-              <% @accepted_requests.each do |request| %>
-                <% hiker = User.where(id: request.user_id).first %>
-                <li><%= hiker.first_name %> <%= hiker.last_name %> </li>
+
+        <div class="hikers-joined-details-flex">
+          <% if @hike.user.photo.attached? %>
+            <%= cl_image_tag @hike.user.photo.key, class: "avatar-large" %>
+          <% end %>
+
+          <p><%= @hike.user.first_name %> <%= @hike.user.last_name %> (Hike creator) </p>
+        </div>
+
+        <% if @accepted_requests.any? %>
+          <div class="hikers-joined-details-flex">
+              <% if @accepted_hiker.photo.attached? %>
+                <%= cl_image_tag hiker.photo.key, class: "avatar-large" %>
               <% end %>
-          </ul>
-          <p> There's space for <%= (@hike.max_people) - (@hike.users.count + 1)%> more in this Hike!</p>
+
+              <p><%= accepted_hiker.first_name %> <%= accepted_hiker.last_name %> </p>
+          </div>
+        <% end %>
+
+          <p> There's space for <%= (@hike.max_people) - (@accepted_hiker.count + 1)%> more in this Hike!</p>
       </div>
 
                   <!-- THIS IS THE SHOW PAGE WHEN YOU'VE REQUESTED AND ARE PENDING -->
