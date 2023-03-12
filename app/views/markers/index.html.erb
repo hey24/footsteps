@@ -1,17 +1,18 @@
-<div id="map" data-marker-coordinates="<%= @marker_coordinates.to_json %>" style="height: 500px;"></div>
+<div id="map" data-marker-coordinates="<%= @marker_coordinates.to_json %>" data-start-coordinates="<%= @start_coordinates.to_json %>" style="height: 500px;"></div>
 
 <script>
+
+var startCoordinates = JSON.parse(document.getElementById("map").dataset.startCoordinates);
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcG9ydCIsImEiOiJjbGV5N2EycGUwa3FvM3FwNGw0bTB1d3BuIn0.Mxbnq-7KTp7hMtPIFoPYmA';
 const map = new mapboxgl.Map({
 container: 'map',
-// Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-style: 'mapbox://styles/mapbox/streets-v12',
-center: [-73.95, 40.7],
-zoom: 14
+style: 'mapbox://styles/mapbox/outdoors-v12',
+center: startCoordinates,
+zoom: 12
 });
 
 map.on('load', () => {
-
 
   var markerCoordinates = JSON.parse(document.getElementById("map").dataset.markerCoordinates);
 
@@ -37,7 +38,7 @@ map.on('load', () => {
   'line-cap': 'round'
   },
   'paint': {
-  'line-color': '#888',
+  'line-color': '#F4B62D',
   'line-width': 8
   }
   });

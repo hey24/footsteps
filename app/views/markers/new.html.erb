@@ -1,20 +1,19 @@
 
-<div id='map' style='height: 800px;'></div>
+<div id='map' data-start-coordinates="<%= @start_coordinates.to_json %>" style='height: 800px;'></div>
 
 <script>
 
-  // Replace YOUR_MAPBOX_ACCESS_TOKEN with your actual Mapbox access token
   mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcG9ydCIsImEiOiJjbGV5N2EycGUwa3FvM3FwNGw0bTB1d3BuIn0.Mxbnq-7KTp7hMtPIFoPYmA';
 
-  // Initialize the map
+  var startCoordinates = JSON.parse(document.getElementById("map").dataset.startCoordinates);
+
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-73.95, 40.7],
+    style: 'mapbox://styles/mapbox/outdoors-v12',
+    center: startCoordinates,
     zoom: 12
   });
 
-  // Initialize the Mapbox Draw plugin
   var draw = new MapboxDraw({
     displayControlsDefault: false,
     controls: {
@@ -32,24 +31,48 @@
       coordinates: coordinates,
     };
     console.log(data)
-    // Get the hike ID from the URL params
+
     var hikeId = window.location.pathname.split("/")[2];
     console.log(hikeId)
 
-    // Get the CSRF token from the page's meta tags
     const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
     console.log(csrfToken)
+
     fetch(`/hikes/${hikeId}/routes`, {
       method: "POST",
       headers: {
-      'Content-Type': "application/json",
-      'X-CSRF-Token': csrfToken // Add the authenticity token as a header
-    },
+        'Content-Type': "application/json",
+        'X-CSRF-Token': csrfToken
+      },
       body: JSON.stringify(data)
     })
     .then(response => response.json())
     .then(data => console.log(data))
+  });
 
+  map.on('draw.delete', function(e) {
+    var coordinates = e.features[0].geometry.coordinates;
+    const data = {
+      coordinates: coordinates,
+    };
+    console.log(data)
+
+    var hikeId = window.location.pathname.split("/")[2];
+    console.log(hikeId)
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+    console.log(csrfToken)
+
+    fetch(`/hikes/${hikeId}/routes`, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': "application/json",
+        'X-CSRF-Token': csrfToken
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
   });
 
 </script>
