@@ -11,7 +11,9 @@
   justify-content: space-between;
   background-color: white;
   border-radius: 10px;
-  padding: 16px
+  padding-left: 16px;
+  padding-bottom: 0;
+  padding-top: 16px;
 }
 
 .hike-page-info-card {
@@ -27,6 +29,28 @@
   height: 248px;
   background-size: cover;
   background-position: center;
+}
+
+.edit-delete-icons {
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: white;
+  border-radius: 10px;
+  width: 20%;
+
+  a {
+    text-decoration: none;
+  }
+
+  .fa-edit {
+    text-decoration: none;
+    color: $dark-green;
+  }
+
+  .fa-trash-can {
+    text-decoration: none;
+    color: $dark-green;
+  }
 }
 
 .hike-page-info-text {
@@ -53,7 +77,7 @@
 }
 
 .request-button button{
-  background-color: #F4B62D;
+  background-color: $footsteps-yellow;
   border:none;
   margin-left: 20px;
   padding: 20px;
@@ -61,10 +85,48 @@
   font-weight: 700;
 }
 
-.hike-page-hikers{
+.pending-button {
+  margin: 16px;
+}
+
+.pending-request-button {
+  background-color: #E3C47E;
+  text-decoration: none;
+  // color: $dark-green;
+  // box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  // border-radius: 10px;
+  // padding: 8px 16px;
+  // margin-top: 16px;
+  // align-self: center;
+  border:none;
+  margin-left: 20px;
+  padding: 20px;
+  border-radius:8px;
+  font-weight: 700;
+}
+
+.hike-page-hikers {
   border: solid;
   width: 360px;
   border-radius: 10px;
   overflow: hidden;
   background-color: white;
+  padding-left: 16px;
+  padding-top: 16px;
+}
+
+.hikers-joined-details-flex {
+  display: flex;
+  background: $footsteps-yellow-gradient;
+  padding: 8px;
+  border-radius: 10px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  align-items: center;
+
+  p {
+    color: white;
+    margin-bottom: 0px;
+    margin-left: 16px;
+  }
 }

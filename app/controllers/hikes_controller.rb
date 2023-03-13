@@ -1,6 +1,7 @@
 class HikesController < ApplicationController
 
-  before_action :set_hike, only: %i[show edit destroy update]
+  before_action :set_hike, only: %i[show edit destroy update confirm unconfirm]
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
     @hikes = Hike.all
@@ -29,7 +30,14 @@ class HikesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @request = Request.where(hike: @hike, user: current_user)
+    @accepted_requests = Request.where(hike: @hike, request_accepted: true)
+
+    @accepted_hiker = @accepted_requests.each do |request|
+      User.where(id: request.user_id).first
+    end
+  end
 
   def edit; end
 
@@ -46,6 +54,29 @@ class HikesController < ApplicationController
     redirect_to hikes_path, status: :see_other
   end
 
+  def confirm
+    @hike.hike_confirmed = true
+    if @hike.save
+      redirect_to hike_path
+    else
+      render 'hikes/show', status: :unprocessable_entity
+    end
+  end
+
+  def unconfirm
+    @hike.hike_confirmed = false
+    if @hike.save
+      redirect_to hike_path
+    else
+      render 'hikes/show', status: :unprocessable_entity
+    end
+   end
+
+  def route
+    @hike = Hike.find(params[:hike_id])
+    @markers = @hike.markers.order(:order)
+  end
+
   private
 
   def set_hike
@@ -55,8 +86,7 @@ class HikesController < ApplicationController
   def hike_params
     params.require(:hike).permit(
       :hike_name, :hike_description, :difficulty, :distance, :max_people,
-      :hike_date, :photo, :starting_point
+      :hike_date, :photo, :starting_point, :hike_confirmed, :hike_completed
     )
   end
-
 end

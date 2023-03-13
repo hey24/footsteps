@@ -1,5 +1,6 @@
 .avatar-content-flex {
-  display: flex
+  display: flex;
+  justify-content: space-between;
 }
 
 .requests-page-title-container{
@@ -11,6 +12,26 @@
 }
 
 .requests-page-title-container h2{
-  padding-left: 10px;
+  padding-left: 5px;
   padding-top:5px;
+}
+
+.hike-request-content p {
+  margin-bottom: 0px;
+  padding-top: 8px;
+}
+
+.pending-profile-button{
+  background-color: $footsteps-yellow;
+  border:none;
+  box-shadow: 1px 1px 3px black;
+}
+
+.pending-profile-button button{
+  display: flex;
+  justify-content: end;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
