@@ -70,6 +70,11 @@ class HikesController < ApplicationController
     else
       render 'hikes/show', status: :unprocessable_entity
     end
+   end
+
+  def route
+    @hike = Hike.find(params[:hike_id])
+    @markers = @hike.markers.order(:order)
   end
 
   private
