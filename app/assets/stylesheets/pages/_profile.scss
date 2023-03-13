@@ -4,7 +4,8 @@
     padding: 24px;
     background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
     min-height: 100vh;
-
+    border-right: none;
+    
     h1 {
       color: $footsteps-yellow;
       filter:  drop-shadow(4px 4px 4px $gray)
@@ -15,7 +16,7 @@
   .user-bio-flex {
     background-color: white;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   
   }
   
@@ -25,7 +26,8 @@
   }
 
   .user-details {
-    flex-grow: 10;
+    padding: 6px;
+  
   }
   
   
@@ -38,6 +40,10 @@
     border-radius: 5px;
     padding: 7px;
     justify-content: space-evenly;
+
+    h2 {
+      text-align: start;
+    }
     
     .profile-hike-card {
       display: flex;
@@ -81,3 +87,9 @@
 
   }
 
+  a {
+    color: $dark-green;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18;
+  }

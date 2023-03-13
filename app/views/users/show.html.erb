@@ -5,7 +5,7 @@
 
   <div class="user-bio-flex d-flex align-items-stretc" style="overflow: hidden">
       <% if  @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, height: 112, crop: :scale %>
+        <%= cl_image_tag @user.photo.key, height: 115, crop: :scale %>
       <% end %>
     <div class="user-details">
         <h2><%= @user.first_name %></h2>
@@ -42,8 +42,10 @@
         <% end  %>
       </div>
     <div class="btn btn-yellow">
-      <%= link_to "Search Hikes", hikes_path%>
+      <%= link_to "Find more hikes", hikes_path%>
     </div>
+    
+    <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete} if user_signed_in? %>
   </div>
 
 </div>
