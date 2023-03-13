@@ -37,6 +37,13 @@ class HikesController < ApplicationController
     @accepted_hiker = @accepted_requests.each do |request|
       User.where(id: request.user_id).first
     end
+    @markers = @hike.markers.order(:order)
+    if @markers.nil?
+      @markers_coordinates = nil
+    else
+      @marker_coordinates = @markers.map { |marker| [marker.longitude, marker.latitude] }
+    end
+    @start_coordinates = [@hike.longitude, @hike.latitude]
   end
 
   def edit; end

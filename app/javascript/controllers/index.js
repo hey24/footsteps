@@ -10,5 +10,11 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import HikeMapController from "./hike_map_controller"
+application.register("hike-map", HikeMapController)
+
+import HikeRouteController from "./hike_route_controller"
+application.register("hike-route", HikeRouteController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
