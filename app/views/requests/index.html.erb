@@ -87,7 +87,7 @@
   </div>
 
   <div class="requested-hikes-container">
-    <h3>My Sent Requests</h3>
+    <h3>My Pending Requests</h3>
     <% @pending_requests.each do |request| %>
       <% if request.user == current_user %>
         <% if request.hike.photo.attached? %>
