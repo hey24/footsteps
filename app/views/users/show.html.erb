@@ -3,12 +3,10 @@
 
   <br>
 
-  <div class="user-bio-flex d-flex flex-column align-items-center">
-    <div class="user-photo">
+  <div class="user-bio-flex d-flex align-items-stretc" style="overflow: hidden">
       <% if  @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, height: 112, crop: :fill %>
+        <%= cl_image_tag @user.photo.key, height: 112, crop: :scale %>
       <% end %>
-    </div>
     <div class="user-details">
         <h2><%= @user.first_name %></h2>
         <p><%= @user.description %></p>

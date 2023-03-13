@@ -14,25 +14,18 @@
 
   .user-bio-flex {
     background-color: white;
-    border-radius: 5px;
-    padding: 8px;
+    border-radius: 8px;
     margin-bottom: 10px;
-
-    .user-photo {
-      width: 100px;
-    }
+  
   }
   
   img { 
-    border-radius: 8px;
-    aspect-ratio: auto;
+    object-fit: cover;
+    width: 7.25rem;
   }
 
   .user-details {
-    padding: 8px;
-    justify-content: space-evenly;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    flex-grow: 10;
   }
   
   
