@@ -13,6 +13,22 @@ class Hike < ApplicationRecord
   has_one :chatroom
   after_create :add_chatroom
 
+  def in_past?
+    hike_date < Date.today if hike_date
+  end
+
+  def complete_hike!
+    update(hike_completed: true)
+  end
+
+  def self.complete_hikes_if_necessary!
+    all.each do |hike|
+      if hike.in_past?
+        hike.complete_hike!
+      end
+    end
+  end
+
   private
 
   def add_chatroom
