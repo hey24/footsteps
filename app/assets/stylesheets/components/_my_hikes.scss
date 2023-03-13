@@ -7,6 +7,7 @@
 .my-hikes-container {
   background: linear-gradient(#083B24, rgba(8, 59, 36, 0.84));
   height: 100vh;
+
 }
 
 .created-hikes-container {
@@ -24,7 +25,9 @@
 
 .my-hikes-container {
   background: linear-gradient(#083B24, rgba(8, 59, 36, 0.84));
-  height: 100vh;
+  height: auto;
+  background-repeat:none;
+  background-size:cover;
 }
 
 .upcoming-hikes-container {
@@ -34,6 +37,14 @@
   padding: 8px;
 }
 
+.requested-hikes-container{
+  background-color: white;
+  border-radius: 5px;
+  margin: 8px;
+  padding: 8px;
+  filter: filter(value);
+  filter: grayscale(100%);
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
