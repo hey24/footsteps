@@ -1,6 +1,7 @@
 class HikesController < ApplicationController
 
   before_action :set_hike, only: %i[show edit destroy update]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @hikes = Hike.all
@@ -29,7 +30,14 @@ class HikesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @request = Request.where(hike: @hike, user: current_user)
+    @accepted_requests = Request.where(hike: @hike, request_accepted: true)
+
+    @accepted_hiker = @accepted_requests.each do |request|
+      User.where(id: request.user_id).first
+    end
+  end
 
   def edit; end
 
@@ -44,6 +52,11 @@ class HikesController < ApplicationController
   def destroy
     @hike.destroy
     redirect_to hikes_path, status: :see_other
+  end
+
+  def route
+    @hike = Hike.find(params[:hike_id])
+    @markers = @hike.markers.order(:order)
   end
 
   private

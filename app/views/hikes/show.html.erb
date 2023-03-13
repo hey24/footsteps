@@ -8,22 +8,28 @@
 
   <br>
 
+  <!-- THIS IS THE PART OF THE SHOW PAGE EVERYONE SEES -->
+
   <div class="hike-page-info-card">
-    <% if @hike.user == current_user %>
-      <div class="edit-delete-icons">
-      <%= link_to edit_hike_path do %>
-        <i class="fas fa-edit"></i>
-      <% end %>
-      <%= link_to hike_path(@hike), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-        <i class="fa-solid fa-trash-can"></i>
-      <% end %>
-    <% end %>
 
     <% if @hike.photo.attached? %>
-      <div class="hike-page-info-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')"></div>
+      <div class="hike-page-info-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')">
     <% else %>
-      <div class="hike-page-info-img" style="background-image: url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')"></div>
+      <div class="hike-page-info-img" style="background-image: url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')">
     <% end %>
+
+        <% if @hike.user == current_user %>
+          <div class="edit-delete-icons">
+            <%= link_to edit_hike_path do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to hike_path(@hike), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
     <div class="hike-page-info-text">
       <div class="hike-page-details-flex">
         <div class="hike-page-details-1">
@@ -32,7 +38,7 @@
           <p> <i class="fa-solid fa-gauge-simple-high"></i> &nbsp; <%= @hike.difficulty %></p>
         </div>
         <div class="hike-page-details-2">
-          <p> <i class="fa-solid fa-person-hiking"></i> &nbsp; <%= @hike.users.count + 1 %> / <%= @hike.max_people %> Hikers </p>
+          <p> <i class="fa-solid fa-person-hiking"></i> &nbsp; <%= @accepted_requests.count + 1 %> / <%= @hike.max_people %> Hikers </p>
           <% if @hike.hike_date.blank? %>
             <p> <i class="fa-regular fa-calendar"></i> &nbsp; TBC </p>
           <% else %>
@@ -46,24 +52,62 @@
           <% end %>
         </div>
       </div>
-      <% unless @hike.user == current_user %>
-        <% unless @hike.users.ids.include?(current_user.id) %>
-          <div class="request-button">
-            <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "hike-request-button"%>
-          </div>
-        <% end %>
-      <% end %>
+
       <div class="hike-page-description">
         <p> <%= @hike.hike_description %> </p>
       </div>
     </div>
+
+
+    <!-- THIS IS THE SHOW PAGE WHEN YOU HAVEN'T REQUESTED TO JOIN -->
+    <% if @request.empty? && @hike.user != current_user %>
+        <div class="request-button">
+          <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "hike-request-button"%>
+        </div>
+
+        <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN ACCEPTED -->
+    <% elsif @hike.user == current_user || @request.last.request_pending == false && @request.last.request_accepted == true %>
   </div>
-  <div class="hike-page-hikers">
-    <h1>Hikers Joined</h1>
-    <ul>
-      <% @hike.users.each do |hiker| %>
-        <li><%= hiker.first_name %> <%= hiker.last_name %> </li>
-      <% end %>
-    </ul>
+  <br>
+      <div class="hike-page-hikers">
+        <h2>Hikers Joined</h2>
+
+        <div class="hikers-joined-details-flex">
+          <% if @hike.user.photo.attached? %>
+            <%= cl_image_tag @hike.user.photo.key, class: "avatar-large" %>
+          <% end %>
+
+          <p><%= @hike.user.first_name %> <%= @hike.user.last_name %> (Hike creator) </p>
+        </div>
+
+        <% if @accepted_requests.any? %>
+          <div class="hikers-joined-details-flex">
+            <% @accepted_requests.each do |request| %>
+              <% accepted_hiker = User.where(id: request.user_id).first %>
+              <% if accepted_hiker.photo.attached? %>
+                <%= cl_image_tag accepted_hiker.photo.key, class: "avatar-large" %>
+              <% end %>
+
+              <p><%= accepted_hiker.first_name %> <%= accepted_hiker.last_name %> </p>
+
+            <% end %>
+          </div>
+        <% end %>
+
+          <p> There's space for <%= (@hike.max_people) - (@accepted_hiker.count + 1)%> more in this Hike!</p>
+      </div>
+
+                  <!-- THIS IS THE SHOW PAGE WHEN YOU'VE REQUESTED AND ARE PENDING -->
+    <% elsif  @request.last.request_pending == true && @request.last.request_accepted == false %>
+      <div class="pending-button">
+        <button class= "pending-request-button">Pending</button>
+      </div>
+
+
+                  <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN REJECTED -->
+
+    <% elsif @request.last.request_pending == false && @request.last.request_accepted == false %>
+      <h2>Sorry, you have not been accepted into this Hike</h2>
+    <% end %>
   </div>
 </div>
