@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :hikes do
+    member do
+      post "confirm", to: 'hikes#confirm'
+      post "unconfirm", to: 'hikes#unconfirm'
+    end
     resources :markers, only: [:index, :new, :create, :destroy], path: 'routes', as: :routes
     resources :requests, only: [:create]
     resources :chatrooms, only: :show
