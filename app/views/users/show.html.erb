@@ -6,7 +6,7 @@
   <div class="user-bio-flex">
       <div class="user-photo">
     <% if  @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, height: 160, crop: :fill %>
+        <a><%= cl_image_tag @user.photo.key, height: 160, crop: :fill %></a>
     <% end %>
       </div>
       <div class="user-details">
