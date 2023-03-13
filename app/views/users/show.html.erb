@@ -3,44 +3,49 @@
 
   <br>
 
-  <div class="user-bio-flex">
-      <div class="user-photo">
-    <% if  @user.photo.attached? %>
-        <a><%= cl_image_tag @user.photo.key, height: 160, crop: :fill %></a>
-    <% end %>
-      </div>
-      <div class="user-details">
-        <%= @user.first_name %>
-        <%= @user.description %>
-      </div>
-  </div>
-
-  <div class="user-hikes-cards">
-      <h2> Completed Hikes </h2>
-    <%# for each hike of this user tht is completed, show it below: %>
-      <br>
-    <% @user.all_completed_hikes.each do |hike| %>
-      <%= link_to hike_path(hike) do %>
-        <% if hike.photo.attached? %>
-          <div
-            class="small-hike-card"
-            style="background-image: linear-gradient(rgba(0,0,0,0.3),
-            rgba(0,0,0,0.3)), url('<%= cl_image_path hike.photo.key, height: 160, crop: :fill %>')"
-          >
-            <p><%= hike.hike_name.truncate(20) %></p>
-          </div>
-        <% else %>
-          <div
-          class="small-hike-card"
-          style="background-image: linear-gradient(rgba(0,0,0,0.3),
-          rgba(0,0,0,0.3)), url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')"
-          >
-            <p><%= hike.hike_name.truncate(20) %></p>
-          </div>
-        <% end %>
+  <div class="user-bio-flex d-flex align-items-stretc" style="overflow: hidden">
+      <% if  @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, height: 115, crop: :scale %>
       <% end %>
-    <% end  %>
-    <%= link_to "Search Hikes", hikes_path%>
+    <div class="user-details">
+        <h2><%= @user.first_name %></h2>
+        <p><%= @user.description %></p>
+    </div>
+  </div>
+  
+  <div class="user-hikes-cards d-flex flex-column align-items-center">
+    <div class="hike h2">
+      <h2> Completed Hikes </h2>
+    </div>
+    <%# for each hike of this user tht is completed, show it below: %>
+      <div class="d-flex flex-wrap gap-3">
+        <% @user.all_completed_hikes.each do |hike| %>
+          <%= link_to hike_path(hike) do %>
+            <% if hike.photo.attached? %>
+              <div
+                class="profile-hike-card"
+                style="background-image: linear-gradient(rgba(0,0,0,0.3),
+                rgba(0,0,0,0.3)), url('<%= cl_image_path hike.photo.key, height: 160, crop: :fill %>')"
+              >
+                <p><%= hike.hike_name.truncate(20) %></p>
+              </div>
+            <% else %>
+              <div
+              class="profile-hike-card"
+              style="background-image: linear-gradient(rgba(0,0,0,0.3),
+              rgba(0,0,0,0.3)), url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')"
+              >
+                <p><%= hike.hike_name.truncate(20) %></p>
+              </div>
+            <% end %>
+          <% end %>
+        <% end  %>
+      </div>
+    <div class="btn btn-yellow">
+      <%= link_to "Find more hikes", hikes_path%>
+    </div>
+    
+    <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete} if user_signed_in? %>
   </div>
 
 </div>
