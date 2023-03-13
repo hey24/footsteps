@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :hikes do
+    resources :markers, only: [:index, :new, :create, :destroy], path: 'routes', as: :routes
     resources :requests, only: [:create]
   end
   resources :requests, only: [:index], path: 'my_hikes' do
