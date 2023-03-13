@@ -1,3 +1,5 @@
+require 'haversine'
+
 class MarkersController < ApplicationController
   before_action :authenticate_user!, :authorize_hike_owner, only: [:new, :create]
 
@@ -26,7 +28,7 @@ class MarkersController < ApplicationController
         order: index
       )
     end
-
+    calculate_distance
     render json: @hike, status: :created
   end
 
@@ -48,4 +50,20 @@ class MarkersController < ApplicationController
       redirect_to hike_path(@hike), alert: "You are not authorized to create a new route for this hike"
     end
   end
+
+  def calculate_distance
+    distance_sum = 0.0
+    order = 0
+    while order < @markers.last.order
+      first_marker = @markers.where(order: order).first
+      first_marker_coords = [first_marker.latitude, first_marker.longitude]
+      second_marker = @markers.where(order: (order + 1)).first
+      second_marker_coords = [second_marker.latitude, second_marker.longitude]
+      distance_sum += Haversine.distance(first_marker_coords, second_marker_coords).to_kilometers
+      order += 1
+    end
+    @hike.update(distance: distance_sum.round(2))
+    p @hike
+  end
+
 end
