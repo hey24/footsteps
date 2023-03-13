@@ -1,7 +1,7 @@
 class HikesController < ApplicationController
 
-  before_action :set_hike, only: %i[show edit destroy update]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_hike, only: %i[show edit destroy update confirm]
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
     @hikes = Hike.all
@@ -54,6 +54,15 @@ class HikesController < ApplicationController
     redirect_to hikes_path, status: :see_other
   end
 
+  def confirm
+    @hike.hike_confirmed = true
+    if @hike.save
+      redirect_to hike_path
+    else
+      render 'hikes/show', status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_hike
@@ -63,8 +72,7 @@ class HikesController < ApplicationController
   def hike_params
     params.require(:hike).permit(
       :hike_name, :hike_description, :difficulty, :distance, :max_people,
-      :hike_date, :photo, :starting_point
+      :hike_date, :photo, :starting_point, :hike_confirmed, :hike_completed
     )
   end
-
 end

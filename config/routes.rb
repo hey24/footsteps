@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :hikes do
+    member do
+      post "confirm", to: 'hikes#confirm'
+    end
     resources :requests, only: [:create]
   end
   resources :requests, only: [:index], path: 'my_hikes' do

@@ -56,6 +56,10 @@
       <div class="hike-page-description">
         <p> <%= @hike.hike_description %> </p>
       </div>
+
+      <div class="confirm-hike">
+        <%= button_to 'Confirm Hike', confirm_hike_path(@hike), data: {turbo_method: :put}, class: "hike-confirm-button" %>
+      </div>
     </div>
 
 
