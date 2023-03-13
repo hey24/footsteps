@@ -10,11 +10,19 @@ export default class extends Controller {
   }
 
   connect() {
+    console.log(this.markerCoordinatesValue.length === 0)
+    console.log(this.startCoordinatesValue)
+    if (this.markerCoordinatesValue.length === 0 ) {
+      this.centerPoint = this.startCoordinatesValue;
+      console.log('yooooo')
+    } else {
+      this.centerPoint = this.markerCoordinatesValue[0];
+    }
     mapboxgl.accessToken = this.apiKeyValue;
     this.map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/outdoors-v12',
-      center: this.markerCoordinatesValue[0],
+      center: this.centerPoint,
       zoom: 10.5
     });
     this.map.on('load', () => {

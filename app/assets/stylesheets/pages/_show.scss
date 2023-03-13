@@ -26,7 +26,7 @@
 
 .hike-page-info-img {
   width: 360px;
-  height: 248px;
+  height: 168px;
   background-size: cover;
   background-position: center;
 }
@@ -133,4 +133,16 @@
 
 .hike-route-container {
   padding: 8px;
+}
+
+.hike-icons-map {
+  background-color: white;
+  border-radius: 5px;
+  padding: 4px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.map-icons-flex {
+  display: flex;
+  justify-content: space-between;
 }
