@@ -49,30 +49,4 @@
     .then(response => response.json())
     .then(data => console.log(data))
   });
-
-  map.on('draw.delete', function(e) {
-    var coordinates = e.features[0].geometry.coordinates;
-    const data = {
-      coordinates: coordinates,
-    };
-    console.log(data)
-
-    var hikeId = window.location.pathname.split("/")[2];
-    console.log(hikeId)
-
-    const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
-    console.log(csrfToken)
-
-    fetch(`/hikes/${hikeId}/routes`, {
-      method: "DELETE",
-      headers: {
-        'Content-Type': "application/json",
-        'X-CSRF-Token': csrfToken
-      },
-      body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-  });
-
 </script>
