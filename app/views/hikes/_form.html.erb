@@ -10,8 +10,10 @@
         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}},
         class: "mapbox-search-form"
       %>
-    <%= f.input :hike_date, html5: true, label: "Date:", hint: "Set a date or leave it blank for now!", include_blank: true, placeholder: "hh" %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :hike_date, as: :string,
+                wrapper_html: { class: "mb-4" },
+                label_html: { class: "form-label text-secondary fw-bold" },
+                input_html: { data: { controller: "flatpickr" } } %>    <%= f.input :photo, as: :file %>
     <div>
       <%= f.button :submit, class: "btn-yellow" %>
     </div>
