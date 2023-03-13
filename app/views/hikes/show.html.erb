@@ -82,11 +82,15 @@
 
         <% if @accepted_requests.any? %>
           <div class="hikers-joined-details-flex">
-              <% if @accepted_hiker.photo.attached? %>
-                <%= cl_image_tag hiker.photo.key, class: "avatar-large" %>
+            <% @accepted_requests.each do |request| %>
+              <% accepted_hiker = User.where(id: request.user_id).first %>
+              <% if accepted_hiker.photo.attached? %>
+                <%= cl_image_tag accepted_hiker.photo.key, class: "avatar-large" %>
               <% end %>
 
               <p><%= accepted_hiker.first_name %> <%= accepted_hiker.last_name %> </p>
+
+            <% end %>
           </div>
         <% end %>
 
