@@ -16,7 +16,8 @@ class MarkersController < ApplicationController
 
   def create
     @hike = Hike.find(params[:hike_id])
-
+    @markers = Marker.where(hike_id: params[:hike_id])
+    @markers.destroy_all
     data = params[:coordinates]
     data.each_with_index do |coord, index|
       @hike.markers.create(
