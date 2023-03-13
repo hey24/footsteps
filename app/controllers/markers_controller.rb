@@ -63,7 +63,5 @@ class MarkersController < ApplicationController
       order += 1
     end
     @hike.update(distance: distance_sum.round(2))
-    p @hike
   end
-
 end
