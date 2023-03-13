@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :hikes do
     member do
       post "confirm", to: 'hikes#confirm'
+      post "unconfirm", to: 'hikes#unconfirm'
     end
     resources :requests, only: [:create]
   end

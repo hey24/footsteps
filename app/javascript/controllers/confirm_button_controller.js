@@ -1,13 +1,52 @@
-const displayAlertOnButtonClick = () => {
-  // TODO: Select the big green button
-  const button = document.querySelector(".hike-confirm-button");
+import { Controller } from "@hotwired/stimulus"
 
-  // TODO: Bind the `click` event to the button
-  button.addEventListener("click", () => {
-    alert("Hike confirmed!");
-    event.currentTarget.innerText = "Hold still..."
-  });
-  // // TODO: On click, display `Thank you!` in a JavaScript alert!
-};
+// Connects to data-controller="confirm-button"
+export default class extends Controller {
+  static targets = ["hikes"]
 
-displayAlertOnButtonClick(); // Do not remove!
+  connect() {
+    console.log('connecting confirm button')
+    // console.log(this.hikesTarget)
+    // this.addEventListener
+  }
+
+  change(e) {
+    console.log(e.currentTarget.innerText)
+    e.currentTarget.innerText
+  }
+
+
+  // addEventListener("click", () => {
+  //   console.log(this.hikesTarget.innerText)
+
+  // });
+
+  // change(event) {
+  //   displayAlertOnButtonClick = () => {
+  //     // TODO: Select the big green button
+  //     const button = this.hike_confirm_buttonTarget.action
+
+  //     // TODO: Bind the `click` event to the button
+  //     button.addEventListener("click", () => {
+  //       alert("Thank you!");
+  //     });
+  //     // // TODO: On click, display `Thank you!` in a JavaScript alert!
+  //   };
+
+  // }
+}
+
+
+
+
+// #setInputValue(event) {
+//   this.addressTarget.value = event.result["place_name"]
+// }
+
+// #clearInputValue() {
+//   this.addressTarget.value = ""
+// }
+
+// disconnect() {
+//   this.geocoder.onRemove()
+// }

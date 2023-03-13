@@ -56,21 +56,26 @@
       <div class="hike-page-description">
         <p> <%= @hike.hike_description %> </p>
       </div>
-
-      <div class="confirm-hike">
-        <%= button_to 'Confirm Hike', confirm_hike_path(@hike), data: {turbo_method: :put}, class: "hike-confirm-button" %>
-      </div>
     </div>
 
 
     <!-- THIS IS THE SHOW PAGE WHEN YOU HAVEN'T REQUESTED TO JOIN -->
-    <% if @request.empty? && @hike.user != current_user %>
-        <div class="request-button">
-          <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "hike-request-button"%>
-        </div>
+  <% if @request.empty? && @hike.user != current_user %>
+    <div class="request-button">
+      <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "hike-request-button"%>
+    </div>
 
         <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN ACCEPTED -->
-    <% elsif @hike.user == current_user || @request.last.request_pending == false && @request.last.request_accepted == true %>
+  <% elsif @hike.user == current_user || @request.last.request_pending == false && @request.last.request_accepted == true %>
+    <div class="confirm-hike" data-controller="confirm-button">
+      <div data-confirm-button-target="hikes">
+        <% if @hike.hike_confirmed %>
+          <%= button_to 'Unconfirm Hike', unconfirm_hike_path(@hike), data: {turbo_method: :put}, data: {confirm_button_target: "hikes"}, action: "click->confirm-button#change", class: "hike-confirm-button" %>
+        <% else %>
+          <%= button_to 'Confirm Hike', confirm_hike_path(@hike), data: {turbo_method: :put}, data: {confirm_button_target: "hikes"}, action: "click->confirm-button#change", class: "hike-confirm-button" %>
+        <% end %>
+      </div>
+    </div>
   </div>
   <br>
       <div class="hike-page-hikers">

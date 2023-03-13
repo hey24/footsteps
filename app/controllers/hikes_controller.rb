@@ -1,6 +1,6 @@
 class HikesController < ApplicationController
 
-  before_action :set_hike, only: %i[show edit destroy update confirm]
+  before_action :set_hike, only: %i[show edit destroy update confirm unconfirm]
   before_action :authenticate_user!, except: %i[index show]
 
   def index
@@ -56,6 +56,15 @@ class HikesController < ApplicationController
 
   def confirm
     @hike.hike_confirmed = true
+    if @hike.save
+      redirect_to hike_path
+    else
+      render 'hikes/show', status: :unprocessable_entity
+    end
+  end
+
+  def unconfirm
+    @hike.hike_confirmed = false
     if @hike.save
       redirect_to hike_path
     else
