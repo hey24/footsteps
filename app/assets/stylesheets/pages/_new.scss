@@ -23,3 +23,23 @@
   border-radius: 5px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
+
+.confirm-route-button {
+  position: absolute;
+  margin: 8px;
+  bottom: 80px;
+  width: 120px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8px;
+  background-color: #f4b52dea;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.confirm-route-button a {
+  text-decoration: none;
+  color: #083B24 ;
+}

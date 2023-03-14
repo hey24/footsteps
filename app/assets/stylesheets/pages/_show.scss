@@ -196,11 +196,27 @@
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
+.minimize-box i {
+  text-decoration: none;
+  color: #083B24 ;
+}
+
 .map-icons-box {
   margin: 8px;
   font-size: 14px;
   padding: 4px;
-  background-color: #a1c0763d;
+  background-color: #a1c0768a;
   border-radius: 5px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.map-icons-box i {
+  text-decoration: none;
+  color: #083B24 ;
+}
+
+.map-icons-box a {
+  text-decoration: none;
+  color: #083B24 ;
+  font-weight: 800;
 }
