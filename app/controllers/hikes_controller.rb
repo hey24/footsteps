@@ -34,6 +34,10 @@ class HikesController < ApplicationController
     @request = Request.where(hike: @hike, user: current_user)
     @accepted_requests = Request.where(hike: @hike, request_accepted: true)
 
+    if @hike.in_past?
+      @hike.complete_hike!
+    end
+
     @accepted_hiker = @accepted_requests.each do |request|
       User.where(id: request.user_id).first
     end
@@ -77,7 +81,7 @@ class HikesController < ApplicationController
     else
       render 'hikes/show', status: :unprocessable_entity
     end
-   end
+  end
 
   def route
     @hike = Hike.find(params[:hike_id])

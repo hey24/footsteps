@@ -5,7 +5,7 @@
     background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
     min-height: 100vh;
     border-right: none;
-    
+
     h1 {
       color: $footsteps-yellow;
       filter:  drop-shadow(4px 4px 4px $gray)
@@ -17,24 +17,24 @@
     background-color: white;
     border-radius: 8px;
     margin-bottom: 20px;
-  
+
   }
-  
-  img { 
+
+  img {
     object-fit: cover;
     width: 7.25rem;
   }
 
   .user-details {
     padding: 6px;
-  
+
   }
-  
-  
+
+
   .user-email {
     text-decoration: none;
   }
-  
+
   .user-hikes-cards {
     background: white;
     border-radius: 5px;
@@ -44,7 +44,7 @@
     h2 {
       text-align: start;
     }
-    
+
     .profile-hike-card {
       display: flex;
       width: 150px;
@@ -54,7 +54,7 @@
       background-size: cover;
       background-position: cover;
     }
-    
+
     .profile-hike-card p {
       color: white;
       background-color: #083B24;
@@ -69,23 +69,23 @@
 
   }
 
-  .btn-yellow {
-    width: 60%;
-    background-color: $footsteps-yellow;
-    
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    padding: 16px 16px;
-    margin: 30px;
-    
-    a {
-      color: $dark-green;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18;
-    }
+  // .btn-yellow {
+  //   width: 60%;
+  //   background-color: $footsteps-yellow;
 
-  }
+  //   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  //   border-radius: 10px;
+  //   padding: 16px 16px;
+  //   margin: 30px;
+
+  //   a {
+  //     color: $dark-green;
+  //     text-decoration: none;
+  //     font-weight: bold;
+  //     font-size: 18;
+  //   }
+
+  // }
 
   a {
     color: $dark-green;
