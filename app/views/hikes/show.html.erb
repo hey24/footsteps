@@ -2,45 +2,53 @@
 
   <!-- THIS IS THE PART OF THE SHOW PAGE EVERYONE SEES -->
 
-  <div class="hike-page-info-card">
-
+  <div class="hike-img-title">
     <% if @hike.photo.attached? %>
-      <div class="hike-page-info-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')">
+    <div class="hike-page-info-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')">
     <% else %>
-      <div class="hike-page-info-img" style="background-image: url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')">
+    <div class="hike-page-info-img" style="background-image: url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')">
     <% end %>
 
-        <% if @hike.user == current_user %>
-          <div class="edit-delete-icons">
-            <%= link_to edit_hike_path do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
-            <%= link_to hike_path(@hike), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-              <i class="fa-solid fa-trash-can"></i>
-            <% end %>
-          </div>
+      <% if @hike.user == current_user %>
+      <div class="edit-delete-icons">
+        <%= link_to edit_hike_path do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to hike_path(@hike), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <i class="fa-solid fa-trash-can"></i>
         <% end %>
       </div>
-
-    <div class="hike-route-container" >
+      <% end %>
+    </div>
+    <div class="hike-title-avatars-flex">
       <h1><%= @hike.hike_name%></h1>
       <p>Creator: <%= @hike.user.first_name %></p>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="hike-page-info-card">
+    <div class="hike-route-container">
+      <h2>Route</h2>
       <div class="hike-icons-map">
-      <div class="map-icons-flex">
-        <% if @hike.user == current_user %>
-          <% if @hike.markers.exists? %>
-            <%= link_to 'Update route', new_hike_route_path(@hike) %>
-          <% else %>
-            <%= link_to 'Add route', new_hike_route_path(@hike) %>
+        <div class="map-icons-flex">
+          <% if @hike.user == current_user %>
+            <% if @hike.markers.exists? %>
+              <%= link_to ' + Set new route', new_hike_route_path(@hike) %>
+            <% else %>
+              <%= link_to '+ Set route', new_hike_route_path(@hike) %>
+            <% end %>
           <% end %>
-        <% end %>
-        <%= link_to hike_routes_path(@hike) do %>
-          <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-        <% end %>
-      </div>
-        <div id="map" data-controller="hike-map" data-hike-map-marker-coordinates-value="<%= @marker_coordinates.to_json %>" data-hike-map-start-coordinates-value="<%= @start_coordinates.to_json %>" style="height: 200px;" data-hike-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+          <%= link_to hike_routes_path(@hike) do %>
+            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+          <% end %>
+        </div>
+        <div id="map" data-controller="hike-map" data-hike-map-marker-coordinates-value="<%= @marker_coordinates.to_json %>" data-hike-map-start-coordinates-value="<%= @start_coordinates.to_json %>" style="height: 200px;" data-hike-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
+    <br>
     <div class="hike-page-info-text">
       <div class="hike-page-details-flex">
         <div class="hike-page-details-1">
@@ -74,24 +82,26 @@
     <!-- THIS IS THE SHOW PAGE WHEN YOU HAVEN'T REQUESTED TO JOIN -->
   <% if @request.empty? && @hike.user != current_user %>
     <div class="request-button">
-      <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "hike-request-button"%>
+      <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "btn-yellow"%>
     </div>
 
         <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN ACCEPTED -->
   <% elsif @hike.user == current_user || @request.last.request_pending == false && @request.last.request_accepted == true %>
-    <div class="confirm-hike" data-controller="confirm-button">
-      <div data-confirm-button-target="hikes">
-        <% if @hike.hike_confirmed %>
-          <%= button_to 'Unconfirm Hike', unconfirm_hike_path(@hike), data: {turbo_method: :put}, data: {confirm_button_target: "hikes"}, action: "click->confirm-button#change", class: "hike-confirm-button" %>
-        <% else %>
-          <%= button_to 'Confirm Hike', confirm_hike_path(@hike), data: {turbo_method: :put}, data: {confirm_button_target: "hikes"}, action: "click->confirm-button#change", class: "hike-confirm-button" %>
-        <% end %>
-      </div>
+    <div class="confirm-hike-button">
+      <% if @hike.hike_confirmed %>
+        <hr>
+        <p><em>This Hike is now confirmed! Get your backpack ready!</em></p>
+        <%= button_to 'Unconfirm Hike', unconfirm_hike_path(@hike), class: " btn-yellow hike-unconfirm-button" %>
+      <% else %>
+        <hr>
+        <p><em>This Hike isn't confirmed yet! Once you've decided a route, date, and time with your fellow Hikers, confirm the Hike so everyone knows it's happening.</em></p>
+        <%= button_to 'Confirm Hike', confirm_hike_path(@hike), class: "btn-yellow hike-confirm-button" %>
+      <% end %>
     </div>
   </div>
   <br>
       <div class="hike-page-hikers">
-        <h2>Hikers Joined</h2>
+        <h2>Hikers</h2>
 
         <div class="hikers-joined-details-flex">
           <% if @hike.user.photo.attached? %>
@@ -116,19 +126,23 @@
         <% end %>
 
           <p> There's space for <%= (@hike.max_people) - (@accepted_hiker.count + 1)%> more in this Hike!</p>
+          <hr>
+          <p><em>Chat to your fellow Hikers to coordinate your Hike!</em></p>
+          <%= button_to 'Hike Chat', chatroom_path, class: "btn-yellow" %>
+
       </div>
 
                   <!-- THIS IS THE SHOW PAGE WHEN YOU'VE REQUESTED AND ARE PENDING -->
     <% elsif  @request.last.request_pending == true && @request.last.request_accepted == false %>
       <div class="pending-button">
-        <button class= "pending-request-button">Pending</button>
+        <button class= "btn-yellow pending-request-button">Pending</button>
       </div>
 
 
                   <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN REJECTED -->
 
     <% elsif @request.last.request_pending == false && @request.last.request_accepted == false %>
-      <h2>Sorry, you have not been accepted into this Hike</h2>
+      <h3>Sorry, you have not been accepted into this Hike</h3>
     <% end %>
   </div>
 </div>
