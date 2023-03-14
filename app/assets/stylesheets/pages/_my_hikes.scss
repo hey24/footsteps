@@ -1,13 +1,39 @@
+.hike-request-card-flex {
+  display: flex;
+}
+
+.request-user-info-flex {
+  width: 70%;
+  margin-bottom: 0;
+}
+
+.request-accept-decline {
+
+}
+
+.request-accept-decline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.request-button-accept {
+  background-color: #92C47C;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.request-button-reject{
+
+}
+
+
 .my-created-hikes-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
-}
-
-.my-hikes-container {
-  background: linear-gradient(#083B24, rgba(8, 59, 36, 0.84));
-  height: 100vh;
-
 }
 
 .created-hikes-container {
@@ -17,18 +43,26 @@
   padding: 8px;
 }
 
+// .my-hikes-container {
+//   background: linear-gradient(#083B24, rgba(8, 59, 36, 0.84));
+//   height: 100vh;
+// }
+///
+
+
+
 .my-upcoming-hikes-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
 }
 
-.my-hikes-container {
-  background: linear-gradient(#083B24, rgba(8, 59, 36, 0.84));
-  height: auto;
-  background-repeat:none;
-  background-size:cover;
-}
+// .my-hikes-container {
+//   background: linear-gradient(#083B24, rgba(8, 59, 36, 0.84));
+//   height: auto;
+//   background-repeat:none;
+//   background-size:cover;
+// }
 
 .upcoming-hikes-container {
   background-color: white;
@@ -37,12 +71,12 @@
   padding: 8px;
 }
 
-.requested-hikes-container{
-  background-color: white;
-  border-radius: 5px;
-  margin: 8px;
-  padding: 8px;
-}
+// .requested-hikes-container{
+//   background-color: white;
+//   border-radius: 5px;
+//   margin: 8px;
+//   padding: 8px;
+// }
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

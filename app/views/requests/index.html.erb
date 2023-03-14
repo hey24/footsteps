@@ -1,9 +1,46 @@
-<div class="my-hikes-container">
-  <div class="requests-page-title-container">
-    <h2>My Hikes</h2>
+<div class="page-container-flex">
+  <div class="hike-title-avatars-flex">
+    <h1>My Hikes</h1>
   </div>
-  <div class="created-hikes-container">
-    <h3>My Created Hikes</h3>
+
+  <br>
+
+  <div class="hike-page-info-card">
+    <h3>My Requests</h3>
+
+    <% if !@pending_requests.nil? %>
+      <% @pending_requests.each do |request| %>
+        <% if request.hike.user == current_user %>
+
+          <div class="hike-request-card-flex">
+            <div class="hikers-joined-details-flex request-user-info-flex">
+
+              <% if request.user.photo.attached? %>
+                <%= cl_image_tag request.user.photo.key, class: "avatar-large" %>
+              <% end %>
+
+              <p><%= request.user.first_name %> wants to join <%= request.hike.hike_name %> </p>
+            </div>
+
+            <div class="request-accept-decline">
+              <%= button_to 'Accept', request_accept_path(request), method: :post, class: "request-button-accept" %>
+              <%= link_to 'Reject', request_reject_path(request), method: :post, class: "request-button-reject" %>
+            </div>
+
+          </div>
+          <br>
+        <% end %>
+      <% end %>
+    <% end %>
+
+
+
+
+
+<% if false %>
+
+  <div class="hike-page-info-card">
+    <h2>My Created Hikes</h2>
     <div class="my-created-hikes-cards">
       <% @hikes.each do |hike| %>
         <%= link_to hike_path(hike) do %>
@@ -27,14 +64,12 @@
         <% end %>
       <% end %>
     </div>
-  </div>
 
-  <div class="hike-requests-container">
-    <h3>My Requests</h3>
-    <div class="hike-request-cards">
-      <% @pending_requests.each do |request| %>
-        <% if request.hike.user == current_user %>
-          <div class="my-pending-requests">
+  <br>
+
+
+
+          <div class="my-incoming-requests">
             <%= link_to user_path(request.user) do %>
               <div class="avatar-content-flex">
                 <div class="pending-content">
@@ -52,8 +87,6 @@
                 </div>
               </div>
           </div>
-        <% end %>
-      <% end %>
     </div>
   </div>
 
@@ -111,3 +144,6 @@
     <% end %>
   </div>
 </div>
+
+
+ <% end %>
