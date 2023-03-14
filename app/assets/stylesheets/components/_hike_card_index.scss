@@ -1,44 +1,46 @@
 .hike-card-index {
-  width: 275px;
-  height: 197px;
-  background-color: $dark-blue;
+  width: 250px;
+  height: 177px;
   border-radius: 7px;
   overflow: hidden;
   
   .hike-card-img {
-    width: 275px;
+    width: 250px;
     height: 99px;
     background-size: cover;
     background-position: center;
   }
-
+  
   .hike-card-bottom-section-flex {
-    height: 99px;
+    height: 90px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+    background-color: #104f85;
+    opacity: 0.85;
+  
     
 
     .hike-card-info {
 
       .hike-card-name {
         margin-top: 4px;
-        margin-left: 8px;
-        margin-bottom: 4px;
         color: $white;
-
+        font-size: 18px;
+        text-align: start;
+      
       }
-
+      
       .hike-card-text {
-        margin-left: 8px;
         margin-bottom: 4px;
         color: $white;
-
+        text-align: start;
+        padding-bottom: 2px;
+      
       }
     }
-
+    
     .hike-card-btn {
-      margin: 16px;
       display: flex;
       align-items: center;
     }

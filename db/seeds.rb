@@ -70,7 +70,7 @@ hike2.save!
 
 hike3_photo = URI.open('https://img.redbull.com/images/c_crop,x_0,y_0,h_3024,w_4032/c_fill,w_2060,h_1545/q_auto:low,f_auto/redbullcom/2018/08/14/0f8c6588-95fa-4f97-b7df-14556c3d9702/old-harry-rocks')
 hike3 = Hike.new(
-  hike_name:"Harrys Rock Walk",
+  hike_name:"Old Harry Rocks Walk",
   hike_description:"This walk takes in the most famous landmark on this stretch of Dorset coast – Old Harry Rocks. Starting at Knoll Beach we will head south, follow the coastline and will pass, features from World War Two and then Old Harry Rocks come into view. The white chalk cliffs are highlighted against the blue sea on a sunny day and you can hear the waves slamming into the caves down below the cliffs.",
   difficulty: "easy",
   distance:10,
@@ -151,7 +151,7 @@ hike7.save!
 
 hike8_photo = URI.open('https://deih43ym53wif.cloudfront.net/large_Pyg%20track-snowdonia-shutterstock_1437725384_07770f60e6.jpeg')
 hike8 = Hike.new(
-  hike_name: "Pyg Track Intense Hike!",
+  hike_name: "Pyg Track",
   hike_description: "This is an incredibly scenic route that's suitable for beginner day hikers as it's not too challenging or technical",
   difficulty: "medium",
   distance: 7,
@@ -167,7 +167,7 @@ hike8.save!
 
 hike9_photo = URI.open('https://deih43ym53wif.cloudfront.net/large_Scafell_Pike-shutterstock_1594703968_4ae9ad6e0c.jpeg')
 hike9 = Hike.new(
-  hike_name: "Scafell Pike (Really Intense)",
+  hike_name: "Scafell Pike",
   hike_description: "a serious peak in the Lake District that's looked after by the National Trust. The climb is a challenging day hike and should never be underestimated. This is definitely not a route for “have-a-go” hikers, as the steep and rocky terrain will require experience, proper equipment and technical skills.",
   difficulty: "hard",
   distance: 7,
