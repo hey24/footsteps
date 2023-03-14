@@ -44,7 +44,7 @@
             <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
           <% end %>
         </div>
-        <div id="map" data-controller="hike-map" data-hike-map-marker-coordinates-value="<%= @marker_coordinates.to_json %>" data-hike-map-start-coordinates-value="<%= @start_coordinates.to_json %>" style="height: 200px;" data-hike-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        <div id="map" data-controller="hike-map" data-hike-map-marker-initial-coordinates-value="<%= @marker_initial_coordinates.to_json %>" data-hike-map-marker-finish-coordinates-value="<%= @marker_finish_coordinates.to_json %>" data-hike-map-marker-coordinates-value="<%= @marker_coordinates.to_json %>" data-hike-map-start-coordinates-value="<%= @start_coordinates.to_json %>" style="height: 200px;" data-hike-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
     </div>
