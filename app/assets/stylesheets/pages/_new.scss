@@ -13,3 +13,13 @@
 //   display: flex;
 //   flex-direction: column;
 // }
+.info-box {
+  position: absolute;
+  margin: 8px;
+  width: 75%;
+  top: 0;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}

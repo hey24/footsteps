@@ -76,6 +76,7 @@
 }
 
 .hike-icons-map {
+  position: relative;
   background-color: white;
   border-radius: 5px;
   padding: 4px;
@@ -83,6 +84,9 @@
 }
 
 .map-icons-flex {
+  position: absolute;
+  width: 98%;
+  top: 0;
   display: flex;
   justify-content: space-between;
 
@@ -180,4 +184,23 @@
 
 .fa-calendar{
   box-shadow: 1px 1px 1px lightgray;
+}
+
+.minimize-box {
+  position: absolute;
+  margin: 8px;
+  top: 0;
+  padding: 8px;
+  background-color: #a1c0763d;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.map-icons-box {
+  margin: 8px;
+  font-size: 14px;
+  padding: 4px;
+  background-color: #a1c0763d;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
