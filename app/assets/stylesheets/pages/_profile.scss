@@ -65,31 +65,14 @@
       bottom: 0;
       border-radius: 5px;
       font-size: 18px;
+
     }
 
   }
 
-  // .btn-yellow {
-  //   width: 60%;
-  //   background-color: $footsteps-yellow;
-
-  //   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  //   border-radius: 10px;
-  //   padding: 16px 16px;
-  //   margin: 30px;
-
-  //   a {
-  //     color: $dark-green;
-  //     text-decoration: none;
-  //     font-weight: bold;
-  //     font-size: 18;
-  //   }
-
-  // }
-
-  a {
-    color: $dark-green;
+ .logoutlink-profile {
     text-decoration: none;
+    color: $dark-green;
     font-weight: bold;
     font-size: 18;
   }
