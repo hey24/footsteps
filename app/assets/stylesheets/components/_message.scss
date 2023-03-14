@@ -14,9 +14,13 @@
 }
 
 .sender-style {
-  background-color: #083B24;
+  background: $dark-green-gradient;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .receiver-style {
-  background-color: #A1C076;
+  background:linear-gradient(180deg, #1F304C 0%, rgba(21, 53, 95, 0.77) 50%);
+  padding-left: 10px;
+  padding-right: 10px;
 }

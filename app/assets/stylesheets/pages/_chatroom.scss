@@ -1,0 +1,21 @@
+.chatroom-button{
+  height: 38px;
+  background-color: $footsteps-yellow;
+  color: $dark-green;
+  border-radius: 0px 8px 8px 0px;
+}
+.chatroom {
+  height:94vh;
+  background-color: #A1C076;
+  background: linear-gradient(180deg, #A1C076 0%, #6e847ac4 100%);
+  margin-top:0px;
+  h1 {
+    color: $dark-green;
+    font-weight:900;
+  }
+}
+
+// .messages{
+//   background-color: #A1C076;
+//   background: linear-gradient(180deg, #A1C076 0%, #6e847ac4 100%);
+// }
