@@ -88,20 +88,11 @@
 
   a {
     font-weight: 100;
-    // text-decoration: underline;
   }
 
   a:hover {
     color: $footsteps-yellow
   }
-
-  // .fa-up-right-and-down-left-from-center {
-  //   font-weight: 100;
-  // }
-}
-
-.hike-page-info-text {
-
 }
 
 .hike-page-details-flex {
@@ -181,9 +172,11 @@
   }
 }
 
-
 .green-pin {
   width: 19px;
   position: relative;
   top: -13px;
+
+.fa-calendar{
+  box-shadow: 1px 1px 1px lightgray;
 }

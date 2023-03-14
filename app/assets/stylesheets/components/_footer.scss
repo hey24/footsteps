@@ -2,7 +2,7 @@
   position:fixed;
   bottom:0;
   width:100%;
-  height:90px;
+  height:60px;
 }
 
 .footer-icons-flexbox {
@@ -10,7 +10,7 @@
   justify-content: space-between;
   background-color: #083B24;
   color: #A1C076;
-  height: 90px;
+  height: 60px;
   align-items: center;
   // padding: 0 20px;
   position: relative;
@@ -30,12 +30,12 @@
 
 .footer-add-button {
   position: absolute;
-  bottom: 40px;
+  bottom: 25px;
   left: 43%;
 }
 
 .footer-icon {
-  font-size: 44px;
+  font-size: 36px;
   // margin: 0 20px;
   text-decoration: none;
 }
@@ -47,10 +47,11 @@
 
 .footer-plus-icon {
   text-align: center;
-  font-size: 64px;
-  color: $footsteps-yellow;
+  font-size: 56px;
+  color: #F4B62D;
 }
 
-.fa-shoe-prints{
+.fa-house-blank{
+  font-size: 36px;
   margin-top:12px;
 }
