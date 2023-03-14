@@ -26,18 +26,20 @@
       <h1><%= @hike.hike_name%></h1>
       <p>Creator: <%= @hike.user.first_name %></p>
       <div class="hike-icons-map">
-      <div class="map-icons-flex">
-        <% if @hike.user == current_user %>
-          <% if @hike.markers.exists? %>
-            <%= link_to 'Update route', new_hike_route_path(@hike) %>
+        <div class="map-icons-flex">
+          <% if @hike.user == current_user %>
+            <% if @hike.markers.exists? %>
+              <%= link_to 'Update route', new_hike_route_path(@hike) %>
+            <% else %>
+              <%= link_to 'Add route', new_hike_route_path(@hike) %>
+            <% end %>
           <% else %>
-            <%= link_to 'Add route', new_hike_route_path(@hike) %>
+            <p> </p>
           <% end %>
-        <% end %>
-        <%= link_to hike_routes_path(@hike) do %>
-          <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-        <% end %>
-      </div>
+          <%= link_to hike_routes_path(@hike) do %>
+            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+          <% end %>
+        </div>
         <div id="map" data-controller="hike-map" data-hike-map-marker-coordinates-value="<%= @marker_coordinates.to_json %>" data-hike-map-start-coordinates-value="<%= @start_coordinates.to_json %>" style="height: 200px;" data-hike-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
     </div>
