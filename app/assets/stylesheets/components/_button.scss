@@ -2,14 +2,17 @@
   background-color: $footsteps-yellow;
   text-decoration: none;
   color: $dark-green;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
   padding: 8px 16px;
-  margin-top: 16px;
+  margin-top: 8px;
   align-self: center;
+  margin-bottom: 16px;
+  border: $dark-green;
+  width: 200px;
 
-  :hover {
-    color: rgb(215, 215, 215);
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.393);
+  &:hover {
+    box-shadow: rgba(246, 217, 3, 0.25) 0px 30px 60px -12px inset,rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }
 }

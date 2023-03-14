@@ -6,7 +6,7 @@ class RequestsController < ApplicationController
     @requests = Request.where(user_id: @user_id)
     @pending_requests = Request.where(request_pending: true)
     @hikes = Hike.where(user_id: @user_id)
-    @accepted_requests = Request.where(request_accepted: true)
+    @accepted_requests = Request.accepted
   end
 
   def create
@@ -14,7 +14,7 @@ class RequestsController < ApplicationController
     @request.hike = @hike
     @request.user = current_user
     if @request.save
-      redirect_to requests_path
+      redirect_to hike_path(@hike)
     else
       render 'requests/new', status: :unprocessable_entity
     end

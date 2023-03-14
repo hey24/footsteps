@@ -34,9 +34,20 @@ class HikesController < ApplicationController
     @request = Request.where(hike: @hike, user: current_user)
     @accepted_requests = Request.where(hike: @hike, request_accepted: true)
 
+    if @hike.in_past?
+      @hike.complete_hike!
+    end
+
     @accepted_hiker = @accepted_requests.each do |request|
       User.where(id: request.user_id).first
     end
+    @markers = @hike.markers.order(:order)
+    if @markers.nil?
+      @markers_coordinates = nil
+    else
+      @marker_coordinates = @markers.map { |marker| [marker.longitude, marker.latitude] }
+    end
+    @start_coordinates = [@hike.longitude, @hike.latitude]
   end
 
   def edit; end
@@ -70,7 +81,7 @@ class HikesController < ApplicationController
     else
       render 'hikes/show', status: :unprocessable_entity
     end
-   end
+  end
 
   def route
     @hike = Hike.find(params[:hike_id])

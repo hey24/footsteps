@@ -1,46 +1,7 @@
-<div id="map" data-marker-coordinates="<%= @marker_coordinates.to_json %>" data-start-coordinates="<%= @start_coordinates.to_json %>" style="height: 500px;"></div>
-
-<script>
-
-var startCoordinates = JSON.parse(document.getElementById("map").dataset.startCoordinates);
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcG9ydCIsImEiOiJjbGV5N2EycGUwa3FvM3FwNGw0bTB1d3BuIn0.Mxbnq-7KTp7hMtPIFoPYmA';
-const map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/outdoors-v12',
-center: startCoordinates,
-zoom: 12
-});
-
-map.on('load', () => {
-
-  var markerCoordinates = JSON.parse(document.getElementById("map").dataset.markerCoordinates);
-
-  console.log(markerCoordinates)
-  map.addSource('route', {
-    'type': 'geojson',
-    'data': {
-      'type': 'Feature',
-      'properties': {},
-      'geometry': {
-        'type': 'LineString',
-        'coordinates': markerCoordinates
-      }
-    }
-  });
-
-  map.addLayer({
-  'id': 'route',
-  'type': 'line',
-  'source': 'route',
-  'layout': {
-  'line-join': 'round',
-  'line-cap': 'round'
-  },
-  'paint': {
-  'line-color': '#F4B62D',
-  'line-width': 8
-  }
-  });
-});
-</script>
+<div class="map-route-container">
+  <div id="map" data-controller="hike-map" data-hike-map-marker-coordinates-value="<%= @marker_coordinates.to_json %>" data-hike-map-start-coordinates-value="<%= @start_coordinates.to_json %>" style="height: 730px;" data-hike-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <%= link_to hike_path(@hike) do %>
+    <i class="fa-solid fa-down-left-and-up-right-to-center"></i>
+    <span>minimise</span>
+  <% end %>
+</div>
