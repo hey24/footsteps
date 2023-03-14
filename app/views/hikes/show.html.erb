@@ -83,9 +83,15 @@
 
     <!-- THIS IS THE SHOW PAGE WHEN YOU HAVEN'T REQUESTED TO JOIN -->
   <% if @request.empty? && @hike.user != current_user %>
+    <% if @accepted_requests.count + 1 == @hike.max_people %>
+      <div class="pending-button">
+        <button class= "btn-yellow pending-request-button"> Hike Full, Sorry!</button>
+      </div>
+    <% else %>
     <div class="request-button">
       <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "btn-yellow"%>
     </div>
+    <% end %>
 
         <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN ACCEPTED -->
   <% elsif @hike.user == current_user || @request.last.request_pending == false && @request.last.request_accepted == true %>
@@ -146,7 +152,7 @@
                   <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN REJECTED -->
 
     <% elsif @request.last.request_pending == false && @request.last.request_accepted == false %>
-      <h3>Sorry, you have not been accepted into this Hike</h3>
+      <p>Sorry, you have not been accepted into this Hike</p>
     <% end %>
   </div>
 </div>
