@@ -167,7 +167,7 @@ hike8.save!
 
 hike9_photo = URI.open('https://deih43ym53wif.cloudfront.net/large_Scafell_Pike-shutterstock_1594703968_4ae9ad6e0c.jpeg')
 hike9 = Hike.new(
-  hike_name: "Scafell Pike",
+  hike_name: "Scafell Pike", 
   hike_description: "a serious peak in the Lake District that's looked after by the National Trust. The climb is a challenging day hike and should never be underestimated. This is definitely not a route for “have-a-go” hikers, as the steep and rocky terrain will require experience, proper equipment and technical skills.",
   difficulty: "hard",
   distance: 7,
