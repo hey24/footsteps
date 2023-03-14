@@ -6,6 +6,11 @@
 
   h1, h2 {
     font-weight: bold;
+    padding-bottom: 8px;
+  }
+
+  hr {
+    margin-right: 16px;
   }
 }
 
@@ -115,10 +120,8 @@
 }
 
 .hike-page-description {
-  padding-top: 8px;
+  padding: 8px;
   padding-left: 16px;
-  padding-bottom: 8px;
-
 }
 
 .request-button {
@@ -142,18 +145,10 @@
 
 .pending-request-button {
   background-color: #E3C47E;
-  // text-decoration: none;
-  // // color: $dark-green;
-  // // box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  // // border-radius: 10px;
-  // // padding: 8px 16px;
-  // // margin-top: 16px;
-  // // align-self: center;
-  // border:none;
-  // margin-left: 20px;
-  // padding: 20px;
-  // border-radius:5px;
-  // font-weight: 700;
+}
+
+.confirm-hike-button {
+  margin-left: 16px;
 }
 
 .hike-page-hikers {
@@ -164,11 +159,15 @@
   background-color: white;
   padding-left: 16px;
   padding-top: 16px;
+
+  hr {
+    margin-top: 40px;
+  }
 }
 
 .hikers-joined-details-flex {
   display: flex;
-  background: $footsteps-yellow-gradient;
+  background: $dark-green-gradient;
   padding: 8px;
   border-radius: 5px;
   margin-right: 16px;
