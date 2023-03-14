@@ -39,12 +39,21 @@
             <% else %>
               <%= link_to '+ Set route', new_hike_route_path(@hike) %>
             <% end %>
+          <% else %>
+            <p></p>
           <% end %>
           <%= link_to hike_routes_path(@hike) do %>
             <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
           <% end %>
         </div>
-        <div id="map" data-controller="hike-map" data-hike-map-marker-coordinates-value="<%= @marker_coordinates.to_json %>" data-hike-map-start-coordinates-value="<%= @start_coordinates.to_json %>" style="height: 200px;" data-hike-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        <div id="map"
+          data-controller="hike-map"
+          data-hike-map-marker-initial-coordinates-value="<%= @marker_initial_coordinates.to_json %>"
+          data-hike-map-marker-finish-coordinates-value="<%= @marker_finish_coordinates.to_json %>"
+          data-hike-map-marker-coordinates-value="<%= @marker_coordinates.to_json %>"
+          data-hike-map-start-coordinates-value="<%= @start_coordinates.to_json %>"
+          data-hike-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+          style="height: 200px;">
         </div>
       </div>
     </div>
@@ -81,9 +90,15 @@
 
     <!-- THIS IS THE SHOW PAGE WHEN YOU HAVEN'T REQUESTED TO JOIN -->
   <% if @request.empty? && @hike.user != current_user %>
+    <% if @accepted_requests.count + 1 == @hike.max_people %>
+      <div class="pending-button">
+        <button class= "btn-yellow pending-request-button"> Hike Full, Sorry!</button>
+      </div>
+    <% else %>
     <div class="request-button">
       <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "btn-yellow"%>
     </div>
+    <% end %>
 
         <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN ACCEPTED -->
   <% elsif @hike.user == current_user || @request.last.request_pending == false && @request.last.request_accepted == true %>
@@ -93,9 +108,13 @@
         <p><em>This Hike is now confirmed! Get your backpack ready!</em></p>
         <%= button_to 'Unconfirm Hike', unconfirm_hike_path(@hike), class: " btn-yellow hike-unconfirm-button" %>
       <% else %>
-        <hr>
-        <p><em>This Hike isn't confirmed yet! Once you've decided a route, date, and time with your fellow Hikers, confirm the Hike so everyone knows it's happening.</em></p>
-        <%= button_to 'Confirm Hike', confirm_hike_path(@hike), class: "btn-yellow hike-confirm-button" %>
+        <% if @hike.hike_date.blank? %>
+        <button class= "btn-yellow pending-request-button">Please Confirm Date</button>
+        <% else %>
+          <hr>
+          <p><em>This Hike isn't confirmed yet! Once you've decided a route, date, and time with your fellow Hikers, confirm the Hike so everyone knows it's happening.</em></p>
+          <%= button_to 'Confirm Hike', confirm_hike_path(@hike), class: "btn-yellow hike-confirm-button" %>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -124,12 +143,10 @@
             <% end %>
           </div>
         <% end %>
-
           <p> There's space for <%= (@hike.max_people) - (@accepted_hiker.count + 1)%> more in this Hike!</p>
           <hr>
           <p><em>Chat to your fellow Hikers to coordinate your Hike!</em></p>
-          <%= button_to 'Hike Chat', chatroom_path, class: "btn-yellow" %>
-
+          <p><%= link_to 'Hike Chat', hike_chatrooms_path(@hike), class: "btn-yellow" %></p>
       </div>
 
                   <!-- THIS IS THE SHOW PAGE WHEN YOU'VE REQUESTED AND ARE PENDING -->
@@ -142,7 +159,7 @@
                   <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN REJECTED -->
 
     <% elsif @request.last.request_pending == false && @request.last.request_accepted == false %>
-      <h3>Sorry, you have not been accepted into this Hike</h3>
+      <p>Sorry, you have not been accepted into this Hike</p>
     <% end %>
   </div>
 </div>

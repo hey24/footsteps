@@ -7,6 +7,19 @@ class MarkersController < ApplicationController
     @hike = Hike.find(params[:hike_id])
     @markers = @hike.markers.order(:order)
     @marker_coordinates = @markers.map { |marker| [marker.longitude, marker.latitude] }
+    if @markers.count != 0
+      @marker_coordinates = @markers.map { |marker| [marker.longitude, marker.latitude] }
+      @marker_initial_coordinates = {
+        lng: @markers[0].longitude,
+        lat: @markers[0].latitude,
+        marker_html: render_to_string(partial: "hikes/start_marker")
+      }
+      @marker_finish_coordinates = {
+        lng: @markers[-1].longitude,
+        lat: @markers[-1].latitude,
+        marker_html: render_to_string(partial: "hikes/finish_marker")
+      }
+    end
     @start_coordinates = [@hike.longitude, @hike.latitude]
   end
 
