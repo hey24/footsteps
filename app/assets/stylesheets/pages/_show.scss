@@ -5,13 +5,13 @@
   background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
 
   h1, h2 {
-    font-weight: bold;
     padding-bottom: 8px;
+    padding-top: 8px;
   }
 
-  hr {
-    margin-right: 16px;
-  }
+  // hr {
+  //   margin-right: 16px;
+  // }
 }
 
 .hike-img-title {
@@ -69,6 +69,10 @@
   overflow: hidden;
   background-color: white;
   padding-bottom: 24px;
+  padding: 8px 8px 24px;
+  // margin-top: 8px;
+  // margin-bottom: 8px;
+
 }
 
 .hike-route-container {
@@ -76,6 +80,7 @@
 }
 
 .hike-icons-map {
+  position: relative;
   background-color: white;
   border-radius: 5px;
   padding: 4px;
@@ -83,25 +88,19 @@
 }
 
 .map-icons-flex {
+  position: absolute;
+  width: 98%;
+  top: 0;
   display: flex;
   justify-content: space-between;
 
   a {
     font-weight: 100;
-    // text-decoration: underline;
   }
 
   a:hover {
     color: $footsteps-yellow
   }
-
-  // .fa-up-right-and-down-left-from-center {
-  //   font-weight: 100;
-  // }
-}
-
-.hike-page-info-text {
-
 }
 
 .hike-page-details-flex {
@@ -167,10 +166,10 @@
 
 .hikers-joined-details-flex {
   display: flex;
-  background: $dark-green-gradient;
+  background: $dark-blue-gradient;
   padding: 8px;
   border-radius: 5px;
-  margin-right: 16px;
+  margin-right: 8px;
   margin-bottom: 16px;
   align-items: center;
 
@@ -179,4 +178,49 @@
     margin-bottom: 0px;
     margin-left: 16px;
   }
+}
+
+.green-pin {
+  width: 19px;
+  position: relative;
+  top: -13px;
+}
+
+.fa-calendar{
+  box-shadow: 1px 1px 1px lightgray;
+}
+
+.minimize-box {
+  position: absolute;
+  margin: 8px;
+  top: 0;
+  padding: 8px;
+  background-color: #a1c0763d;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.minimize-box i {
+  text-decoration: none;
+  color: #083B24 ;
+}
+
+.map-icons-box {
+  margin: 8px;
+  font-size: 14px;
+  padding: 4px;
+  background-color: #a1c0768a;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.map-icons-box i {
+  text-decoration: none;
+  color: #083B24 ;
+}
+
+.map-icons-box a {
+  text-decoration: none;
+  color: #083B24 ;
+  font-weight: 800;
 }

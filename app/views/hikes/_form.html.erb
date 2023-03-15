@@ -2,7 +2,7 @@
   <%= simple_form_for @hike do |f| %>
     <%= f.input :hike_name, label: "Hike name:", placeholder: 'Cairngorms National Park Hike'%>
     <%= f.input :hike_description, label: "Description:", placeholder: 'A lovely hike with stops for lunch' %>
-    <%= f.input :difficulty, label: "Difficulty:", collection: ["Easy", "Medium", "Hard"] %>
+    <%= f.input :difficulty, label: "Difficulty:", collection: ["Easy 🟢", "Medium 🟡", "Hard 🔴"] %>
     <%= f.input :distance, label: "Distance (km):", placeholder: '10.5' %>
     <%= f.input :max_people, label: "Max. number of people:", placeholder: '5' %>
     <%= f.input :starting_point, as: :hidden, label: "Starting location:",

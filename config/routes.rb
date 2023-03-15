@@ -10,14 +10,15 @@ Rails.application.routes.draw do
     end
     resources :markers, only: [:index, :new, :create, :destroy], path: 'routes', as: :routes
     resources :requests, only: [:create]
-    resources :chatrooms, only: :show
+    resources :chatrooms, only: :index do
+      resources :messages, only: :create
+    end
   end
   resources :requests, only: [:index], path: 'my_hikes' do
     post "/accept", to: 'requests#accept'
     post "/reject", to: 'requests#reject'
   end
-
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: :index do
     resources :messages, only: :create
   end
 end

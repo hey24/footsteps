@@ -3,7 +3,7 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
-  <h1>#<%= @chatroom.name %></h1>
+  <h1>💬 <%= @chatroom.name %></h1>
 
 <div class="messages" data-chatroom-subscription-target="messages">
   <% @chatroom.messages.each do |message| %>
@@ -21,10 +21,10 @@
     class: "d-flex" } do |f| %>
       <%= f.input :content,
         label: false,
-        placeholder: "Message ##{@chatroom.name}",
+        placeholder: "Type Your Message Here...",
         wrapper_html: {class: "flex-grow-1"}
       %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <%= f.button :submit, class: "chatroom-button", value: "Send" %>
   <% end %>
 
 </div>
