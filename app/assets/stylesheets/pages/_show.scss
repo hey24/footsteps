@@ -2,7 +2,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 16px;
-  background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
+  // background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
 
   h1, h2 {
     padding-bottom: 8px;
@@ -69,10 +69,7 @@
   overflow: hidden;
   background-color: white;
   padding-bottom: 24px;
-  padding: 8px 8px 24px;
-  // margin-top: 8px;
-  // margin-bottom: 8px;
-
+  padding: 8px 8px 16px;
 }
 
 .hike-route-container {
@@ -127,12 +124,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // background-color: $footsteps-yellow;
-  // border:none;
-  // margin-left: 20px;
-  // padding: 20px;
-  // border-radius:5px;
-  // font-weight: 700;
 }
 
 .pending-button {
@@ -169,8 +160,8 @@
   background: $dark-blue-gradient;
   padding: 8px;
   border-radius: 5px;
-  margin-right: 8px;
-  margin-bottom: 16px;
+  margin-right: 4px;
+  margin-bottom: 12px;
   align-items: center;
 
   p {
