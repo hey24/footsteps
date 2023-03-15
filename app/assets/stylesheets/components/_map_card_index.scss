@@ -1,0 +1,50 @@
+.map-card-index {
+  width: 250px;
+  height: 181px;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.map-card-img {
+  width: 250px;
+  height: 99px;
+  background-size: cover;
+  background-position: center;
+}
+
+.map-card-bottom-section-flex {
+  height: 94px;
+  display: flex;
+  background-color: #104f85;
+  opacity: 0.85;
+  text-align: start;
+  margin-bottom: 3px;
+  justify-content: space-between;
+
+}
+
+.map-card-name {
+  color: $white;
+  font-size: 18px;
+  padding-top: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-bottom: 0px;
+}
+
+.map-card-text {
+  color: $white;
+  padding-left: 3px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.map-card-btn {
+  background-color: $footsteps-yellow;
+  text-decoration: none;
+  color: $dark-green;
+  font-weight: bold;
+  width: 100px;
+  text-align: center;
+
+}
