@@ -9,9 +9,11 @@
     padding-top: 8px;
   }
 
-  // hr {
-  //   margin-right: 16px;
-  // }
+  hr {
+    border-top: 1px solid;
+    color: grayscale($color: #282626);
+    width: 100px;
+  }
 }
 
 .hike-img-title {
@@ -35,9 +37,7 @@
   justify-content: space-between;
   background-color: white;
   border-radius: 5px;
-  padding-left: 8px;
-  padding-bottom: 0;
-  padding-top: 16px;
+  padding: 16px 8px 16px 8px;
 }
 
 .edit-delete-icons {
@@ -68,12 +68,15 @@
   border-radius: 5px;
   overflow: hidden;
   background-color: white;
-  padding-bottom: 24px;
-  padding: 8px 8px 16px;
+  padding: 16px;
+  // padding-bottom: 24px;
+  // padding: 8px 8px 24px;
+  // margin-top: 8px;
+  // margin-bottom: 8px;
 }
 
 .hike-route-container {
-  padding: 8px;
+  // padding: 8px;
 }
 
 .hike-icons-map {
@@ -103,8 +106,10 @@
 .hike-page-details-flex {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 8px;
-  padding-left: 16px
+  padding: 8px;
+  // padding-bottom: 8px;
+  // padding-left: 8px;
+  // padding-right: 8px;
 }
 
 .hike-page-details-1 {
@@ -116,8 +121,7 @@
 }
 
 .hike-page-description {
-  padding: 8px;
-  padding-left: 16px;
+  padding-bottom: 8px;
 }
 
 .request-button {
@@ -137,8 +141,22 @@
   background-color: #E3C47E;
 }
 
-.confirm-hike-button {
-  margin-left: 16px;
+.confirm-hike-button-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  // .hike-confirm-button {
+  //   align-self: center;
+  // }
+}
+
+.hike-chat-button-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .hike-page-hikers {
@@ -147,8 +165,9 @@
   border-radius: 5px;
   overflow: hidden;
   background-color: white;
-  padding-left: 16px;
-  padding-top: 16px;
+  padding: 16px;
+  // padding-left: 16px;
+  // padding-top: 16px;
 
   hr {
     margin-top: 40px;
@@ -160,8 +179,7 @@
   background: $dark-blue-gradient;
   padding: 8px;
   border-radius: 5px;
-  margin-right: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   align-items: center;
 
   p {
@@ -186,7 +204,7 @@
   margin: 8px;
   top: 0;
   padding: 8px;
-  background-color: #a1c0763d;
+  // background-color: #a1c0763d;
   border-radius: 5px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
@@ -200,7 +218,6 @@
   margin: 8px;
   font-size: 14px;
   padding: 4px;
-  background-color: #a1c0768a;
   border-radius: 5px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
@@ -213,5 +230,13 @@
 .map-icons-box a {
   text-decoration: none;
   color: #083B24 ;
-  font-weight: 800;
+  // font-weight: 800;
+}
+
+#set-route.map-icons-box {
+  background-color: white;
+}
+
+#maximise.map-icons-box {
+  background-color: none;
 }
