@@ -1,4 +1,5 @@
-<div class="login-form-container">
+
+<%# <div class="login-form-container"> %>
 <%# <div class="form-content"> %>
   <%= simple_form_for @hike do |f| %>
     <%= f.input :hike_name, label: "Hike name:", placeholder: 'Cairngorms National Park Hike'%>
@@ -13,12 +14,14 @@
       %>
     <%= f.input :hike_date, as: :string,
                 wrapper_html: { class: "mb-4" },
-                label_html: { class: "form-label text-secondary fw-bold" },
+                label_html: { class: "form-label" },
                 input_html: { data: { controller: "flatpickr" } } %>    <%= f.input :photo, as: :file %>
     <div>
       <%= f.button :submit, class: "btn-yellow" %>
     </div>
   <%end%>
+
+<%# </div> %>
+
 </div>
-<%# <div class="login-form-container"> %>
-<br>
+
