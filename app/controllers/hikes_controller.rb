@@ -58,6 +58,8 @@ class HikesController < ApplicationController
       }
     end
     @start_coordinates = [@hike.longitude, @hike.latitude]
+
+
   end
 
   def edit; end

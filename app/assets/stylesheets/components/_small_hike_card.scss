@@ -6,19 +6,29 @@
   position: relative;
   background-size: cover;
   background-position: cover;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .small-hike-card img {
   border-radius: 5px;
 }
 
-.small-hike-card p {
+.small-hike-card-name {
   color: white;
-  background-color: #083B24;
+  background: $dark-blue-gradient;
   opacity: 0.8;
-  margin: 0;
+  margin: 8px 0px 8px;
   padding: 4px;
   position: absolute;
   bottom: 0;
   border-radius: 5px;
+}
+
+.your-hike {
+  position: absolute;
+  top: 0;
+  background-color: white;
+  border-radius: 5px;
+  padding: 4px;
+  color: $dark-green;
 }
