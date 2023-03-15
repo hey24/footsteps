@@ -44,8 +44,8 @@ hike1 = Hike.new(
   max_people: 3,
   hike_date: '2023-03-03',
   hike_confirmed: true,
-  hike_completed: false,
-  user_id: user1.id,
+  hike_completed: true,
+  user_id: user3.id,
   starting_point: "Cairngorms National Park"
 )
 hike1.photo.attach(io: hike1_photo, filename: "nes.png", content_type: "image/png")
@@ -78,7 +78,7 @@ hike3 = Hike.new(
   max_people: 5,
   hike_date: '2024-01-01',
   hike_confirmed: true,
-  hike_completed: true,
+  hike_completed: false,
   user_id: user3.id,
   starting_point: "Isle of Purbeck"
 )
@@ -127,7 +127,7 @@ hike6 = Hike.new(
   max_people: 10,
   hike_confirmed: false,
   hike_completed: false,
-  user_id: user5.id,
+  user_id: user1.id,
   starting_point: "Portrush, Coleraine, Nothern Island"
 )
 hike6.photo.attach(io: hike6_photo, filename: "nes.png", content_type: "image/png")
@@ -173,7 +173,8 @@ hike9 = Hike.new(
   distance: 7,
   duration: 4.32e+7,
   max_people: 3,
-  hike_confirmed: false,
+  hike_date: "2023-03-24",
+  hike_confirmed: true,
   hike_completed: false,
   user_id: user3.id,
   starting_point: "Lake District, Cumbria"
@@ -203,10 +204,12 @@ puts "Creating Requests"
 Request.create!(user_id: user1.id, hike_id: hike2.id)
 Request.create!(user_id: user1.id, hike_id: hike3.id)
 Request.create!(user_id: user2.id, hike_id: hike1.id)
-Request.create!(user_id: user3.id, hike_id: hike1.id)
-Request.create!(user_id: user5.id, hike_id: hike8.id)
 Request.create!(user_id: user2.id, hike_id: hike6.id)
 Request.create!(user_id: user1.id, hike_id: hike9.id)
+
+
+Request.create!(user_id: user3.id, hike_id: hike8.id)
+Request.create!(user_id: user3.id, hike_id: hike10.id)
 
 
 
