@@ -1,5 +1,5 @@
 meta_product_name: "Footsteps"
 meta_title: "Footsteps - Connecting Hikers One Step at a Time"
 meta_description: "Discover new hikes and friends using Footsteps"
-meta_image: "cover.jpeg" # should exist in `app/assets/images/`
+meta_image: "cover.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
