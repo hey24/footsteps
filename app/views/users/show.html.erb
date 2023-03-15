@@ -13,11 +13,8 @@
     </div>
   </div>
 
-  <div class="user-hikes-cards d-flex flex-column align-items-center">
-    <div class="hike h2">
+  <div class="user-hikes-cards d-flex flex-column ">
       <h2>Completed Hikes ⛰</h2>
-    </div>
-    <%# for each hike of this user tht is completed, show it below: %>
       <div class="d-flex flex-wrap gap-3">
         <% @user.all_completed_hikes.each do |hike| %>
           <%= link_to hike_path(hike) do %>
