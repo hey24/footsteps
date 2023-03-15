@@ -2,7 +2,7 @@
   <div class="map-card-img" style="background-image: url('<%= cl_image_path @hike.photo.key %>')"></div>
   <div class="map-card-bottom-section-flex">
     <div class="map-card-info">
-      <p class="map-card-name"><%= @hike.hike_name %></p>
+      <p class="map-card-name"><%= @hike.hike_name.truncate(20, separator: ',') %></p>
       <p class="map-card-text">Difficulty: <%= @hike.difficulty %></p>
       <p class="map-card-text">Distance: <%= @hike.distance %></p>
     </div>
