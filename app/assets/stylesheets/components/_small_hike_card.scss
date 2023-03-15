@@ -16,19 +16,22 @@
 .small-hike-card-name {
   color: white;
   background: $dark-blue-gradient;
-  opacity: 0.8;
-  margin: 8px 0px 8px;
+  opacity: 0.7;
+  margin-bottom:0px;
   padding: 4px;
   position: absolute;
   bottom: 0;
   border-radius: 5px;
+  width:100%;
 }
 
 .your-hike {
   position: absolute;
   top: 0;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 5px 0px 5px 0px;
   padding: 4px;
   color: $dark-green;
+  opacity:0.7;
+  padding:4px;
 }
