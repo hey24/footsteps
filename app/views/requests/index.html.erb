@@ -1,40 +1,34 @@
 <div class="page-container-flex">
-  <%# <div class="hike-title-avatars-flex"> %>
     <h1 class="main-title">My Hikes</h1>
-  <%# </div> %>
-
-  <br>
 
   <div class="hike-page-info-card">
     <h2>My Requests</h2>
-    <% @pending_requests.each do |request| %>
-      <% if request.hike.user == current_user %>
-
+    <% if current_user.received_requests.pending.empty? %>
+      <p>You currently don't have any requests.</p>
+    <% end %>
+      <% @pending_requests.each do |request| %>
+        <% if request.hike.user == current_user %>
         <div class="hike-request-card-flex">
-        <% if !@pending_requests.nil? %>
-          <%# <div class="hikers-joined-details-flex request-user-info-flex"> %>
-          <%= link_to user_path(request.user), class: "hikers-joined-details-flex request-user-info-flex" do %>
+          <% if !@pending_requests.nil? %>
+            <%= link_to user_path(request.user), class: "hikers-joined-details-flex request-user-info-flex" do %>
 
-              <% if request.user.photo.attached? %>
-                <%= cl_image_tag request.user.photo.key, class: "avatar-large" %>
-              <% end %>
+                <% if request.user.photo.attached? %>
+                  <%= cl_image_tag request.user.photo.key, class: "avatar-large" %>
+                <% end %>
 
-              <p><%= request.user.first_name %> wants to join "<%= request.hike.hike_name.truncate(20, separator: ',')%>" </p>
+                <p><%= request.user.first_name %> wants to join "<%= request.hike.hike_name.truncate(20, separator: ',')%>" </p>
+
+            <% end %>
+
+            <div class="request-accept-decline">
+              <%= button_to 'Accept', request_accept_path(request), method: :post, class: "request-button-accept" %>
+              <%= button_to 'Ignore', request_reject_path(request), method: :post, class: "request-button-reject" %>
+            </div>
 
           <% end %>
-          <%# </div> %>
-
-          <div class="request-accept-decline">
-            <%= button_to 'Accept', request_accept_path(request), method: :post, class: "request-button-accept" %>
-            <%= link_to 'Ignore', request_reject_path(request), method: :post, class: "request-button-reject" %>
           </div>
-        <% else %>
-          <p>You don't have any requests!</p>
         <% end %>
-      </div>
-      <br>
       <% end %>
-    <% end %>
   </div>
 
   <br>
