@@ -1,23 +1,18 @@
 .profile-container-flex {
-    flex-direction: column;
-    justify-content: center;
     padding: 24px;
-    background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
+    // background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
     min-height: 100vh;
     border-right: none;
-
     h1 {
       color: $footsteps-yellow;
       filter:  drop-shadow(4px 4px 4px $gray)
     }
-
   }
 
   .user-bio-flex {
     background-color: white;
     border-radius: 8px;
     margin-bottom: 20px;
-
   }
 
   img {
@@ -27,7 +22,6 @@
 
   .user-details {
     padding: 6px;
-
   }
 
 
@@ -39,11 +33,11 @@
     background: white;
     border-radius: 5px;
     padding: 7px;
-    justify-content: space-evenly;
 
     h2 {
       text-align: start;
     }
+  }
 
     .profile-hike-card {
       display: flex;
@@ -65,14 +59,12 @@
       bottom: 0;
       border-radius: 5px;
       font-size: 18px;
-
     }
-
-  }
 
  .logoutlink-profile {
     text-decoration: none;
     color: $dark-green;
     font-weight: bold;
-    font-size: 18;
-  }
+      display:flex;
+      justify-content: center;
+    }

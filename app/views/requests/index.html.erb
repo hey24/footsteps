@@ -9,6 +9,7 @@
       <% @pending_requests.each do |request| %>
         <% if request.hike.user == current_user %>
         <div class="hike-request-card-flex">
+          <div class="hikers-joined-details-flex">
           <% if !@pending_requests.nil? %>
             <%= link_to user_path(request.user), class: "hikers-joined-details-flex request-user-info-flex" do %>
 
@@ -26,6 +27,7 @@
             </div>
 
           <% end %>
+            </div>
           </div>
         <% end %>
       <% end %>
@@ -35,6 +37,9 @@
 
   <div class="hike-page-info-card">
     <h2>My Upcoming Hikes</h2>
+          <% if current_user.upcoming_owned_hikes.empty?  && current_user.upcoming_joined_hikes.empty? %>
+        <p> You currently dont have any upcoming hikes </p>
+      <% else %>
     <div class="upcoming-hikes-flex-grid">
       <% current_user.upcoming_owned_hikes.each do |hike| %>
         <div class="upcoming-hike-and-info">
@@ -95,95 +100,11 @@
         </div>
       <% end %>
     </div>
-  </div>
-
-
-
-<% if false %>
-
-  <%= link_to user_path(request.user) do %>
-
-  <div class="upcoming-hikes-container">
-    <h3>My Upcoming Hikes</h3>
-    <div class="my-upcoming-hikes-cards">
-      <% @accepted_requests.each do |request| %>
-        <% if request.hike.user != current_user && request.user == current_user %>
-          <%= link_to hike_path(request.hike) do %>
-            <% if request.hike.photo.attached? %>
-              <div
-                class="small-hike-card"
-                style="background-image: linear-gradient(rgba(0,0,0,0.3),
-                rgba(0,0,0,0.3)), url('<%= cl_image_path request.hike.photo.key, height: 160, crop: :fill %>')"
-              >
-                <p><%= request.hike.hike_name.truncate(20) %></p>
-              </div>
-            <% else %>
-              <div
-              class="small-hike-card"
-              style="background-image: linear-gradient(rgba(0,0,0,0.3),
-              rgba(0,0,0,0.3)), url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')"
-              >
-                <p><%= request.hike.hike_name.truncate(20) %></p>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
     <% end %>
+  </div>
+  <div class="backbuttonrequests">
+    <div class="btn btn-yellow">
+      <%= link_to "Find more hikes", hikes_path, class: "logoutlink-profile"%>
     </div>
-  </div>
-
-  <div class="requested-hikes-container">
-    <h3>My Pending Requests</h3>
-    <% @pending_requests.each do |request| %>
-      <% if request.user == current_user %>
-        <% if request.hike.photo.attached? %>
-            <div
-              class="small-hike-card"
-              style="background-image: linear-gradient(rgba(0,0,0,0.3),
-              rgba(0,0,0,0.3)), url('<%= cl_image_path request.hike.photo.key, height: 160, crop: :fill %>')"
-            >
-              <p><%= request.hike.hike_name.truncate(20) %></p>
-            </div>
-          <% else %>
-            <div
-            class="small-hike-card"
-            style="background-image: linear-gradient(rgba(0,0,0,0.3),
-            rgba(0,0,0,0.3)), url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')"
-            >
-              <p><%= request.hike.hike_name.truncate(20) %></p>
-            </div>
-          <% end %>
-      <% end %>
-    <% end %>
   </div>
 </div>
-
-  <div class="hike-page-info-card">
-    <h2>My Created Hikes</h2>
-    <div class="my-created-hikes-cards">
-      <% @hikes.each do |hike| %>
-        <%= link_to hike_path(hike) do %>
-          <% if hike.photo.attached? %>
-            <div
-              class="small-hike-card"
-              style="background-image: linear-gradient(rgba(0,0,0,0.3),
-              rgba(0,0,0,0.3)), url('<%= cl_image_path hike.photo.key, height: 160, crop: :fill %>')"
-            >
-              <p><%= hike.hike_name.truncate(20) %></p>
-            </div>
-          <% else %>
-            <div
-            class="small-hike-card"
-            style="background-image: linear-gradient(rgba(0,0,0,0.3),
-            rgba(0,0,0,0.3)), url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')"
-            >
-              <p><%= hike.hike_name.truncate(20) %></p>
-            </div>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
-
-  <br>
-<% end %>

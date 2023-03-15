@@ -1,5 +1,5 @@
 body.signup{
-  background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
+  background: $dark-green-gradient;
   background-repeat:none;
   background-size:cover;
 }
@@ -8,7 +8,7 @@ body.signup{
   align-items: center;
   max-width: 500px;
 	padding: 10px 20px;
-  background: #083B24;
+  background: $dark-green-gradient;
   color: #F4B62D;
 }
 .signup-form-container h2 {

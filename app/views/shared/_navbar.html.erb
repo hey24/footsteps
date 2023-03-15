@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item">
-          <%= link_to "Login Here", new_user_session_path, class: "logoutlink-navbar" unless user_signed_in? %>
+          <%= link_to "Login", new_user_session_path, class: "logoutlink-navbar" unless user_signed_in? %>
           <%= link_to "Logout", destroy_user_session_path, class: "logoutlink-navbar", data: { turbo_method: :delete} if user_signed_in? %>
           </li>
       </ul>

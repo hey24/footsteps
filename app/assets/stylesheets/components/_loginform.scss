@@ -1,5 +1,5 @@
 body.login{
-  background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
+  background: $dark-green-gradient;
   background-repeat:none;
   background-size:cover;
 }
@@ -8,7 +8,7 @@ body.login{
   align-items: center;
   max-width: 500px;
 	padding: 10px 20px;
-  background: #083B24;
+  background: $dark-green-gradient;
   color: #F4B62D;
 }
 .login-form-container h2 {
@@ -16,6 +16,11 @@ body.login{
 }
 
 .login-form-button input.btn{
-  color: #F4B62D;
-  box-shadow: 1px 1px 1px black;
+  color: #083B24;
+  background-color: #F4B62D;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.login-push {
+  height: 800px;
 }
