@@ -35,4 +35,26 @@ class User < ApplicationRecord
   def all_completed_hikes
     completed_owned_hikes + completed_joined_hikes
   end
+
+  def upcoming_joined_hikes
+    upcoming_requests = requests.accepted.filter do |request|
+      !request.hike.hike_completed
+    end
+    upcoming_requests.map { |request| request.hike }
+  end
+
+  def upcoming_owned_hikes
+    hikes.where(hike_completed: false)
+  end
+
+  def upcoming_pending_hikes
+    upcoming_pending_requests = requests.pending.filter do |request|
+      !request.hike.hike_completed
+    end
+    upcoming_pending_requests.map { |request| request.hike }
+  end
+
+  def all_upcoming_hikes
+    upcoming_owned_hikes + upcoming_joined_hikes
+  end
 end

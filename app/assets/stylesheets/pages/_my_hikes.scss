@@ -1,0 +1,151 @@
+.main-title {
+    color: $footsteps-yellow;
+    text-shadow: 4px 4px 4px $gray;
+    margin-left: 8px;
+    margin-bottom: 16px;
+  }
+
+.hike-request-card-flex {
+  display: flex;
+  justify-content: space-between;
+  // padding: 8px;
+  border-radius: 5px;
+  // box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.request-user-info-flex {
+  width: 80%;
+  margin-bottom: 0;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    box-shadow: rgba(8, 44, 105, 0.236) 0px 30px 60px -12px inset,rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+}
+
+.request-accept-decline {
+
+}
+
+.request-accept-decline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.request-button-accept {
+  background-color: #92C47C;
+  width: 75px;
+  border: none;
+  padding: 3px 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    box-shadow: rgba(73, 188, 77, 0.25) 0px 30px 60px -12px inset,rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+}
+
+.request-button-reject{
+  background-color: #E06666;
+  width: 75px;
+  border: none;
+  padding: 2px 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    box-shadow: rgba(176, 95, 94, 0.25) 0px 30px 60px -12px inset,rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+}
+
+.upcoming-hikes-flex-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+
+  .upcoming-hike-and-info {
+    flex: 1;
+  }
+}
+
+
+
+
+
+/////
+// .created-hikes-container {
+//   background-color: white;
+//   border-radius: 5px;
+//   margin: 8px;
+//   padding: 8px;
+// }
+
+// .my-hikes-container {
+//   background: linear-gradient(#083B24, rgba(8, 59, 36, 0.84));
+//   height: 100vh;
+// }
+///
+
+// .my-upcoming-hikes-cards {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap: 16px;
+// }
+
+// .my-hikes-container {
+//   background: linear-gradient(#083B24, rgba(8, 59, 36, 0.84));
+//   height: auto;
+//   background-repeat:none;
+//   background-size:cover;
+// }
+
+// .upcoming-hikes-container {
+//   background-color: white;
+//   border-radius: 5px;
+//   margin: 8px;
+//   padding: 8px;
+// }
+
+// .requested-hikes-container{
+//   background-color: white;
+//   border-radius: 5px;
+//   margin: 8px;
+//   padding: 8px;
+// }
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .my-created-hikes-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .my-created-hikes-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .my-created-hikes-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .my-created-hikes-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .my-created-hikes-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
