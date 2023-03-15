@@ -43,7 +43,7 @@
         </div>
         <div class="map-icons-flex">
           <% if @hike.user == current_user %>
-            <div class="map-icons-box">
+            <div class="map-icons-box" id="set-route">
               <% if @hike.markers.exists? %>
                 <%= link_to ' + Set new route', new_hike_route_path(@hike) %>
               <% else %>
@@ -53,7 +53,7 @@
           <% else %>
             <p></p>
           <% end %>
-          <div class="map-icons-box">
+          <div class="map-icons-box" id="maximise">
             <%= link_to hike_routes_path(@hike) do %>
               <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
             <% end %>
@@ -80,7 +80,7 @@
           <% if @hike.hike_confirmed %>
             <p> <i class="fa-regular fa-calendar-check"></i> &nbsp; Confirmed ✅</p>
           <% else %>
-            <p> <i class="fa-regular fa-calendar-xmark"></i> &nbsp; Not confirmed ⛔</p>
+            <p> <i class="fa-regular fa-calendar-xmark"></i> &nbsp; Not confirmed</p>
           <% end %>
         </div>
       </div>
@@ -106,14 +106,16 @@
 
         <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN ACCEPTED -->
   <% elsif @hike.user == current_user || @request.last.request_pending == false && @request.last.request_accepted == true %>
-    <div class="confirm-hike-button">
+    <div class="confirm-hike-button-flex">
       <% if @hike.hike_confirmed %>
         <hr>
         <p><em>This Hike is now confirmed! Get your backpack ready!</em></p>
         <%= button_to 'Unconfirm Hike', unconfirm_hike_path(@hike), class: " btn-yellow hike-unconfirm-button" %>
       <% else %>
         <% if @hike.hike_date.blank? %>
-        <button class= "btn-yellow pending-request-button">Please Confirm Date</button>
+          <hr>
+          <p><em>This Hike isn't confirmed yet! Once you've decided a route, date, and time with your fellow Hikers, confirm the Hike so everyone knows it's happening.</em></p>
+        <button class= "btn-yellow pending-request-button">Please Set Date</button>
         <% else %>
           <hr>
           <p><em>This Hike isn't confirmed yet! Once you've decided a route, date, and time with your fellow Hikers, confirm the Hike so everyone knows it's happening.</em></p>
@@ -148,10 +150,12 @@
           </div>
         <% end %>
           <p> There's space for <%= (@hike.max_people) - (@accepted_hiker.count + 1)%> more in this Hike!</p>
-          <hr>
-          <p><em>Chat to your fellow Hikers to coordinate your Hike!</em></p>
+
+          <div class="hike-chat-button-flex">
+            <hr>
+            <p><em>Chat to your fellow Hikers to coordinate your Hike!</em></p>
+            <%= button_to 'Hike Chat', hike_chatrooms_path(@hike), class: "btn-yellow hike-chat-button" %>
           <div>
-          <p><%= link_to 'Hike Chat', hike_chatrooms_path(@hike), class: "btn-yellow" %></p>
       </div>
 
                   <!-- THIS IS THE SHOW PAGE WHEN YOU'VE REQUESTED AND ARE PENDING -->
