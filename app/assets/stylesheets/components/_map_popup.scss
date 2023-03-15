@@ -1,11 +1,17 @@
+.map-class {
+}
+
 .mapboxgl-popup {
-  width: 50%;
-  height: 50%;
- 
-  }
-  
-  .mapboxgl-popup-content {
-    text-align: center;
-    font-family: "Open Sans", sans-serif;
+  //   padding: 24px;
+}
+
+.mapboxgl-popup-content {
+    width: 265px;
     background-color: rgba($color: #000000, $alpha: 0.0) !important;
+    box-shadow:none !important;
   }
+
+.mapboxgl-popup-close-button{
+  padding-top:5px;
+  padding-right:8px;
+}
