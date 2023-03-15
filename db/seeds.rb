@@ -38,14 +38,14 @@ hike1_photo = URI.open('https://img.redbull.com/images/c_crop,x_0,y_0,h_2000,w_3
 hike1 = Hike.new(
   hike_name:"Ben Macdui Walk",
   hike_description:"A roller coaster of a route where you start high, following a series of ascents and descents throughout the day. Head up alongside the main ski run to the summit of Cairngorm, taking in the views of the Rothiemurchus forest and Aviemore beyond. From here, follow the path that takes you down through Coire Raibeirt to the shores of Loch Avon, and up the other side to meet Loch Etchachan.",
-  difficulty: "easy",
+  difficulty: "Easy 🟢",
   distance:12,
   duration: 3.06e+7,
   max_people: 3,
   hike_date: '2023-03-03',
   hike_confirmed: true,
-  hike_completed: false,
-  user_id: user1.id,
+  hike_completed: true,
+  user_id: user3.id,
   starting_point: "Cairngorms National Park"
 )
 hike1.photo.attach(io: hike1_photo, filename: "nes.png", content_type: "image/png")
@@ -55,7 +55,7 @@ hike2_photo = URI.open('https://britishlandscapesphotography.co.uk/wp-content/up
 hike2 = Hike.new(
   hike_name:"The Glyders in Snowdonia",
   hike_description:"This is a hard day, but well worth it for the photo opportunities. We can start at Ogwen Cottage and head behind the buildings and around the east side of Llyn Idwal. There is a steep climb up Devil’s Kitchen. Keep climbing up and you’ll be at the top of the highest summit of the day at 1001m. From here you head to The Castle of the Winds rock formation and then onto the boulder collection that makes up the Glyder Fach summit.",
-  difficulty: "medium",
+  difficulty: "Medium 🟡",
   distance:7,
   duration: 1.8e+7,
   max_people:8,
@@ -72,13 +72,13 @@ hike3_photo = URI.open('https://img.redbull.com/images/c_crop,x_0,y_0,h_3024,w_4
 hike3 = Hike.new(
   hike_name:"Harrys Rock Walk",
   hike_description:"This walk takes in the most famous landmark on this stretch of Dorset coast – Old Harry Rocks. Starting at Knoll Beach we will head south, follow the coastline and will pass, features from World War Two and then Old Harry Rocks come into view. The white chalk cliffs are highlighted against the blue sea on a sunny day and you can hear the waves slamming into the caves down below the cliffs.",
-  difficulty: "easy",
+  difficulty: "Easy 🟢",
   distance:10,
   duration: 1.44e+7,
   max_people: 5,
   hike_date: '2024-01-01',
   hike_confirmed: true,
-  hike_completed: true,
+  hike_completed: false,
   user_id: user3.id,
   starting_point: "Isle of Purbeck"
 )
@@ -89,11 +89,11 @@ hike4_photo = URI.open('https://img.redbull.com/images/c_crop,x_0,y_0,h_2448,w_3
 hike4 = Hike.new(
   hike_name: "The Three Peaks",
   hike_description: "Climbing the three highest peaks in Yorkshire it’s a walk that includes over 1600m of ascent so you will need to be fit if poss. The usual starting point for this walk is Horton in Ribblesdale but if you want to avoid the crowds we can start at Chapel-le-Dale and proceed in that direction.",
-  difficulty: "hard",
+  difficulty: "Hard 🔴",
   distance: 24,
   duration: 4.32e+7,
   max_people: 6,
-  hike_confirmed: true,
+  hike_confirmed: false,
   hike_completed: false,
   user_id: user1.id,
   starting_point: "Ingleton, Yorkshire"
@@ -105,11 +105,11 @@ hike5_photo = URI.open('https://deih43ym53wif.cloudfront.net/large_hereford-wye-
 hike5 = Hike.new(
   hike_name: "Wye Valley Walk",
   hike_description: " It's the perfect place for hill and river walks that showcase the UK's lovely rural charms. Plump for the Wye Valley Walk, a long-distance national trail that follows the course of the River Wye." ,
-  difficulty: "medium",
+  difficulty: "Medium 🟡",
   distance: 18,
   duration: 4.32e+7,
   max_people: 5,
-  hike_confirmed: true,
+  hike_confirmed: false,
   hike_completed: false,
   user_id: user3.id,
   starting_point: "Ross-on-Wye, Herefordshire"
@@ -121,13 +121,13 @@ hike6_photo = URI.open('https://deih43ym53wif.cloudfront.net/large_Portrush-Nort
 hike6 = Hike.new(
   hike_name: "Causeway Coast",
   hike_description: "Enthusiastic ramblers who enjoy multi-day hikes can walk the entire section of the Causeway Coast Way with relative ease",
-  difficulty: "easy",
+  difficulty: "Easy 🟢",
   distance: 6.5,
   duration: 4.32e+7,
   max_people: 10,
-  hike_confirmed: true,
+  hike_confirmed: false,
   hike_completed: false,
-  user_id: user5.id,
+  user_id: user1.id,
   starting_point: "Portrush, Coleraine, Nothern Island"
 )
 hike6.photo.attach(io: hike6_photo, filename: "nes.png", content_type: "image/png")
@@ -137,11 +137,11 @@ hike7_photo = URI.open('https://deih43ym53wif.cloudfront.net/large_Teignmouth-sh
 hike7 = Hike.new(
   hike_name: "Railway Walk",
   hike_description: "If you're a fan of bracing seaside walks, then the impressive South West Coast Path is the one for you.",
-  difficulty: "easy",
+  difficulty: "Easy 🟢",
   distance: 4.7,
   duration: 4.32e+7,
   max_people: 6,
-  hike_confirmed: true,
+  hike_confirmed: false,
   hike_completed: false,
   user_id: user1.id,
   starting_point: "Dawlish Warren, Devon, England"
@@ -153,11 +153,11 @@ hike8_photo = URI.open('https://deih43ym53wif.cloudfront.net/large_Pyg%20track-s
 hike8 = Hike.new(
   hike_name: "Pyg Track Intense Hike!",
   hike_description: "This is an incredibly scenic route that's suitable for beginner day hikers as it's not too challenging or technical",
-  difficulty: "medium",
+  difficulty: "Medium 🟡",
   distance: 7,
   duration: 4.32e+7,
   max_people: 3,
-  hike_confirmed: true,
+  hike_confirmed: false,
   hike_completed: false,
   user_id: user2.id,
   starting_point: "Snowdonia National Park, Wales"
@@ -169,10 +169,11 @@ hike9_photo = URI.open('https://deih43ym53wif.cloudfront.net/large_Scafell_Pike-
 hike9 = Hike.new(
   hike_name: "Scafell Pike (Really Intense)",
   hike_description: "a serious peak in the Lake District that's looked after by the National Trust. The climb is a challenging day hike and should never be underestimated. This is definitely not a route for “have-a-go” hikers, as the steep and rocky terrain will require experience, proper equipment and technical skills.",
-  difficulty: "hard",
+  difficulty: "Hard 🔴",
   distance: 7,
   duration: 4.32e+7,
   max_people: 3,
+  hike_date: "2023-03-24",
   hike_confirmed: true,
   hike_completed: false,
   user_id: user3.id,
@@ -185,11 +186,11 @@ hike10_photo = URI.open('https://deih43ym53wif.cloudfront.net/large_Worm-Head-Wa
 hike10 = Hike.new(
   hike_name: "Worms Head Walk",
   hike_description: "Just a really nice walk for someone to enjoy with me!",
-  difficulty: "medium",
+  difficulty: "Medium 🟡",
   distance: 6,
   duration: 4.32e+7,
   max_people: 6,
-  hike_confirmed: true,
+  hike_confirmed: false,
   hike_completed: false,
   user_id: user1.id,
   starting_point: "Wales Coast Path"
@@ -203,10 +204,12 @@ puts "Creating Requests"
 Request.create!(user_id: user1.id, hike_id: hike2.id)
 Request.create!(user_id: user1.id, hike_id: hike3.id)
 Request.create!(user_id: user2.id, hike_id: hike1.id)
-Request.create!(user_id: user3.id, hike_id: hike1.id)
-Request.create!(user_id: user5.id, hike_id: hike8.id)
 Request.create!(user_id: user2.id, hike_id: hike6.id)
 Request.create!(user_id: user1.id, hike_id: hike9.id)
+
+
+Request.create!(user_id: user3.id, hike_id: hike8.id)
+Request.create!(user_id: user3.id, hike_id: hike10.id)
 
 
 
