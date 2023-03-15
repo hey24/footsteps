@@ -150,6 +150,7 @@
           <p> There's space for <%= (@hike.max_people) - (@accepted_hiker.count + 1)%> more in this Hike!</p>
           <hr>
           <p><em>Chat to your fellow Hikers to coordinate your Hike!</em></p>
+          <div>
           <p><%= link_to 'Hike Chat', hike_chatrooms_path(@hike), class: "btn-yellow" %></p>
       </div>
 
