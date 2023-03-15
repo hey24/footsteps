@@ -6,7 +6,8 @@
 
 <%# <h3>Find local hikes below</h3> %>
 <% @hikes.each do |hike| %>
+<% unless hike.complete_hike! %>
   <%# <div class="embed_local_hike"> %>
-
+  <% end %>
   <%# </div> %>
 <% end %>
