@@ -247,33 +247,3 @@
 #maximise.map-icons-box {
   background-color: none;
 }
-
-.overlapping-avatars {
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  li {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid white;
-    display: inline-block;
-    position: relative;
-    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2);
-    -webkit-transition: .2s ease;
-    transition: .2s ease;
-  }
-
-  li:nth-child(1) { background: blue; }
-  li:nth-child(2) { background: green; }
-  li:nth-child(3) { background: purple; }
-  li:nth-child(4) { background: tomato; }
-  li:nth-child(n+2) { margin-left: -50px; }
-
-  ul:hover li:nth-child(n+2) {
-     margin-left: -10px;
-  }
-}
