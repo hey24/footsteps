@@ -2,11 +2,13 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@600;700;800;900&family=Libre+Franklin:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
-$logo-title: 'Shrikhand', cursive;
+$body-font: 'Libre Franklin', 'sans-serif';
+$headers-font: 'Catamaran', 'sans-serif';
+$logo-title: 'Shrikhand', 'cursive';
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

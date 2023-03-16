@@ -21,8 +21,10 @@
   display: block;
   margin-top: 120px;
   margin-left: 0px;
+  margin-bottom: 0;
   text-align: center;
   color: #F4B62D;
+  padding-bottom: 0;
 }
 
 .logo h2 {
@@ -72,6 +74,13 @@
   }
 }
 
+.down-arrow-home {
+  i {
+    color: white;
+    font-size: 36px;
+  }
+}
+
 .carousel-inner h3 {
   color: white;
   font-size: 18;
@@ -84,4 +93,19 @@
 
 .carousel-control-next {
   width: 10%
+}
+
+.homepage-content {
+  background: rgba(255, 255, 255, 0.747);
+  border-radius: 5px;
+  padding: 7px;
+  box-shadow: 1px 1px 1px black;
+}
+
+.homepage-content h2 {
+  color: $dark-green;
+}
+
+.homepage-content p {
+  color: $dark-green;
 }
