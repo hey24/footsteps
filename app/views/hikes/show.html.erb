@@ -110,10 +110,16 @@
       <div class="pending-button">
         <button class= "btn-yellow pending-request-button"> Hike Full, Sorry!</button>
       </div>
+
+    <% elsif @hike.hike_completed %>
+      <div class="pending-button">
+        <button class= "btn-yellow pending-request-button"> Hike Happened!</button>
+      </div>
+
     <% else %>
-    <div class="request-button">
-      <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "btn-yellow"%>
-    </div>
+      <div class="request-button">
+        <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "btn-yellow"%>
+      </div>
     <% end %>
 
         <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN ACCEPTED -->
