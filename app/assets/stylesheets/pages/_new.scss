@@ -19,6 +19,7 @@
   width: 75%;
   top: 0;
   padding: 8px;
+  padding-bottom: 0;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
@@ -37,9 +38,10 @@
   background-color: #f4b52dea;
   border-radius: 5px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 .confirm-route-button a {
   text-decoration: none;
-  color: #083B24 ;
+  color: #083B24;
 }
