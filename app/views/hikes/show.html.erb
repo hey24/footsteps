@@ -11,7 +11,8 @@
       <div class="back-edit-delete-flex">
         <%= link_to hikes_path do %>
           <div class="back-icon-show">
-            <i class="fa-solid fa-arrow-left-long"></i>
+            <i class="fa-solid fa-arrow-left"> </i>
+            <i class="fa-solid fa-map-location-dot"></i>
           </div>
         <% end %>
         <% if @hike.user == current_user %>
