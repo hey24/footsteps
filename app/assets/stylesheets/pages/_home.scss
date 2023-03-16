@@ -1,5 +1,5 @@
 .splash {
-  background-image: image-url("homephoto.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('homephoto.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -68,37 +68,36 @@
   font-weight: 700;
   box-shadow: 1px 1px 1px black;
   transition:none;
-  
+
   &:hover {
     box-shadow: rgba(246, 217, 3, 0.25) 0px 30px 60px -12px inset,rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }
 }
 
+.down-arrow-flex {
+  display: flex;
+  justify-content: center;
+}
 .down-arrow-home {
+
+  align-items: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.45);
+
   i {
     color: white;
-    font-size: 36px;
+    font-size: 40px;
+    height: 30px;
+    padding-top: 2px;
   }
-}
-
-.carousel-inner h3 {
-  color: white;
-  font-size: 18;
-  text-shadow: 1px 1px 1px black;
-}
-
-.carousel-control-prev {
-  width: 10%
-}
-
-.carousel-control-next {
-  width: 10%
 }
 
 .homepage-content {
   background: rgba(255, 255, 255, 0.747);
   border-radius: 5px;
-  padding: 7px;
+  padding: 12px;
   box-shadow: 1px 1px 1px black;
 }
 
