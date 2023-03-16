@@ -8,17 +8,23 @@
     <% else %>
     <div class="hike-page-info-img" style="background-image: url('https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')">
     <% end %>
-
-      <% if @hike.user == current_user %>
-      <div class="edit-delete-icons">
-        <%= link_to edit_hike_path do %>
-          <i class="fas fa-edit"></i>
+      <div class="back-edit-delete-flex">
+        <%= link_to hikes_path do %>
+          <div class="back-icon-show">
+            <i class="fa-solid fa-arrow-left-long"></i>
+          </div>
         <% end %>
-        <%= link_to hike_path(@hike), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-          <i class="fa-solid fa-trash-can"></i>
+        <% if @hike.user == current_user %>
+        <div class="edit-delete-icons">
+          <%= link_to edit_hike_path do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          <%= link_to hike_path(@hike), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+        </div>
         <% end %>
       </div>
-      <% end %>
     </div>
     <div class="hike-title-avatars-flex">
       <h1><%= @hike.hike_name%></h1>

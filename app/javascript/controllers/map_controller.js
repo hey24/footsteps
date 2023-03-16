@@ -35,23 +35,23 @@ export default class extends Controller {
       const popup = new mapboxgl.Popup()
         .setHTML(marker.info_window_html)
         .addClassName('map-class');
-        
+
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html
-      
+
       new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup) // Add this
         .addTo(this.map)
     })
-    
+
     const queryString = window.location.search;
     let params = new URLSearchParams(document.location.search);
     if (!params.has('hike[starting_point]')) {
       this.#fitMapToMarkers()
     }
   }
-  
+
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     // console.log(bounds)

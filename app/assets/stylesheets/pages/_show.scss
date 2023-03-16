@@ -45,9 +45,23 @@
   color: black;
 }
 
+.back-edit-delete-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.back-edit-delete-flex .back-icon-show {
+  padding: 0 16px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.back-icon-show i {
+  color: $dark-green;
+}
+
 .edit-delete-icons {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 0 16px;
   background-color: white;
   border-radius: 5px;
   width: 20%;
