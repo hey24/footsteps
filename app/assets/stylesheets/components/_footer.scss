@@ -10,7 +10,6 @@
   display: flex;
   justify-content: space-between;
   background-color: #083B24;
-  color: #A1C076;
   height: 60px;
   align-items: center;
   // padding: 0 20px;
@@ -39,6 +38,7 @@
   font-size: 36px;
   // margin: 0 20px;
   text-decoration: none;
+  color: #A1C076;
 }
 
 .footer-icon .footer-main-icon {
@@ -55,4 +55,11 @@
 .fa-house-blank{
   font-size: 36px;
   margin-top:12px;
+}
+
+.footer-icon-active {
+  font-size: 36px;
+  // margin: 0 20px;
+  text-decoration: none;
+  color: $footsteps-yellow !important;
 }
