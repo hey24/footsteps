@@ -166,19 +166,23 @@
         </div>
 
         <% if @accepted_requests.any? %>
-          <div class="hikers-joined-details-flex">
-            <% @accepted_requests.each do |request| %>
+          <% @accepted_requests.each do |request| %>
+            <div class="hikers-joined-details-flex">
               <% accepted_hiker = User.where(id: request.user_id).first %>
-              <%= link_to user_path(request.user), class: "request-user-info-flex" do %>
                 <% if accepted_hiker.photo.attached? %>
                   <%= cl_image_tag accepted_hiker.photo.key, class: "avatar-large" %>
                 <% end %>
-                <p><%= accepted_hiker.first_name %> <%= accepted_hiker.last_name %> </p>
-              <% end %>
+                <%= link_to user_path(request.user), class: "request-user-info-flex" do %>
+                  <p><%= accepted_hiker.first_name %> <%= accepted_hiker.last_name %> </p>
+                <% end %>
+            </div>
             <% end %>
-          </div>
         <% end %>
+        <% if @hike.max_people == @accepted_hiker.count + 1 %>
+          <p> This Hike is full! </p>
+        <% else %>
           <p> There's space for <%= (@hike.max_people) - (@accepted_hiker.count + 1)%> more in this Hike!</p>
+        <% end %>
 
           <div class="hike-chat-button-flex">
             <hr>
