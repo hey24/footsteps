@@ -22,10 +22,12 @@
     </div>
     <div class="hike-title-avatars-flex">
       <h1><%= @hike.hike_name%></h1>
-      <p><% if @hike.user.photo.attached? %>
-        <%= cl_image_tag @hike.user.photo.key, class: "avatar" %>
+      <%= link_to user_path(@hike.user) do %>
+        <p><% if @hike.user.photo.attached? %>
+          <%= cl_image_tag @hike.user.photo.key, class: "avatar" %>
+        <% end %>
+        <%= @hike.user.first_name %> <%= @hike.user.last_name %></p>
       <% end %>
-      <%= @hike.user.first_name %> <%= @hike.user.last_name %></p>
     </div>
   </div>
 
