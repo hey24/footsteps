@@ -18,7 +18,7 @@ user1 = User.new(first_name:'Jeremy', last_name:'Hikkerson', email:'test@test.co
 user2 = User.new(first_name:'Luke', last_name:'Sherman', email:'lukesherman@test.com', password: 123456 , description:'Hello I am Luke Sherman', user_photo_url:'')
 user3 = User.new(first_name:'Ben', last_name:'Heyman', email:'benheyman@test.com', password: 123456, description:'Hi guys Im Ben! I am a 25 year old semi-experienced hiker, ive been using footsteps for a few months now and absolutely love it. Feel free to request to join any of my hikes, I would be happy to have you come along!', user_photo_url:'')
 user4 = User.new(first_name:'Camille', last_name:'Laporte', email:'camillelaporte@test.com', password: 123456, description:'Hello I am Camille Laporte', user_photo_url:'')
-user5 = User.new(first_name:'Linnea', last_name:'Jonsson', email:'linneajonsson@test.com', password: 123456, description:'Hello I am Linnea Jonsson', user_photo_url:'')
+user5 = User.new(first_name:'Linnea', last_name:'Jonsson', email:'linneajonsson@test.com', password: 123456, description:'I just moved to the area and Im really interested in getting into hiking, ive done a few long walks before but Id say im fairly novice in the hiking scene. Looking forward to meeting some of you soon!', user_photo_url:'')
 
 user1.photo.attach(io: user1_photo, filename: "nes.png", content_type: "image/png")
 user1.save!
