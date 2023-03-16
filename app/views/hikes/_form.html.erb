@@ -5,7 +5,6 @@
     <%= f.input :hike_name, label: "Hike name:", placeholder: 'Cairngorms National Park Hike'%>
     <%= f.input :hike_description, label: "Description:", placeholder: 'A lovely hike with stops for lunch' %>
     <%= f.input :difficulty, label: "Difficulty:", collection: ["Easy 🟢", "Medium 🟡", "Hard 🔴"] %>
-    <%= f.input :distance, label: "Estimated distance (km):", placeholder: '6.5 km', hint: '(Distance updates after route is added)', hint_html: { style: "color: #F4B62D; font-style: italic;"} %>
     <%= f.input :max_people, label: "Max. number of people:", placeholder: '5' %>
     <%= f.input :starting_point, as: :hidden, label: "Starting location:",
         input_html: {data: {address_autocomplete_target: "address"}},
