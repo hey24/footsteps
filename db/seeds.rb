@@ -8,13 +8,13 @@ Hike.destroy_all
 User.destroy_all
 
 puts "Adding 5 users"
-user1_photo = URI.open("https://thumbs.dreamstime.com/b/middle-age-curly-hair-hiker-woman-hiking-wearing-backpack-water-canteen-using-binoculars-looking-to-side-relax-profile-pose-218285158.jpg")
+user1_photo = URI.open("http://reneeroaming.com/wp-content/uploads/2020/10/What-to-wear-hiking-as-a-woman-best-hiking-t-shirt-for-women-819x1024.jpg")
 user2_photo = URI.open("https://media.licdn.com/dms/image/C5603AQHXCY4Vpc7LbA/profile-displayphoto-shrink_800_800/0/1632761237696?e=2147483647&v=beta&t=gQ8KczlCJlVbh7njtZUaa1lhlyhew7ab09s6akl7CQ0")
 user3_photo = URI.open("https://media.cnn.com/api/v1/images/stellar/prod/191109234431-california-hiker-mountain-top.jpg?q=w_1600,h_1528,x_0,y_0,c_fill")
 user4_photo = URI.open("https://cdn1.socialhiker.net/wp-content/uploads/avatars/16914/63c644a574f44-bpfull.jpg")
 user5_photo = URI.open("https://pbs.twimg.com/profile_images/1301644507658596352/YbKKFSOR_400x400.jpg")
 
-user1 = User.new(first_name:'Jeremy', last_name:'Hikkerson', email:'test@test.com', password: 123456, description:'A VERY generic person with limited personality.', user_photo_url:'')
+user1 = User.new(first_name:'Erin', last_name:'Hikkerson', email:'test@test.com', password: 123456, description:'A VERY generic person with limited personality.', user_photo_url:'')
 user2 = User.new(first_name:'Luke', last_name:'Sherman', email:'lukesherman@test.com', password: 123456 , description:'Hello I am Luke Sherman', user_photo_url:'')
 user3 = User.new(first_name:'Ben', last_name:'Heyman', email:'benheyman@test.com', password: 123456, description:'Hi guys Im Ben! I am a 25 year old semi-experienced hiker, ive been using footsteps for a few months now and absolutely love it. Feel free to request to join any of my hikes, I would be happy to have you come along!', user_photo_url:'')
 user4 = User.new(first_name:'Camille', last_name:'Laporte', email:'camillelaporte@test.com', password: 123456, description:'Hello I am Camille Laporte', user_photo_url:'')
