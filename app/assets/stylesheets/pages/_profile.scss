@@ -9,8 +9,9 @@
 
   .profile {
     background-color: white;
-    border-radius: 8px;
+    border-radius: 5px;
     margin-bottom: 20px;
+    padding: 12px;
   }
 
   img {
@@ -20,19 +21,24 @@
   }
 
   .user-bio {
-    padding: 6px;
+    padding-top: 8px;
   }
-  .name-and-photo{
-    padding: 6px;
-    h2 {
-      margin: 6px;
-    }
+  .name-and-photo {
+    // padding: 6px;
+  }
+
+  // .name-and-photo h2 {
+  //   flex-grow: 1;
+  //   text-align: center;
+  // }
+  .name-and-more {
+    margin-left: 16px;
   }
 
   .user-hikes-cards {
     background: white;
     border-radius: 5px;
-    padding: 7px;
+    padding: 12px;
 
     h2 {
       text-align: start;
