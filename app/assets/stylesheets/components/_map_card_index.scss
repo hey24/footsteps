@@ -16,8 +16,7 @@
 .map-card-bottom-section-flex {
   height: 94px;
   display: flex;
-  background-color: #104f85;
-  opacity: 0.85;
+  background: $dark-green-gradient;
   text-align: start;
   margin-bottom: 3px;
   justify-content: space-between;
@@ -25,7 +24,7 @@
 }
 
 .map-card-name {
-  color: $white;
+  color: $light-green;
   font-size: 18px;
   padding-top: 3px;
   padding-left: 8px;
@@ -34,7 +33,7 @@
 }
 
 .map-card-text {
-  color: $white;
+  color: $light-green;
   padding-left: 8px;
   margin-bottom: 0px;
   margin-top: 0px;
@@ -49,13 +48,13 @@
   margin-bottom: 4px;
   margin-right: 4px;
   width: 100px;
-  
+
   a {
     text-decoration: none;
     color: $dark-green;
     font-weight: bold;
   }
-  
+
   &:hover {
     box-shadow: rgba(246, 217, 3, 0.25) 0px 30px 60px -12px inset,rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }
