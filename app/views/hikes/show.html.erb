@@ -120,13 +120,15 @@
   <% elsif @hike.user == current_user || @request.last.request_pending == false && @request.last.request_accepted == true %>
 
     <!-- CODE FOR WHAT THE ACCEPTED HIKER SEES -->
-    <% if @hike.hike_confirmed == false && current_user != @hike.user %>
-      <hr>
-      <p><em> This Hike hasn't been confirmed by the owner yet. Chat to your fellow Hikers to finalise a route, date, and time! </em></p>
-    <% elsif @hike.hike_confirmed == true && current_user != @hike.user %>
-      <hr>
-      <p><em>This Hike is now confirmed! Get your backpack ready!</em></p>
-    <% end %>
+    <div class="confirm-hike-button-flex">
+      <% if @hike.hike_confirmed == false && current_user != @hike.user %>
+        <hr>
+        <p><em> This Hike hasn't been confirmed by the owner yet. Chat to your fellow Hikers to finalise a route, date, and time! </em></p>
+      <% elsif @hike.hike_confirmed == true && current_user != @hike.user %>
+        <hr>
+        <p><em>This Hike is now confirmed! Get your backpack ready!</em></p>
+      <% end %>
+    </div>
 
     <!-- CODE FOR WHAT THE OWNER SEES -->
     <% if current_user == @hike.user %>
