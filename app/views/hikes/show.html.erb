@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@hike.hike_name}" %>
+<% content_for :meta_description, @hike.hike_description %>
+<% content_for :meta_image, cl_image_path(@hike.photo.key) if @hike.photo.attached? %>
+
 <div class="page-container-flex">
 
   <!-- THIS IS THE PART OF THE SHOW PAGE EVERYONE SEES -->
