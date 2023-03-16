@@ -2,7 +2,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 16px;
-  // background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
+  background: $dark-blue-gradient
 
   h1, h2 {
     padding-bottom: 8px;
@@ -87,7 +87,7 @@
   border-radius: 5px;
   overflow: hidden;
   background-color: white;
-  padding: 16px;
+  padding: 12px;
   // padding-bottom: 24px;
   // padding: 8px 8px 24px;
   // margin-top: 8px;
@@ -195,7 +195,7 @@
 
 .hikers-joined-details-flex {
   display: flex;
-  background: $dark-blue-gradient;
+  background: $dark-green-gradient;
   padding: 8px;
   border-radius: 5px;
   margin-bottom: 16px;
@@ -205,6 +205,10 @@
     color: white;
     margin-bottom: 0px;
     margin-left: 16px;
+  }
+
+  &:hover {
+    box-shadow: rgba(8, 44, 105, 0.236) 0px 30px 60px -12px inset,rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }
 }
 

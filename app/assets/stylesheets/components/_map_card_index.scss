@@ -20,11 +20,13 @@
   text-align: start;
   margin-bottom: 3px;
   justify-content: space-between;
+  padding: 8px;
 
 }
 
+
 .map-card-name {
-  color: $light-green;
+  color: white;
   font-size: 18px;
   padding-top: 3px;
   padding-left: 8px;
@@ -33,7 +35,7 @@
 }
 
 .map-card-text {
-  color: $light-green;
+  color: white;
   padding-left: 8px;
   margin-bottom: 0px;
   margin-top: 0px;
