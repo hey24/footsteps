@@ -78,7 +78,7 @@
       <div class="hike-page-details-flex">
         <div class="hike-page-details-1">
           <p> <i class="fa-solid fa-location-dot"></i> &nbsp; <%= @hike.starting_point.split(",").first %></p>
-          <p> <i class="fa-solid fa-route"></i> &nbsp; <%= @hike.distance %> km </p>
+          <p> <i class="fa-solid fa-route"></i> &nbsp; <%= @hike.distance.nil? ? "TBC" : @hike.distance %> (km) </p>
           <p> <i class="fa-solid fa-gauge-simple-high"></i> &nbsp; <%= @hike.difficulty %></p>
         </div>
         <div class="hike-page-details-2">
@@ -110,31 +110,52 @@
       <div class="pending-button">
         <button class= "btn-yellow pending-request-button"> Hike Full, Sorry!</button>
       </div>
+
+    <% elsif @hike.hike_completed %>
+      <div class="pending-button">
+        <button class= "btn-yellow pending-request-button"> Hike Happened!</button>
+      </div>
+
     <% else %>
-    <div class="request-button">
-      <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "btn-yellow"%>
-    </div>
+      <div class="request-button">
+        <%= button_to 'Join Hike', hike_requests_path(@hike), method: :post, class: "btn-yellow"%>
+      </div>
     <% end %>
 
         <!-- THIS IS THE SHOW PAGE WHEN YOU'VE BEEN ACCEPTED -->
   <% elsif @hike.user == current_user || @request.last.request_pending == false && @request.last.request_accepted == true %>
+
+    <!-- CODE FOR WHAT THE ACCEPTED HIKER SEES -->
     <div class="confirm-hike-button-flex">
-      <% if @hike.hike_confirmed %>
+      <% if @hike.hike_confirmed == false && current_user != @hike.user %>
+        <hr>
+        <p><em> This Hike hasn't been confirmed by the owner yet. Chat to your fellow Hikers to finalise a route, date, and time! </em></p>
+      <% elsif @hike.hike_confirmed == true && current_user != @hike.user %>
         <hr>
         <p><em>This Hike is now confirmed! Get your backpack ready!</em></p>
-        <%= button_to 'Unconfirm Hike', unconfirm_hike_path(@hike), class: " btn-yellow hike-unconfirm-button" %>
-      <% else %>
-        <% if @hike.hike_date.blank? %>
-          <hr>
-          <p><em>This Hike isn't confirmed yet! Once you've decided a route, date, and time with your fellow Hikers, confirm the Hike so everyone knows it's happening.</em></p>
-        <button class= "btn-yellow pending-request-button">Please Set Date</button>
-        <% else %>
-          <hr>
-          <p><em>This Hike isn't confirmed yet! Once you've decided a route, date, and time with your fellow Hikers, confirm the Hike so everyone knows it's happening.</em></p>
-          <%= button_to 'Confirm Hike', confirm_hike_path(@hike), class: "btn-yellow hike-confirm-button" %>
-        <% end %>
       <% end %>
     </div>
+
+    <!-- CODE FOR WHAT THE OWNER SEES -->
+    <% if current_user == @hike.user %>
+      <div class="confirm-hike-button-flex">
+        <% if @hike.hike_confirmed %>
+          <hr>
+          <p><em>This Hike is now confirmed! Get your backpack ready!</em></p>
+          <%= button_to 'Unconfirm Hike', unconfirm_hike_path(@hike), class: " btn-yellow hike-unconfirm-button" %>
+        <% else %>
+          <% if @hike.hike_date.blank? %>
+            <hr>
+            <p><em>This Hike isn't confirmed yet! Once you've decided a route, date, and time with your fellow Hikers, confirm the Hike so everyone knows it's happening.</em></p>
+          <button class= "btn-yellow pending-request-button">Please Set Date</button>
+          <% else %>
+            <hr>
+            <p><em>This Hike isn't confirmed yet! Once you've decided a route, date, and time with your fellow Hikers, confirm the Hike so everyone knows it's happening.</em></p>
+            <%= button_to 'Confirm Hike', confirm_hike_path(@hike), class: "btn-yellow hike-confirm-button" %>
+          <% end %>
+        <% end %>
+      </div>
+      <% end %>
   </div>
   <br>
       <div class="hike-page-hikers">
@@ -145,23 +166,29 @@
             <%= cl_image_tag @hike.user.photo.key, class: "avatar-large" %>
           <% end %>
 
-          <p><%= @hike.user.first_name %> <%= @hike.user.last_name %> (Hike creator) </p>
+          <%= link_to user_path(@hike.user), class: "request-user-info-flex" do %>
+            <p><%= @hike.user.first_name %> <%= @hike.user.last_name %> (Hike creator) </p>
+          <% end %>
         </div>
 
         <% if @accepted_requests.any? %>
-          <div class="hikers-joined-details-flex">
-            <% @accepted_requests.each do |request| %>
+          <% @accepted_requests.each do |request| %>
+            <div class="hikers-joined-details-flex">
               <% accepted_hiker = User.where(id: request.user_id).first %>
-              <% if accepted_hiker.photo.attached? %>
-                <%= cl_image_tag accepted_hiker.photo.key, class: "avatar-large" %>
-              <% end %>
-
-              <p><%= accepted_hiker.first_name %> <%= accepted_hiker.last_name %> </p>
-
+                <% if accepted_hiker.photo.attached? %>
+                  <%= cl_image_tag accepted_hiker.photo.key, class: "avatar-large" %>
+                <% end %>
+                <%= link_to user_path(request.user), class: "request-user-info-flex" do %>
+                  <p><%= accepted_hiker.first_name %> <%= accepted_hiker.last_name %> </p>
+                <% end %>
+            </div>
             <% end %>
-          </div>
         <% end %>
+        <% if @hike.max_people == @accepted_hiker.count + 1 %>
+          <p> This Hike is full! </p>
+        <% else %>
           <p> There's space for <%= (@hike.max_people) - (@accepted_hiker.count + 1)%> more in this Hike!</p>
+        <% end %>
 
           <div class="hike-chat-button-flex">
             <hr>

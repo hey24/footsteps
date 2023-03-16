@@ -4,9 +4,13 @@
   padding: 16px;
   background: $dark-blue-gradient
 
-  h1, h2 {
+  h1 {
     padding-bottom: 8px;
     padding-top: 8px;
+  }
+
+  h2 {
+    margin-bottom: 16px;
   }
 
   hr {

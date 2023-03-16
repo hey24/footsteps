@@ -31,14 +31,18 @@
           </div>
         <% end %>
       <% end %>
+      <br>
+      <div class="hr-line-flex">
+      <hr>
+      </div>
   </div>
 
-  <br>
+<br>
 
   <div class="hike-page-info-card">
-    <h2>My Upcoming Hikes</h2>
+    <h2>My Upcoming Hikes ⛰️</h2>
           <% if current_user.upcoming_owned_hikes.empty?  && current_user.upcoming_joined_hikes.empty? %>
-        <p> You currently dont have any upcoming hikes </p>
+        <p> You currently dont have any upcoming Hikes. </p>
       <% else %>
     <div class="upcoming-hikes-flex-grid">
       <% current_user.upcoming_owned_hikes.each do |hike| %>
@@ -102,10 +106,13 @@
       <% end %>
     </div>
     <% end %>
+    <% if !current_user.upcoming_pending_hikes.empty? %>
     <br>
     <div class="hr-line-flex">
       <hr>
     </div>
+    <% end %>
+
     <div class="backbuttonrequests">
       <div class="btn-yellow">
         <%= link_to "Find more hikes", hikes_path, class: "logoutlink-profile"%>
