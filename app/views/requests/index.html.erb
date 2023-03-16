@@ -11,7 +11,7 @@
         <div class="hike-request-card-flex">
           <div class="hikers-joined-details-flex">
           <% if !@pending_requests.nil? %>
-            <%= link_to user_path(request.user), class: "hikers-joined-details-flex request-user-info-flex" do %>
+            <%= link_to user_path(request.user), class: "request-user-info-flex" do %>
 
                 <% if request.user.photo.attached? %>
                   <%= cl_image_tag request.user.photo.key, class: "avatar-large" %>
@@ -58,9 +58,9 @@
           <% end %>
         </div>
       <% end %>
-    </div>
+      <%# </div> %>
 
-    <div class="upcoming-hikes-flex-grid">
+      <%# <div class="upcoming-hikes-flex-grid"> %>
       <% current_user.upcoming_joined_hikes.each do |hike| %>
         <div class="upcoming-hike-and-info">
           <%= link_to hike_path(hike) do %>
@@ -77,9 +77,10 @@
         </div>
       <% end %>
     </div>
-
     <br>
-    <hr>
+    <div class="hr-line-flex">
+      <hr>
+    </div>
 
     <div class="upcoming-hikes-flex-grid">
       <% current_user.upcoming_pending_hikes.each do |hike| %>
@@ -101,10 +102,14 @@
       <% end %>
     </div>
     <% end %>
-  </div>
-  <div class="backbuttonrequests">
-    <div class="btn-yellow">
-      <%= link_to "Find more hikes", hikes_path, class: "logoutlink-profile"%>
+    <br>
+    <div class="hr-line-flex">
+      <hr>
+    </div>
+    <div class="backbuttonrequests">
+      <div class="btn-yellow">
+        <%= link_to "Find more hikes", hikes_path, class: "logoutlink-profile"%>
+      </div>
     </div>
   </div>
 </div>
