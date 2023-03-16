@@ -2,14 +2,15 @@
   <div class="footer-icons-flexbox">
     <a href="/hikes/new" class="footer-add-button"><i class="fa-solid fa-circle-plus footer-plus-icon"></i></a>
     <div class="left-icons">
-      <a href="/" class="footer-icon"><i class="fa-solid fa-house footer-main-icon"></i></a>
-      <a href="/hikes" class="footer-icon"><i class="fa-solid fa-location-dot footer-main-icon"></i></a>
+      <a href="/" class="<%= params[:action] == "home" ? "footer-icon-active" : "footer-icon" %>"><i class="fa-solid fa-house footer-main-icon"></i></a>
+      <a href="/hikes" class="<%= params[:controller] == "hikes" && params[:action] == "index" ? "footer-icon-active" : "footer-icon" %>"><i class="fa-solid fa-location-dot footer-main-icon"></i></a>
     </div>
     
+    
     <div class="right-icons">
-      <a href="/my_hikes" class="footer-icon"><i class="fa-solid fa-envelope footer-main-icon"></i></a>
+      <a href="/my_hikes" class="<%= params[:controller] == "requests" && params[:action] == "index" ? "footer-icon-active" : "footer-icon" %>"><i class="fa-solid fa-envelope footer-main-icon"></i></a>
       <% if user_signed_in? %>
-        <%= link_to user_path(current_user), class: "footer-icon" do %> <i class="fa-solid fa-user footer-main-icon"></i> <% end %>
+        <%= link_to user_path(current_user), class:  params[:action] == "show" ? "footer-icon-active" : "footer-icon"  do %> <i class="fa-solid fa-user footer-main-icon"></i> <% end %>
       <% else %>
         <%= link_to new_user_session_path, class: "footer-icon" do %> <i class="fa-solid fa-user footer-main-icon"></i> <% end %>
       <% end %>
