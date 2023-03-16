@@ -25,7 +25,10 @@ class User < ApplicationRecord
   end
 
   def completed_joined_hikes
-    requests.accepted.map { |request| request.hike.where(hike_completed: true, hike_confirmed: true) }
+    accepted_requests = requests.accepted.filter do |request|
+      request.hike.hike_completed
+    end
+    accepted_requests.map { | request | request.hike }
   end
 
   def completed_owned_hikes
