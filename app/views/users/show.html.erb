@@ -3,12 +3,14 @@
 
   <br>
 
-  <div class="user-bio-flex d-flex align-items-stretc" style="overflow: hidden">
+  <div class="profile" style="overflow: hidden">
+    <div class="name-and-photo d-flex">
       <% if  @user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, height: 115, crop: :scale %>
       <% end %>
-    <div class="user-details">
-        <h2><%= @user.first_name %></h2>
+      <h2><%= @user.first_name %> <%= @user.last_name %><br></h2>
+    </div>
+    <div class="user-bio">
         <p><%= @user.description %></p>
     </div>
   </div>

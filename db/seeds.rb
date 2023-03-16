@@ -16,9 +16,9 @@ user5_photo = URI.open("https://pbs.twimg.com/profile_images/1301644507658596352
 
 user1 = User.new(first_name:'Jeremy', last_name:'Hikkerson', email:'test@test.com', password: 123456, description:'A VERY generic person with limited personality.', user_photo_url:'')
 user2 = User.new(first_name:'Luke', last_name:'Sherman', email:'lukesherman@test.com', password: 123456 , description:'Hello I am Luke Sherman', user_photo_url:'')
-user3 = User.new(first_name:'Ben', last_name:'Heyman', email:'benheyman@test.com', password: 123456, description:'Hello I am Ben Heyman', user_photo_url:'')
+user3 = User.new(first_name:'Ben', last_name:'Heyman', email:'benheyman@test.com', password: 123456, description:'Hi guys Im Ben! I am a 25 year old semi-experienced hiker, ive been using footsteps for a few months now and absolutely love it. Feel free to request to join any of my hikes, I would be happy to have you come along!', user_photo_url:'')
 user4 = User.new(first_name:'Camille', last_name:'Laporte', email:'camillelaporte@test.com', password: 123456, description:'Hello I am Camille Laporte', user_photo_url:'')
-user5 = User.new(first_name:'Linnea', last_name:'Jonsson', email:'linneajonsson@test.com', password: 123456, description:'Hello I am Linnea Jonsson', user_photo_url:'')
+user5 = User.new(first_name:'Linnea', last_name:'Jonsson', email:'linneajonsson@test.com', password: 123456, description:'I just moved to the area and Im really interested in getting into hiking, ive done a few long walks before but Id say im fairly novice in the hiking scene. Looking forward to meeting some of you soon!', user_photo_url:'')
 
 user1.photo.attach(io: user1_photo, filename: "nes.png", content_type: "image/png")
 user1.save!
@@ -76,9 +76,9 @@ hike3 = Hike.new(
   distance:10,
   duration: 1.44e+7,
   max_people: 5,
-  hike_date: '2024-01-01',
+  hike_date: '2023-01-01',
   hike_confirmed: true,
-  hike_completed: false,
+  hike_completed: true,
   user_id: user3.id,
   starting_point: "Isle of Purbeck"
 )
@@ -167,7 +167,7 @@ hike8.save!
 
 hike9_photo = URI.open('https://deih43ym53wif.cloudfront.net/large_Scafell_Pike-shutterstock_1594703968_4ae9ad6e0c.jpeg')
 hike9 = Hike.new(
-  hike_name: "Scafell Pike", 
+  hike_name: "Scafell Pike",
   hike_description: "a serious peak in the Lake District that's looked after by the National Trust. The climb is a challenging day hike and should never be underestimated. This is definitely not a route for “have-a-go” hikers, as the steep and rocky terrain will require experience, proper equipment and technical skills.",
   difficulty: "Hard 🔴",
   distance: 7,
@@ -201,16 +201,7 @@ hike10.save!
 puts "Created Hikes"
 puts "Creating Requests"
 
-Request.create!(user_id: user1.id, hike_id: hike2.id)
-Request.create!(user_id: user1.id, hike_id: hike3.id)
-Request.create!(user_id: user2.id, hike_id: hike1.id)
-Request.create!(user_id: user2.id, hike_id: hike6.id)
-Request.create!(user_id: user1.id, hike_id: hike9.id)
-
-
 Request.create!(user_id: user3.id, hike_id: hike8.id)
 Request.create!(user_id: user3.id, hike_id: hike10.id)
-
-
 
 puts "Created Requests"
