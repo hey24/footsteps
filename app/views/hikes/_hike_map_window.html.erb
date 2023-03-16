@@ -8,8 +8,8 @@
   <div class="map-card-bottom-section-flex">
     <div class="map-card-info">
       <h3 class="map-card-name"><%= hike.hike_name.truncate(14, separator: ',')%></h3>
-      <p class="map-card-text"> Difficulty: <%= hike.difficulty %> </p>
-      <p class="map-card-text">Distance: <%= hike.distance %></p>
+      <p class="map-card-text"><strong> Difficulty:</strong> <%= hike.difficulty %> </p>
+      <p class="map-card-text"><strong>Distance:</strong> <%= hike.distance %></p>
     </div>
     <div class= "map-card-btn">
       <%= link_to "Go to Hike", hike_path(hike) %>

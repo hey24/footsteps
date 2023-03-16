@@ -12,13 +12,10 @@
 }
 
 .request-user-info-flex {
+  display: flex;
   width: 80%;
   margin-bottom: 0;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-
-  &:hover {
-    box-shadow: rgba(8, 44, 105, 0.236) 0px 30px 60px -12px inset,rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  }
+  // box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .request-accept-decline {
@@ -56,17 +53,24 @@
 }
 
 .upcoming-hikes-flex-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  // grid-template-columns: 160px 160px;
+  // grid-gap: 4px;
 
-  .upcoming-hike-and-info {
-    flex: 1;
-  }
+  // .upcoming-hike-and-info {
+  //   flex: 1;
+  // }
 }
 
 .backbuttonrequests{
   display:flex;
+  justify-content: center;
+}
+
+.hr-line-flex {
+  display: flex;
   justify-content: center;
 }
 
