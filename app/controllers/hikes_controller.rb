@@ -1,5 +1,4 @@
 class HikesController < ApplicationController
-
   before_action :set_hike, only: %i[show edit destroy update confirm unconfirm]
   before_action :authenticate_user!, except: %i[index show]
 
@@ -15,7 +14,7 @@ class HikesController < ApplicationController
       }
     end
   end
-  
+
   def new
     @hike = Hike.new
   end
@@ -58,8 +57,6 @@ class HikesController < ApplicationController
       }
     end
     @start_coordinates = [@hike.longitude, @hike.latitude]
-
-
   end
 
   def edit; end
