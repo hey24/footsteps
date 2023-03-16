@@ -15,7 +15,7 @@ class HikesController < ApplicationController
       }
     end
   end
-
+  
   def new
     @hike = Hike.new
   end

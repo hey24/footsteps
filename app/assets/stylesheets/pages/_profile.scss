@@ -1,7 +1,5 @@
 .profile-container-flex {
     padding: 24px;
-    // background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
-    min-height: 100vh;
     border-right: none;
     h1 {
       color: $footsteps-yellow;
@@ -9,7 +7,7 @@
     }
   }
 
-  .user-bio-flex {
+  .profile {
     background-color: white;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -18,15 +16,17 @@
   img {
     object-fit: cover;
     width: 7.25rem;
+    border-radius:5px;
   }
 
-  .user-details {
+  .user-bio {
     padding: 6px;
   }
-
-
-  .user-email {
-    text-decoration: none;
+  .name-and-photo{
+    padding: 6px;
+    h2 {
+      margin: 6px;
+    }
   }
 
   .user-hikes-cards {
@@ -63,7 +63,7 @@
 
  .logoutlink-profile {
     text-decoration: none;
-    color: $dark-green;
+    color: $dark-green !important;
     font-weight: bold;
       display:flex;
       justify-content: center;

@@ -20,9 +20,6 @@
 @import "flatpickr/dist/flatpickr";
 @import "flatpickr/dist/themes/airbnb";
 
-.push{
-  height:58px;
-}
 
 a{
   text-decoration: none;
@@ -30,7 +27,8 @@ a{
 
 body{
   background: linear-gradient(180deg, #083B24 0%, rgba(8, 59, 36, 0.77) 100%);
-  height: 130vh;
+  min-height: 93vh;
   background-repeat: no-repeat;
   background-size:cover;
+  margin-bottom: 60px;
 }

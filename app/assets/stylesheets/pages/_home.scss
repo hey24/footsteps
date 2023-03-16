@@ -68,6 +68,10 @@
   font-weight: 700;
   box-shadow: 1px 1px 1px black;
   transition:none;
+  
+  &:hover {
+    box-shadow: rgba(246, 217, 3, 0.25) 0px 30px 60px -12px inset,rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
 }
 
 .down-arrow-home {
@@ -89,4 +93,19 @@
 
 .carousel-control-next {
   width: 10%
+}
+
+.homepage-content {
+  background: rgba(255, 255, 255, 0.747);
+  border-radius: 5px;
+  padding: 7px;
+  box-shadow: 1px 1px 1px black;
+}
+
+.homepage-content h2 {
+  color: $dark-green;
+}
+
+.homepage-content p {
+  color: $dark-green;
 }
