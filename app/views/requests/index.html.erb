@@ -42,7 +42,7 @@
   <div class="hike-page-info-card">
     <h2>My Upcoming Hikes ⛰️</h2>
           <% if current_user.upcoming_owned_hikes.empty?  && current_user.upcoming_joined_hikes.empty? %>
-        <p> You currently dont have any upcoming Hikes. </p>
+        <p> You currently don't have any upcoming Hikes. </p>
       <% else %>
     <div class="upcoming-hikes-flex-grid">
       <% current_user.upcoming_owned_hikes.each do |hike| %>
