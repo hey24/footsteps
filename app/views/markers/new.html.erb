@@ -1,9 +1,8 @@
 <div id='map' data-controller="hike-route" data-hike-route-start-coordinates-value="<%= @start_coordinates.to_json %>" data-hike-route-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" style='height: 900px;'></div>
 <div class="info-box">
-  <p>
-    Use the top button to start drawing your hike and double click to confirm the final marker
-  </p>
+  <p> 1) Click on the top right button to start plotting your route </p>
+  <p> 2) Tap the map to add points and double click your final one to set route </p>
 </div>
 <div class="confirm-route-button">
-  <%= link_to 'Confirm Hike', hike_routes_path(@hike) %>
+  <%= link_to 'Save Route', hike_routes_path(@hike) %>
 </div>
