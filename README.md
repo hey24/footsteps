@@ -1,10 +1,20 @@
 # Footsteps - Connecting Hikers One Step at a time 🦶
-### About
+
+Table of Contents
+  <ol>
+    <li><a href="#about">About</a></li>
+    <li><a href="#the-app-in-use">The App In Use</a></li>
+    <li><a href="#how-to-install-and-run-footsteps">How to Install and Run Footsteps</a></li>
+    <li><a href="#credits">Credits</a></li>
+  </ol>
+
+## About
 </p>Welcome to Footsteps, a mobile app designed to connect hikers together and make planning your next hiking adventure easy and fun.</p>
 <p>Footsteps allows users to find and connect with other hikers in their area, so that you can have a hiking buddy to explore the great outdoors with. Whether you're a seasoned hiker or just starting out, Footsteps has everything you need to plan your next hike, including route plotting and messaging features to make communication with your hiking partner/group easy and simple.</p>
 <p>With Footsteps, you can easily search for hikes in your area, or add your own favorite hikes for others to discover. You can also message others to coordinate logistics, share tips, and make new friends.</p>
 <p>Our goal at Footsteps is to build a community of like-minded individuals who share a passion for hiking and the outdoors. We believe that connecting people who love to hike is the best way to make hiking more accessible and enjoyable for everyone.</p>
 <p>Thank you for choosing Footsteps to plan your next hiking adventure. Happy hiking!</p>
+
 
 
 ## The App in Use
@@ -53,4 +63,14 @@ $ bin/dev
 ```
 6. See the app, up and running on your [localhost](http://localhost:3000/)!
 
+## Credits 
 
+This project couldn't have been made without our amazing team ❤️
+* Luke Sherman
+  * [GitHub](https://github.com/lwsherman123)
+* Linnéa Jonsson
+  * [GitHub](https://github.com/Linnea-Jonsson)
+* Camille Laporte
+  * [GitHub](https://github.com/CLaport)
+* Ben Heyman
+  * [GitHub](https://github.com/hey24)
