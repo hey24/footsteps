@@ -14,7 +14,7 @@
     </div> %>
        <%= render "shared/footer" %>
   </div>
-  <div class="searchbar">
+  <div class="home-search-and-content">
     <%= simple_form_for :hike, url: hikes_path, method: :get do |f|%>
      <%= f.input :starting_point,
         as: :hidden,
@@ -49,6 +49,7 @@
   <br>
   <br>
   <br>
+  </div>
 </body>
 <% if user_signed_in? %>
   <footer>
