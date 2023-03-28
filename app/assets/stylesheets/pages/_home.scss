@@ -47,15 +47,17 @@
 //   transform: rotate(-20deg);
 // }
 
-.searchbar {
+.home-search-and-content {
   align-items: center;
   position: absolute;
   width: 302px;
   height: 37px;
-  left: 44px;
   top: 361px;
   text-align: center;
   color:black;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 
 .searchbar-button {
