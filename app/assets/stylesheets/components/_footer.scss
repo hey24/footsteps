@@ -2,7 +2,7 @@
   position:fixed;
   bottom:0;
   width:100%;
-  height:7vh;
+  height:60px;
   z-index: 10;
 }
 
@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   background-color: #083B24;
-  height: 60px;
+  height: 100%;
   align-items: center;
   // padding: 0 20px;
   position: relative;
@@ -30,8 +30,9 @@
 
 .footer-add-button {
   position: absolute;
-  bottom: 20px;
-  left: 43%;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .footer-icon {

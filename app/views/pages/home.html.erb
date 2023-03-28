@@ -12,7 +12,7 @@
     <%# <div class="logo-icon">
       <i class="fa-solid fa-shoe-prints"></i>
     </div> %>
-       <%= render "shared/footer" %>
+
   </div>
   <div class="home-search-and-content">
     <%= simple_form_for :hike, url: hikes_path, method: :get do |f|%>
@@ -50,9 +50,5 @@
   <br>
   <br>
   </div>
+<%= render "shared/footer" %>
 </body>
-<% if user_signed_in? %>
-  <footer>
-<% else %>
-  <footer hidden>
-<% end %>
