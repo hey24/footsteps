@@ -1,6 +1,7 @@
 .profile-container-flex {
     padding: 24px;
     border-right: none;
+
     h1 {
       color: $footsteps-yellow;
       filter:  drop-shadow(4px 4px 4px $gray)
@@ -12,6 +13,7 @@
     border-radius: 5px;
     margin-bottom: 20px;
     padding: 12px;
+    max-width: 500px;
   }
 
   img {
@@ -35,6 +37,7 @@
     background: white;
     border-radius: 5px;
     padding: 12px;
+    max-width: 500px;
 
     h2 {
       text-align: start;

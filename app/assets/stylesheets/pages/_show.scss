@@ -25,11 +25,13 @@
   border: solid;
   overflow: hidden;
   background-color: white;
-  width: 360px;
+  // width: 360px;
+  max-width: 500px;
 }
 
 .hike-page-info-img {
-  width: 360px;
+  // width: 360px;
+  max-width: 500px;
   height: 168px;
   background-size: cover;
   background-position: center;
@@ -87,7 +89,8 @@
 
 .hike-page-info-card {
   border: solid;
-  width: 360px;
+  // width: 360px;
+  max-width: 500px;
   border-radius: 5px;
   overflow: hidden;
   background-color: white;

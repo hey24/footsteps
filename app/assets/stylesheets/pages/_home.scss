@@ -33,7 +33,8 @@
 .home-search-and-content {
   align-items: center;
   position: absolute;
-  width: 302px;
+  // width: 302px;
+  max-width: 500px;
   height: 37px;
   top: 361px;
   text-align: center;
@@ -98,4 +99,5 @@
 // @media screen and (min-width: 640px)
 .mapboxgl-ctrl-geocoder {
   width: 100% !important;
+  max-width: 500px !important;
 }
