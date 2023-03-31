@@ -7,7 +7,7 @@
       <h1>Footsteps</h1>
     <%# </div> %>
     <%# <div class="logo-tagline"> %>
-      <h2>Connecting hikers one step at a time!</h2>
+      <h2>Connecting hikers one step at a time</h2>
     <%# </div> %>
     <%# <div class="logo-icon">
       <i class="fa-solid fa-shoe-prints"></i>
@@ -18,7 +18,7 @@
     <%= simple_form_for :hike, url: hikes_path, method: :get do |f|%>
      <%= f.input :starting_point,
         as: :hidden,
-        input_html: {data: {address_autocomplete_target: "address"}},
+        input_html: {data: {address_autocomplete_target: "address"}, class: "search-box-home"},
         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
       %>
       <%= f.button :submit, class: "btn-yellow", value: "Find Hike", style: "width: 128px;"%>
