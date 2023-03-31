@@ -94,7 +94,7 @@
   border-radius: 5px;
   overflow: hidden;
   background-color: white;
-  padding: 12px;
+  padding: 11px;
 }
 
 .hike-route-container {
@@ -165,6 +165,10 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.unconfirm-hike-button {
+  color: $dark-green;
 }
 
 .hike-chat-button-flex {

@@ -146,7 +146,7 @@
         <% if @hike.hike_confirmed %>
           <hr>
           <p><em>This Hike is now confirmed! Get your backpack ready!</em></p>
-          <%= button_to 'Unconfirm Hike', unconfirm_hike_path(@hike), class: " btn-yellow hike-unconfirm-button" %>
+          <%= link_to 'Unconfirm Hike', unconfirm_hike_path(@hike), class: "unconfirm-hike-button" %>
         <% else %>
           <% if @hike.hike_date.blank? %>
             <hr>
