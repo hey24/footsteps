@@ -4,8 +4,9 @@ class HikesController < ApplicationController
 
   def index
     @hikes = Hike.all
+    @upcoming_hikes = Hike.where("hike_date >= ?", Date.today).or(Hike.where(hike_date: nil))
 
-    @markers = @hikes.geocoded.map do |hike|
+    @markers = @upcoming_hikes.geocoded.map do |hike|
       {
         lat: hike.latitude,
         lng: hike.longitude,
