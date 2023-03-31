@@ -112,12 +112,12 @@
   <% if @request.empty? && @hike.user != current_user %>
     <% if @accepted_requests.count + 1 == @hike.max_people %>
       <div class="pending-button">
-        <button class= "btn-yellow pending-request-button"> Hike Full, Sorry!</button>
+        <button class= "btn-yellow pending-request-button"> Hike full, sorry!</button>
       </div>
 
     <% elsif @hike.hike_completed %>
       <div class="pending-button">
-        <button class= "btn-yellow pending-request-button"> Hike Happened!</button>
+        <button class= "btn-yellow pending-request-button"> Hike happened!</button>
       </div>
 
     <% else %>
@@ -189,7 +189,7 @@
             <% end %>
         <% end %>
         <% if @hike.max_people == @accepted_hiker.count + 1 %>
-          <p> This Hike is full! </p>
+          <p> This Hike is full. </p>
         <% else %>
           <p> There's space for <%= (@hike.max_people) - (@accepted_hiker.count + 1)%> more in this Hike!</p>
         <% end %>
