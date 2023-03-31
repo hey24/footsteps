@@ -92,15 +92,11 @@
   overflow: hidden;
   background-color: white;
   padding: 10px;
-  // padding-bottom: 24px;
-  // padding: 8px 8px 24px;
-  // margin-top: 8px;
-  // margin-bottom: 8px;
 }
 
-.hike-route-container {
-  // padding: 8px;
-}
+// .hike-route-container {
+//   // padding: 8px;
+// }
 
 .hike-icons-map {
   position: relative;
@@ -130,9 +126,6 @@
   display: flex;
   justify-content: space-between;
   padding: 8px;
-  // padding-bottom: 8px;
-  // padding-left: 8px;
-  // padding-right: 8px;
 }
 
 .hike-page-details-1 {
@@ -169,10 +162,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-
-  // .hike-confirm-button {
-  //   align-self: center;
-  // }
 }
 
 .hike-chat-button-flex {
@@ -189,8 +178,6 @@
   overflow: hidden;
   background-color: white;
   padding: 16px;
-  // padding-left: 16px;
-  // padding-top: 16px;
 
   hr {
     margin-top: 40px;
@@ -231,7 +218,6 @@
   margin: 8px;
   top: 0;
   padding: 8px;
-  // background-color: #a1c0763d;
   border-radius: 5px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
@@ -257,7 +243,6 @@
 .map-icons-box a {
   text-decoration: none;
   color: #083B24 ;
-  // font-weight: 800;
 }
 
 #set-route.map-icons-box {
