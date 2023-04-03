@@ -7,25 +7,26 @@
       <h1>Footsteps</h1>
     <%# </div> %>
     <%# <div class="logo-tagline"> %>
-      <h2>Connecting hikers one step at a time!</h2>
+      <h2>Connecting hikers one step at a time</h2>
     <%# </div> %>
     <%# <div class="logo-icon">
       <i class="fa-solid fa-shoe-prints"></i>
     </div> %>
-
   </div>
   <div class="home-search-and-content">
     <%= simple_form_for :hike, url: hikes_path, method: :get do |f|%>
      <%= f.input :starting_point,
         as: :hidden,
-        input_html: {data: {address_autocomplete_target: "address"}},
+        input_html: {data: {address_autocomplete_target: "address"}, class: "search-box-home"},
         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
       %>
-      <%= f.button :submit, class: "btn-yellow", value: "Find Hike", style: "width: 128px;"%>
+      <%= f.button :submit, class: "btn-yellow", value: "Find a Hike", style: "width: 128px;"%>
     <% end %>
 
   <br>
   <br>
+  <br>
+
   <div class="down-arrow-flex">
     <div class="down-arrow-home">
       <p><i class="fa-solid fa-angle-down"></i><p>
@@ -36,14 +37,14 @@
   <br>
   <br>
   <br>
-  <br>
+
   <div class="homepage-content">
     <h2>🤝 Meet new people</h2>
-    <p>Connect with other people who love hiking and meet your next hiking buddy</p>
+    <p>Connect with other people who love to hike and meet your next hiking buddies</p>
     <h2>🗺️ Plot routes</h2>
-    <p>Create hikes and plot routes on a map for your group to see where you are planning on going</p>
+    <p>Create hike groups and plot routes on a map to share where you're planning on going</p>
     <h2>💬 Message each other</h2>
-    <p>Message other hikers to organise your hike</p>
+    <p>Message other hikers to organise your outing</p>
   </div>
   <br>
   <br>

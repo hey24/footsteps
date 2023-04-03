@@ -5,64 +5,48 @@
   background-attachment: fixed;
 }
 
-// .logo{
-//   position: absolute;
-//   // width: 219px;
-//   // height: 112.16px;
-//   height: 50px;
-//   left: 87px;
-//   top: 154px;
-//   color: #F4B62D;
-//   display: flex;
-//   text-align: center;
-// }
-
 .logo {
   display: block;
   margin-top: 120px;
   margin-left: 0px;
   margin-bottom: 0;
   text-align: center;
-  color: #F4B62D;
+  color: $footsteps-yellow;
   padding-bottom: 0;
+
+  h2 {
+    color: white;
+    font-size: 18px;
+    text-shadow: 1px 1px 5px black;
+
+  }
+
+  h1 {
+    font-size: 40px;
+    line-height: 89px;
+    text-shadow: 2px 2px 10px black;
+    font-family: $logo-title;
+    margin-bottom: 0;
+  }
 }
-
-.logo h2 {
-  color: white;
-  font-size: 18px;
-  text-shadow: 1px 1px 5px black;
-
-}
-
-.logo h1{
-  font-size: 40px;
-  line-height: 89px;
-  text-shadow: 2px 2px 10px black;
-  font-family: $logo-title;
-  margin-bottom: 0;
-}
-
-// .logo-icon i {
-//   font-size: 40px;
-//   transform: rotate(-20deg);
-// }
 
 .home-search-and-content {
   align-items: center;
   position: absolute;
-  width: 302px;
+  // width: 302px;
+  // max-width: 500px;
   height: 37px;
   top: 361px;
   text-align: center;
   color:black;
   left: 50%;
-  margin-right: -50%;
+  // margin-right: -50%;
   transform: translate(-50%, -50%);
 }
 
 .searchbar-button {
   align-items:center;
-  background-color: #F4B62D;
+  background-color: $footsteps-yellow;
   padding:15px;
   padding-left: 18px;
   padding-right: 18px;
@@ -72,7 +56,7 @@
   transition:none;
 
   &:hover {
-    box-shadow: rgba(246, 217, 3, 0.25) 0px 30px 60px -12px inset,rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    box-shadow: rgba(246, 217, 3, 0.25) 0px 30px 60px -12px inset,rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset !important;
   }
 }
 
@@ -80,6 +64,7 @@
   display: flex;
   justify-content: center;
 }
+
 .down-arrow-home {
 
   align-items: center;
@@ -101,12 +86,24 @@
   border-radius: 5px;
   padding: 12px;
   box-shadow: 1px 1px 1px black;
+  max-width: 500px;
+
+  h2 {
+    color: $dark-green;
+  }
+
+  p {
+    color: $dark-green;
+  }
 }
 
-.homepage-content h2 {
-  color: $dark-green;
+.mapboxgl-ctrl-geocoder {
+  width: 100% !important;
+  max-width: 500px !important;
 }
 
-.homepage-content p {
-  color: $dark-green;
+@media (max-width: 415px) {
+  .homepage-content {
+    width: 360px;
+  }
 }

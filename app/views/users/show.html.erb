@@ -19,7 +19,7 @@
     </div>
   </div>
 
-  <div class="user-hikes-cards d-flex flex-column ">
+  <div class="hike-page-info-card">
       <h2>Completed Hikes ⛰</h2>
       <div class="upcoming-hikes-flex-grid">
         <% @user.all_completed_hikes.each do |hike| %>
@@ -37,10 +37,15 @@
         <% end  %>
       </div>
       <br>
+      <div class="hr-line-flex">
+        <hr>
+      </div>
 
-    <div class="btn-yellow">
-      <%= link_to "Find more hikes", hikes_path, class: "logoutlink-profile"%>
-    </div>
+      <div class="backbuttonrequests">
+        <div class="btn-yellow">
+          <%= link_to "Find more Hikes", hikes_path, class: "logoutlink-profile"%>
+        </div>
+      </div>
 
     <%= link_to "Log out", destroy_user_session_path, class: "logoutlink-profile", data: { turbo_method: :delete} if user_signed_in? %>
   </div>
